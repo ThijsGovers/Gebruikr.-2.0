@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FA0F7BF24589EA3005D1919 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7BE24589EA3005D1919 /* HomeView.swift */; };
+		3FA0F7C324589FBC005D1919 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7C224589FBC005D1919 /* TabBarView.swift */; };
+		3FA0F7C62458AB3E005D1919 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7C52458AB3E005D1919 /* SettingsForm.swift */; };
+		3FA0F7CB245A14CF005D1919 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7CA245A14CF005D1919 /* BottomBar.swift */; };
+		3FA0F7CD245A14E1005D1919 /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7CC245A14E1005D1919 /* BottomBarView.swift */; };
+		3FA0F7CF245A14FE005D1919 /* BottomBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7CE245A14FE005D1919 /* BottomBarItem.swift */; };
+		3FA0F7D1245A152E005D1919 /* BottomBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7D0245A152E005D1919 /* BottomBarItemView.swift */; };
 		3FAD9A752450C3ED00CCE554 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FAD9A742450C3ED00CCE554 /* Colors.xcassets */; };
 		3FAD9A772450C44600CCE554 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD9A762450C44600CCE554 /* ColorManager.swift */; };
 		3FCF17212445A0AC007224E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF17202445A0AC007224E1 /* AppDelegate.swift */; };
@@ -17,7 +24,6 @@
 		3FCF172D2445A0B0007224E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FCF172B2445A0B0007224E1 /* LaunchScreen.storyboard */; };
 		3FCF17382445A0B1007224E1 /* Gebruikr_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF17372445A0B1007224E1 /* Gebruikr_AppTests.swift */; };
 		3FCF17432445A0B1007224E1 /* Gebruikr_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF17422445A0B1007224E1 /* Gebruikr_AppUITests.swift */; };
-		3FEC0FC2244E388200B369F6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC0FC1244E388200B369F6 /* HomeView.swift */; };
 		3FEC0FC4244E3A8900B369F6 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC0FC3244E3A8900B369F6 /* SliderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +45,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FA0F7BE24589EA3005D1919 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = "Gebruikr App/HomeView.swift"; sourceTree = SOURCE_ROOT; };
+		3FA0F7C224589FBC005D1919 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarView.swift; path = "Gebruikr App/TabBarView.swift"; sourceTree = SOURCE_ROOT; };
+		3FA0F7C52458AB3E005D1919 /* SettingsForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
+		3FA0F7CA245A14CF005D1919 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
+		3FA0F7CC245A14E1005D1919 /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
+		3FA0F7CE245A14FE005D1919 /* BottomBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarItem.swift; sourceTree = "<group>"; };
+		3FA0F7D0245A152E005D1919 /* BottomBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarItemView.swift; sourceTree = "<group>"; };
 		3FAD9A742450C3ED00CCE554 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3FAD9A762450C44600CCE554 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		3FCF171D2445A0AC007224E1 /* Gebruikr App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gebruikr App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +68,6 @@
 		3FCF173E2445A0B1007224E1 /* Gebruikr AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gebruikr AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCF17422445A0B1007224E1 /* Gebruikr_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gebruikr_AppUITests.swift; sourceTree = "<group>"; };
 		3FCF17442445A0B1007224E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FEC0FC1244E388200B369F6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3FEC0FC3244E3A8900B369F6 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +96,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F6EED74245880A6009A0B2D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3FA0F7C224589FBC005D1919 /* TabBarView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		3F6EED75245880B8009A0B2D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3FA0F7BE24589EA3005D1919 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3F6EED8824589C1B009A0B2D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		3FA0F7C42458AB0F005D1919 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3FA0F7C52458AB3E005D1919 /* SettingsForm.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3FA0F7C9245A14B6005D1919 /* BottomBar */ = {
+			isa = PBXGroup;
+			children = (
+				3FA0F7CA245A14CF005D1919 /* BottomBar.swift */,
+				3FA0F7CC245A14E1005D1919 /* BottomBarView.swift */,
+				3FA0F7CE245A14FE005D1919 /* BottomBarItem.swift */,
+				3FA0F7D0245A152E005D1919 /* BottomBarItemView.swift */,
+			);
+			path = BottomBar;
+			sourceTree = "<group>";
+		};
 		3FCF17142445A0AC007224E1 = {
 			isa = PBXGroup;
 			children = (
@@ -107,16 +161,20 @@
 		3FCF171F2445A0AC007224E1 /* Gebruikr App */ = {
 			isa = PBXGroup;
 			children = (
+				3FA0F7C9245A14B6005D1919 /* BottomBar */,
 				3FCF17202445A0AC007224E1 /* AppDelegate.swift */,
 				3FCF17222445A0AC007224E1 /* SceneDelegate.swift */,
 				3FCF17242445A0AC007224E1 /* ContentView.swift */,
 				3FCF17262445A0B0007224E1 /* Assets.xcassets */,
+				3FAD9A742450C3ED00CCE554 /* Colors.xcassets */,
 				3FCF172B2445A0B0007224E1 /* LaunchScreen.storyboard */,
+				3FA0F7C42458AB0F005D1919 /* Settings */,
+				3F6EED8824589C1B009A0B2D /* Onboarding */,
+				3F6EED75245880B8009A0B2D /* Home */,
+				3F6EED74245880A6009A0B2D /* TabBar */,
 				3FCF172E2445A0B0007224E1 /* Info.plist */,
 				3FCF17282445A0B0007224E1 /* Preview Content */,
-				3FEC0FC1244E388200B369F6 /* HomeView.swift */,
 				3FEC0FC3244E3A8900B369F6 /* SliderView.swift */,
-				3FAD9A742450C3ED00CCE554 /* Colors.xcassets */,
 				3FAD9A762450C44600CCE554 /* ColorManager.swift */,
 			);
 			path = "Gebruikr App";
@@ -281,7 +339,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FCF17212445A0AC007224E1 /* AppDelegate.swift in Sources */,
-				3FEC0FC2244E388200B369F6 /* HomeView.swift in Sources */,
+				3FA0F7BF24589EA3005D1919 /* HomeView.swift in Sources */,
+				3FA0F7D1245A152E005D1919 /* BottomBarItemView.swift in Sources */,
+				3FA0F7CB245A14CF005D1919 /* BottomBar.swift in Sources */,
+				3FA0F7CD245A14E1005D1919 /* BottomBarView.swift in Sources */,
+				3FA0F7CF245A14FE005D1919 /* BottomBarItem.swift in Sources */,
+				3FA0F7C62458AB3E005D1919 /* SettingsForm.swift in Sources */,
+				3FA0F7C324589FBC005D1919 /* TabBarView.swift in Sources */,
 				3FCF17232445A0AC007224E1 /* SceneDelegate.swift in Sources */,
 				3FAD9A772450C44600CCE554 /* ColorManager.swift in Sources */,
 				3FCF17252445A0AC007224E1 /* ContentView.swift in Sources */,
