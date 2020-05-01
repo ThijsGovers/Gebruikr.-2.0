@@ -23,7 +23,7 @@ public struct BottomBar : View {
     
     func itemView(at index: Int) -> some View {
         Button(action: {
-            withAnimation { self.selectedIndex = index }
+            self.selectedIndex = index
         }) {
             BottomBarItemView(isSelected: index == selectedIndex, item: items[index])
         }
@@ -41,7 +41,6 @@ public struct BottomBar : View {
         }
         .padding()
         .frame(width: 375.0)
-        .animation(.default)
         .background(backgroundColor)
     
         .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: -2)
