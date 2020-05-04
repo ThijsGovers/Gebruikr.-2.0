@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F4B761D2460AABE001C5087 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B76192460AABE001C5087 /* OnboardingView.swift */; };
+		3F4B761E2460AABE001C5087 /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B761A2460AABE001C5087 /* WeightView.swift */; };
+		3F4B761F2460AABE001C5087 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B761B2460AABE001C5087 /* GenderView.swift */; };
+		3F4B76202460AABE001C5087 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B761C2460AABE001C5087 /* NameView.swift */; };
 		3FA0F7BF24589EA3005D1919 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7BE24589EA3005D1919 /* HomeView.swift */; };
 		3FA0F7C324589FBC005D1919 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7C224589FBC005D1919 /* TabBarView.swift */; };
 		3FA0F7C62458AB3E005D1919 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7C52458AB3E005D1919 /* SettingsForm.swift */; };
@@ -45,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F4B76192460AABE001C5087 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		3F4B761A2460AABE001C5087 /* WeightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
+		3F4B761B2460AABE001C5087 /* GenderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		3F4B761C2460AABE001C5087 /* NameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		3FA0F7BE24589EA3005D1919 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = "Gebruikr App/HomeView.swift"; sourceTree = SOURCE_ROOT; };
 		3FA0F7C224589FBC005D1919 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarView.swift; path = "Gebruikr App/TabBarView.swift"; sourceTree = SOURCE_ROOT; };
 		3FA0F7C52458AB3E005D1919 /* SettingsForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
@@ -122,6 +130,10 @@
 		3F6EED8824589C1B009A0B2D /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				3F4B761B2460AABE001C5087 /* GenderView.swift */,
+				3F4B761C2460AABE001C5087 /* NameView.swift */,
+				3F4B76192460AABE001C5087 /* OnboardingView.swift */,
+				3F4B761A2460AABE001C5087 /* WeightView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -350,13 +362,17 @@
 				3FA0F7BF24589EA3005D1919 /* HomeView.swift in Sources */,
 				3FA0F7D1245A152E005D1919 /* BottomBarItemView.swift in Sources */,
 				3FA0F7CB245A14CF005D1919 /* BottomBar.swift in Sources */,
+				3F4B761E2460AABE001C5087 /* WeightView.swift in Sources */,
+				3F4B76202460AABE001C5087 /* NameView.swift in Sources */,
 				3FA0F7CD245A14E1005D1919 /* BottomBarView.swift in Sources */,
+				3F4B761F2460AABE001C5087 /* GenderView.swift in Sources */,
 				3FA0F7CF245A14FE005D1919 /* BottomBarItem.swift in Sources */,
 				3FA0F7C62458AB3E005D1919 /* SettingsForm.swift in Sources */,
 				3FA0F7C324589FBC005D1919 /* TabBarView.swift in Sources */,
 				3FCF17232445A0AC007224E1 /* SceneDelegate.swift in Sources */,
 				3FAD9A772450C44600CCE554 /* ColorManager.swift in Sources */,
 				3FCF17252445A0AC007224E1 /* ContentView.swift in Sources */,
+				3F4B761D2460AABE001C5087 /* OnboardingView.swift in Sources */,
 				3FEC0FC4244E3A8900B369F6 /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
