@@ -168,14 +168,14 @@
 		3FCF171F2445A0AC007224E1 /* Gebruikr App */ = {
 			isa = PBXGroup;
 			children = (
-				3F2FFCC2245CAB610096EBAA /* Setup */,
-				3FA0F7C9245A14B6005D1919 /* BottomBar */,
 				3FCF17202445A0AC007224E1 /* AppDelegate.swift */,
 				3FCF17222445A0AC007224E1 /* SceneDelegate.swift */,
 				3FCF17242445A0AC007224E1 /* ContentView.swift */,
 				3FCF17262445A0B0007224E1 /* Assets.xcassets */,
 				3FAD9A742450C3ED00CCE554 /* Colors.xcassets */,
 				3FCF172B2445A0B0007224E1 /* LaunchScreen.storyboard */,
+				3F2FFCC2245CAB610096EBAA /* Setup */,
+				3FA0F7C9245A14B6005D1919 /* BottomBar */,
 				3FA0F7C42458AB0F005D1919 /* Settings */,
 				3F6EED8824589C1B009A0B2D /* Onboarding */,
 				3F6EED75245880B8009A0B2D /* Home */,
