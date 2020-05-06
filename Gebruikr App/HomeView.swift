@@ -25,44 +25,42 @@ struct HomeView: View {
                         Text("Laatste keer gebruikt").font(.title)
                         Text("zoveel tijd geleden").font(.headline).padding(.bottom)
                     }
-                    
-                    Text("0 uur 00 minuten")
-                        .foregroundColor(.white)
-                        .font(.largeTitle)
-                        .frame(width: 350, height: 100)
-                        .background(backgroundColor).cornerRadius(10).padding(.bottom)
+                    HStack(alignment: .bottom){
+                        Text("0").font(.system(size: 55))
+                        Text("uur").font(.title)
+                        Text("00 ").font(.system(size: 55))
+                        Text("minuten").font(.title)
+                    }.foregroundColor(.white)
+                    .frame(width: 320, height: 90)
+                    .background(backgroundColor).cornerRadius(10)
                     
                     HStack {
                         VStack(alignment: .leading) {
                             Text("Test je Drugs").font(.headline)
                             Text("Laat je drugs al vast testen bij één van de vele test punten").font(.subheadline).padding(.bottom)
-                        }.padding(.horizontal)
-                        Image(systemName: "house.fill")
+                        }
+                        Image("Home-test")
                             .foregroundColor(.white)
                             .font(.largeTitle)
-                            .frame(width: 100, height: 100)
+                            .frame(width: 80, height: 80)
                             .background(backgroundColor).cornerRadius(20)
-                    }
+                    }.padding()
                     
                     Divider()
                     
                     HStack {
-                        Image(systemName: "house.fill")
+                        Image("Tripsitter")
                             .foregroundColor(.white)
                             .font(.largeTitle)
-                            .frame(width: 100, height: 100)
-                            .background(backgroundColor).cornerRadius(20).padding(.horizontal)
+                            .frame(width: 80, height: 80)
+                            .background(backgroundColor).cornerRadius(20)
                         VStack(alignment: .leading) {
                             Text("Ga je feesten?").font(.headline)
                             Text("Start je eerste keer gebruik met de Gebruikr. tripsitter!").font(.subheadline).padding(.bottom)
                         }
-                    }
+                    }.padding()
                     
-                    }.frame(width: 320).padding(20)
-//                    .overlay(
-//                    RoundedRectangle(cornerRadius: 10.0)
-//                        .stroke(Color.pink, lineWidth: 1.0)
-//                )
+                    }.frame(width: 320).padding().background(Color("BackgroundGray")).cornerRadius(10).shadow(radius: 5)
             }
             Spacer()
         }

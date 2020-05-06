@@ -14,9 +14,9 @@ struct NameView: View {
     var body: some View {
         VStack {
             Spacer(minLength: 150)
-            Text("Hi! Ik ben Gebruikr.")
-            Text("Mag ik jouw naam?").padding(.bottom, 35)
-            TextField("Nickname...", text: $gebruikrName)
+            Text("Hi! Ik ben Gebruikr.").font(.headline)
+            Text("Mag ik jouw naam?").font(.headline).padding(.bottom, 35)
+            TextField("Nickname...", text: $gebruikrName).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 5)
             Spacer()
         }.padding()
     }

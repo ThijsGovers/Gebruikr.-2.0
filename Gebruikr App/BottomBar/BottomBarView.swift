@@ -20,10 +20,6 @@ let items: [BottomBarItem] = [
 struct BottomBarView : View {
     @State private var selectedIndex: Int = 2
     
-    init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-    }
-    
     var selectedItem: BottomBarItem {
         items[selectedIndex]
     }
@@ -35,7 +31,7 @@ struct BottomBarView : View {
             self.isSettingPresented = true
         }) {
             HStack {
-                Image(systemName: "slider.horizontal.3").imageScale(.medium)
+                Image(systemName: "slider.horizontal.3").imageScale(.large).foregroundColor(Color("TextColor"))
             }.frame(width: 30, height: 30)
         }
     }

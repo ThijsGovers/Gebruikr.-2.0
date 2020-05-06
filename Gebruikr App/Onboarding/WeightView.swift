@@ -21,7 +21,7 @@ struct WeightView: View {
                 Slider(value: $weight, in: 40...150, step: 1).padding(.horizontal,30)
                 Text("\(weight, specifier: "%.0f") kg").font(.title)
                 Spacer()
-            }.foregroundColor(Color.blue)
+            }
         
         }
     
