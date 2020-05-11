@@ -12,18 +12,17 @@ enum Gender {
     case male, female, unspecified
 }
 
-
-struct Information {
-    
-    var gender: Gender = .unspecified
-}
-
 struct GenderView: View {
-    var backgroundColor = LinearGradient(gradient: Gradient(colors: [Color("SecondaryColor"), Color("MainColor")]), startPoint: .leading, endPoint: .trailing)
+    @EnvironmentObject var userData: UserData
     
     @Binding public var step: Int
+
     
-    @State private var genderButton: Gender = .unspecified
+    private var nextButton: some View {
+        NavigationLink(destination: WeightView(step: $step)){
+            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+        }
+    }
     
     var body: some View {
         
@@ -32,13 +31,13 @@ struct GenderView: View {
             Text("Wat is je geslacht?").font(.title).padding(.bottom)
             HStack{
                 Button(action: {
-                    self.genderButton = .male
+                    self.userData.gender = .male
                 }){
-                    if genderButton == .male{
+                    if userData.gender == .male{
                         VStack{
                             Image("masculine-2").foregroundColor(Color.white)
                                 .padding(40)
-                                .background(Circle().fill(backgroundColor).shadow(radius: 5))
+                                .background(Circle().fill(Color.backgroundColor).shadow(radius: 5))
                             Text("Man").font(.title).foregroundColor(Color("TextColor"))
                             
                         }
@@ -56,14 +55,14 @@ struct GenderView: View {
                 
                 
                 Button(action: {
-                    self.genderButton = .female
+                    self.userData.gender = .female
                 }){
-                    if genderButton == .female{
+                    if userData.gender == .female{
                         VStack{
                             Image("femenine-2")
                                 .foregroundColor(Color.white)
                                 .padding(40)
-                                .background(Circle().fill(backgroundColor).shadow(radius: 5))
+                                .background(Circle().fill(Color.backgroundColor).shadow(radius: 5))
                             Text("Vrouw").font(.title).foregroundColor(Color("TextColor"))
                             
                         }
@@ -87,9 +86,11 @@ struct GenderView: View {
             Text("Liever niet? No biggie").font(.callout)
             Button(action: {
                 self.step += 1
+                self.userData.gender = .unspecified
             }) {
                 Text("Overslaan").font(.headline)
             }.padding(.bottom)
+            nextButton
         }
         
     }
@@ -98,6 +99,6 @@ struct GenderView: View {
 
 struct GenderView_Previews: PreviewProvider {
     static var previews: some View {
-        GenderView(step: .constant(1))
+        GenderView(step: .constant(1)).environmentObject(UserData())
     }
 }

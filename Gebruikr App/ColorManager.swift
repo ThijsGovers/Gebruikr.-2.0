@@ -19,3 +19,6 @@ struct ColorManager {
 
     //... add the rest of your colors here
 }
+extension Color {
+    static var backgroundColor: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color("SecondaryColor"), Color("MainColor")]), startPoint: .leading, endPoint: .trailing)
+}

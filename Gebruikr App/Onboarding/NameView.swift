@@ -9,25 +9,31 @@
 import SwiftUI
 
 struct NameView: View {
-    @State var gebruikrName: String = ""
-   
+    @EnvironmentObject var userData: UserData
+    
+    @Binding public var step: Int
+    
+    private var nextButton: some View {
+        NavigationLink(destination: GenderView(step: $step)){
+            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+        }
+    }
+    
     var body: some View {
         VStack {
             Spacer(minLength: 150)
             Text("Hi! Ik ben Gebruikr.").font(.headline)
             Text("Mag ik jouw naam?").font(.headline).padding(.bottom, 35)
-            TextField("Nickname...", text: $gebruikrName).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 5)
+            TextField("Nickname...", text: $userData.gebruikrName).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
             Spacer()
+            nextButton
         }.padding()
     }
 }
 
-
-
-
 struct NameView_Previews: PreviewProvider {
     static var previews: some View {
-        NameView()
+        NameView(step: .constant(1)).environmentObject(UserData())
     }
 }
 

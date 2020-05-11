@@ -9,27 +9,34 @@
 import SwiftUI
 
 struct WeightView: View {
-    @State private var weight: Double = 60
-    var body: some View {
-        
+    @EnvironmentObject var userData: UserData
     
-        
-            VStack{
-                Spacer(minLength: 150)
-                Text("Wat is je gewicht?").padding(30).font(.title)
-        
-                Slider(value: $weight, in: 40...150, step: 1).padding(.horizontal,30)
-                Text("\(weight, specifier: "%.0f") kg").font(.title)
-                Spacer()
-            }
-        
+    @Binding public var step: Int
+    
+    private var nextButton: some View {
+        NavigationLink(destination: InformationOverview(step: $step)){
+            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
         }
-    
     }
+    
+    var body: some View {
+        VStack{
+            Spacer(minLength: 150)
+            Text("Wat is je gewicht?").padding(30).font(.title)
+            
+            Slider(value: $userData.weight, in: 40...150, step: 1).padding(.horizontal,30)
+            Text("\(userData.weight, specifier: "%.0f") kg").font(.title)
+            Spacer()
+            nextButton
+        }
+        
+    }
+    
+}
 
 
 struct WeightView_Previews: PreviewProvider {
     static var previews: some View {
-        WeightView()
+        WeightView(step: .constant(3)).environmentObject(UserData())
     }
 }

@@ -9,10 +9,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection = 3
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor.purple
-    }
     
     var body: some View {
         BottomBarView()
@@ -21,6 +17,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(UserData())
     }
 }
