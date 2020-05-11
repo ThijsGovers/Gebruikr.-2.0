@@ -34,17 +34,19 @@ struct HomeView: View {
                     .frame(width: 320, height: 90)
                     .background(backgroundColor).cornerRadius(10)
                     
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Test je Drugs").font(.headline)
-                            Text("Laat je drugs al vast testen bij één van de vele test punten").font(.subheadline).padding(.bottom)
-                        }
-                        Image("Home-test")
-                            .foregroundColor(.white)
-                            .font(.largeTitle)
-                            .frame(width: 80, height: 80)
-                            .background(backgroundColor).cornerRadius(20)
-                    }.padding()
+                    NavigationLink(destination: InformationOverview()) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Test je Drugs").font(.headline)
+                                Text("Laat je drugs al vast testen bij één van de vele test punten").font(.subheadline).padding(.bottom)
+                            }
+                            Image("Home-test")
+                                .foregroundColor(.white)
+                                .font(.largeTitle)
+                                .frame(width: 80, height: 80)
+                                .background(backgroundColor).cornerRadius(20)
+                        }.padding()
+                    }
                     
                     Divider()
                     
