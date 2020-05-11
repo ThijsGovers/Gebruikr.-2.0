@@ -16,14 +16,14 @@ struct HomeView: View {
         VStack {
             VStack(alignment: .leading) {
                 //title
-                Text("Hi!").font(.largeTitle).padding()
+                Text("Hi!").font(.title).padding()
                 
                 //homeframe
                 VStack(alignment: .leading) {
                     
                     VStack(alignment: .leading)  {
-                        Text("Laatste keer gebruikt").font(.title)
-                        Text("zoveel tijd geleden").font(.headline).padding(.bottom)
+                        Text("Laatste keer gebruikt").font(.headline)
+                        Text("zoveel tijd geleden").font(.subheadline).padding(.bottom)
                     }
                     HStack(alignment: .bottom){
                         Text("0").font(.system(size: 55))

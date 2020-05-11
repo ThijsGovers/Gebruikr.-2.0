@@ -57,7 +57,7 @@ struct WizardView : View{
                 WeightView()
                 nextButton
             }
-            else if step == 4{
+            else if step == 4 {
                 InformationOverview()
                 nextButton
             }
