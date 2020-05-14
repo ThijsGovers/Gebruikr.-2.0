@@ -21,45 +21,29 @@ struct OnboardingView: View {
 }
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView()
+        OnboardingView().environmentObject(UserData())
     }
 }
 
 struct WizardView : View{
-    var backgroundColor = LinearGradient(gradient: Gradient(colors: [Color("SecondaryColor"), Color("MainColor")]), startPoint: .leading, endPoint: .trailing)
-    
-    
-    private var nextButton: some View {
-        Button(action: {
-            self.step += 1
-        }) {
-            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(backgroundColor))
-        }
-    }
-    
     @State var step: Int = 0
     
     var body: some View{
         VStack{
             if step == 0 {
-                InformationView()
-                nextButton
+                InformationView(step: $step)
             }
             else if step == 1 {
-                NameView()
-                nextButton
+                NameView(step: $step)
             }
             else if step == 2 {
                 GenderView(step: $step)
-                nextButton
             }
             else if step == 3 {
-                WeightView()
-                nextButton
+                WeightView(step: $step)
             }
             else if step == 4 {
-                InformationOverview()
-                nextButton
+                InformationOverview(step: $step)
             }
         }
     }

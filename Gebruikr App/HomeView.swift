@@ -10,8 +10,6 @@ import SwiftUI
 
 struct HomeView: View {
     
-    var backgroundColor = LinearGradient(gradient: Gradient(colors: [Color("SecondaryColor"), Color("MainColor")]), startPoint: .leading, endPoint: .trailing)
-    
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -32,9 +30,9 @@ struct HomeView: View {
                         Text("minuten").font(.title)
                     }.foregroundColor(.white)
                     .frame(width: 320, height: 90)
-                    .background(backgroundColor).cornerRadius(10)
+                        .background(Color.backgroundColor).cornerRadius(10)
                     
-                    NavigationLink(destination: InformationOverview()) {
+                    NavigationLink(destination: OnboardingView()) {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Test je Drugs").font(.headline)
@@ -44,7 +42,7 @@ struct HomeView: View {
                                 .foregroundColor(.white)
                                 .font(.largeTitle)
                                 .frame(width: 80, height: 80)
-                                .background(backgroundColor).cornerRadius(20)
+                                .background(Color.backgroundColor).cornerRadius(20)
                         }.padding()
                     }
                     
@@ -55,7 +53,7 @@ struct HomeView: View {
                             .foregroundColor(.white)
                             .font(.largeTitle)
                             .frame(width: 80, height: 80)
-                            .background(backgroundColor).cornerRadius(20)
+                            .background(Color.backgroundColor).cornerRadius(20)
                         VStack(alignment: .leading) {
                             Text("Ga je feesten?").font(.headline)
                             Text("Start je eerste keer gebruik met de Gebruikr. tripsitter!").font(.subheadline).padding(.bottom)
