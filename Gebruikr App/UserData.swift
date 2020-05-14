@@ -16,7 +16,7 @@ class UserData: ObservableObject  {
     }
 
     
-    @Published var gebruikrName: String = "test"
+    @Published var gebruikrName: String = ""
     @Published var gender: Gender = .unspecified
     @Published var weight: Double = 60
 //    @Published var test: String = "test"

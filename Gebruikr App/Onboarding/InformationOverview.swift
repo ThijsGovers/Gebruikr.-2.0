@@ -34,7 +34,7 @@ struct InformationOverview: View {
                 NavigationLink(destination: NameView(step: $step)){
                     
                     VStack{
-                        Image("masculine-1").resizable()
+                        Image(systemName: "person.fill").resizable()
                             .frame(width: 35.0, height: 35.0).padding(.top)
                         Spacer()
                         Text("\(userData.gebruikrName)").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
