@@ -14,7 +14,7 @@ struct InformationOverview: View {
     @Binding public var step: Int
     
     private var completeButton: some View {
-        NavigationLink(destination: ContentView()){
+        NavigationLink(destination: BottomBarView()){
             Text("Yes!").frame(width: 70).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
         }
     }
