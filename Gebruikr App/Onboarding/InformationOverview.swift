@@ -14,7 +14,7 @@ struct InformationOverview: View {
     @Binding public var step: Int
     
     private var completeButton: some View {
-        NavigationLink(destination: ContentView()){
+        NavigationLink(destination: BottomBarView()){
             Text("Yes!").frame(width: 70).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
         }
     }
@@ -34,7 +34,7 @@ struct InformationOverview: View {
                 NavigationLink(destination: NameView(step: $step)){
                     
                     VStack{
-                        Image("masculine-1").resizable()
+                        Image(systemName: "person.fill").resizable()
                             .frame(width: 35.0, height: 35.0).padding(.top)
                         Spacer()
                         Text("\(userData.gebruikrName)").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
