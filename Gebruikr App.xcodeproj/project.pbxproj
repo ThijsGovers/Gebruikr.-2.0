@@ -13,6 +13,7 @@
 		3F4B761E2460AABE001C5087 /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B761A2460AABE001C5087 /* WeightView.swift */; };
 		3F4B761F2460AABE001C5087 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B761B2460AABE001C5087 /* GenderView.swift */; };
 		3F4B76202460AABE001C5087 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B761C2460AABE001C5087 /* NameView.swift */; };
+		3F74D0CA247D199C00746D2C /* MdmaInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F74D0C9247D199C00746D2C /* MdmaInput.swift */; };
 		3F9323992469804900D2337F /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9323982469804900D2337F /* UserData.swift */; };
 		3FA0F7BF24589EA3005D1919 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7BE24589EA3005D1919 /* HomeView.swift */; };
 		3FA0F7C62458AB3E005D1919 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7C52458AB3E005D1919 /* SettingsForm.swift */; };
@@ -57,6 +58,7 @@
 		3F4B761A2460AABE001C5087 /* WeightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
 		3F4B761B2460AABE001C5087 /* GenderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		3F4B761C2460AABE001C5087 /* NameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
+		3F74D0C9247D199C00746D2C /* MdmaInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MdmaInput.swift; sourceTree = "<group>"; };
 		3F9323982469804900D2337F /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		3FA0F7BE24589EA3005D1919 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = "Gebruikr App/HomeView.swift"; sourceTree = SOURCE_ROOT; };
 		3FA0F7C52458AB3E005D1919 /* SettingsForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		3F74D0C8247D197900746D2C /* Tripsitter */ = {
+			isa = PBXGroup;
+			children = (
+				3F74D0C9247D199C00746D2C /* MdmaInput.swift */,
+			);
+			path = Tripsitter;
+			sourceTree = "<group>";
+		};
 		3FA0F7C42458AB0F005D1919 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +188,7 @@
 		3FCF171F2445A0AC007224E1 /* Gebruikr App */ = {
 			isa = PBXGroup;
 			children = (
+				3F74D0C8247D197900746D2C /* Tripsitter */,
 				3FCF17202445A0AC007224E1 /* AppDelegate.swift */,
 				3FCF17222445A0AC007224E1 /* SceneDelegate.swift */,
 				3FCF17242445A0AC007224E1 /* ContentView.swift */,
@@ -363,6 +374,7 @@
 				3FA0F7CB245A14CF005D1919 /* BottomBar.swift in Sources */,
 				3F4B761E2460AABE001C5087 /* WeightView.swift in Sources */,
 				3F4B76202460AABE001C5087 /* NameView.swift in Sources */,
+				3F74D0CA247D199C00746D2C /* MdmaInput.swift in Sources */,
 				D3367F2724752C86006CE1C8 /* MdmaView.swift in Sources */,
 				3FA0F7CD245A14E1005D1919 /* BottomBarView.swift in Sources */,
 				3F4B761F2460AABE001C5087 /* GenderView.swift in Sources */,
@@ -540,6 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gebruikr App/Preview Content\"";
+				DEVELOPMENT_TEAM = KRQB2Y26L8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Gebruikr App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -559,6 +572,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Gebruikr App/Preview Content\"";
+				DEVELOPMENT_TEAM = KRQB2Y26L8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Gebruikr App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -589,7 +603,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gebruikr App.app/Gebruikr App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gebruikr..app/Gebruikr.";
 			};
 			name = Debug;
 		};
@@ -610,7 +624,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gebruikr App.app/Gebruikr App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gebruikr..app/Gebruikr.";
 			};
 			name = Release;
 		};
