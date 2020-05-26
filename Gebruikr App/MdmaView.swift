@@ -13,21 +13,11 @@ struct MdmaView: View {
     
     var body: some View {
         VStack{
-            Text("Hoeveel MDMA zit er in je pil?")
+            Text("Hoeveel MDMA zit er in je pil?").font(.headline)
             
-            TextField("Nickname...", text: $gebruikrName)
+            TextField("Nickname...", text: $gebruikrName).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
             
-            HStack{
             
-            Button(action: {
-                
-            }){
-                
-                VStack{
-                    Image("manIcoon")
-                }.frame(width: 70, height: 30).cornerRadius(20)
-            }
-            }
         }
     }
 }
