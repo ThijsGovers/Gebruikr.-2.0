@@ -14,9 +14,18 @@ struct MdmaView: View {
     var body: some View {
         VStack{
             Spacer(minLength: 150)
-            Text("Hoeveel MDMA zit er in je pil?").font(.headline)
             
-            TextField("Nickname...", text: $gebruikrName).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
+            Text("Heb je je pil getest?").font(.headline)
+            Button(action: {
+                
+            }) {
+                Text("Ja")
+                
+            Button(action: {
+                
+            }) {
+                Text("Nee")
+            
             
             Spacer()
             
