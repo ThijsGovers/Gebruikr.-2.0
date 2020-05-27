@@ -15,16 +15,7 @@ struct MdmaView: View {
         VStack{
             Spacer(minLength: 150)
             
-            Text("Heb je je pil getest?").font(.headline)
-            Button(action: {
-                
-            }) {
-                Text("Ja")
-                
-            Button(action: {
-                
-            }) {
-                Text("Nee")
+           
             
             
             Spacer()
@@ -47,3 +38,14 @@ struct MdmaView_Previews: PreviewProvider {
     }
 }
 
+
+//Text("Heb je je pil getest?").font(.headline)
+//           Button(action: {
+//
+//           }) {
+//               Text("Ja")
+//
+//           Button(action: {
+//
+//           }) {
+//               Text("Nee")
