@@ -30,26 +30,45 @@ struct MdmaWizard : View {
         switch (userData.mdma) {
             case .unspecified: return AnyView (
                 VStack {
-                    Text ("Vul in")
-                    TextField ("", text: $mdmInMG)
+                    Text ("Heb je je pil getest?").font(.title).padding(.bottom)
+                    TextField ("", text: $mdmInMG).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
                     
+                    HStack{
                     Button(action: {
                         self.userData.mdma = .specified(amountInMG: Int (self.mdmInMG)!) // <--dit is riskant
                     }) {
-                        Text("Voer mdma in")
+                        Text("Ja!").font(.title).padding(20).background(Circle().fill(Color.white).shadow(radius: 10)).padding()
                     }
-
+                    
                     
                     Button(action: {
                         self.userData.mdma = .unknown
                     }) {
-                        Text("Weet ik niet")
+                        Text("Nee").font(.title).padding(20).background(Circle().fill(Color.white).shadow(radius: 10)).padding()
+                    }
                     }
                 }
             )
             case .unknown: return AnyView (
-                Text ("Even testen joh, hoeveelheid is nu \(userData.mdma.amountInMg)")
+                VStack{
+                    VStack{
+                        Text ("Gemiddelde hoeveelheid").font(.title).padding(.bottom).foregroundColor(Color("TextColor"))
+                        
+                        Text ("Omdat je niet weet hoeveel er in je pil zit zal Gebruikr. uit gaan van een gemiddelde hoeveelheid van \(userData.mdma.amountInMg)mg MDMA per pil.").padding(.horizontal)
+                        
+                        Text ("Je pil kan in werkelijkheid meer MDMA bevatten, dus pas altijd op!").padding(.horizontal)
+                        
+                        }.frame(width: 345, height: 200).background(Color.white).cornerRadius(10).shadow(radius: 5)
+                    
+                    
+                    VStack{
+                        Text("Volgende keer even laten testen!").font(.title).padding(.bottom).foregroundColor(Color("TextColor"))
+                        
+                        Text("Dan weet je precies hoe veel mg MDMA er in je pil zit en kan Gebruikr. je beter helpen.").padding(.horizontal)
+                    }.frame(width: 345, height: 200).background(Color.white).cornerRadius(10).shadow(radius: 5).padding()
+                }
             )
+            
             case .specified( _): return AnyView (
                 Text("De hoeveelheid mdma in de pil is \(userData.mdma.amountInMg)")
             )
