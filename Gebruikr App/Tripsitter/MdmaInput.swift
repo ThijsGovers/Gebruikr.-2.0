@@ -25,20 +25,28 @@ struct MdmaWizard : View {
     
     @State var step : Int = 0
     @State var mdmInMG : String = ""
+    @State var piltested = false
     
     func mdmaScreen () -> AnyView {
         switch (userData.mdma) {
             case .unspecified: return AnyView (
                 VStack {
-                    Text ("Heb je je pil getest?").font(.title).padding(.bottom)
-                    TextField ("", text: $mdmInMG).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
+                    Text ("Heb je je pil getest?").font(.title).padding(.bottom).foregroundColor(Color("TextColor"))
+                    
+                    VStack{
                     
                     HStack{
                     Button(action: {
-                        self.userData.mdma = .specified(amountInMG: Int (self.mdmInMG)!) // <--dit is riskant
-                    }) {
-                        Text("Ja!").font(.title).padding(20).background(Circle().fill(Color.white).shadow(radius: 10)).padding()
-                    }
+                        self.piltested = true
+                        //self.userData.mdma = .specified(amountInMG: Int (self.mdmInMG)!) // <--dit is riskant
+                    }){
+                        if piltested == true{
+                        Text("Ja!").font(.title).foregroundColor(Color.white).padding(20).background(Circle().fill(Color.backgroundColor).shadow(radius: 10)).padding()
+                        }
+                        else{
+                            Text("Ja!").font(.title).padding(20).background(Circle().fill(Color.white).shadow(radius: 10)).padding()
+                        }
+                        }
                     
                     
                     Button(action: {
@@ -46,6 +54,18 @@ struct MdmaWizard : View {
                     }) {
                         Text("Nee").font(.title).padding(20).background(Circle().fill(Color.white).shadow(radius: 10)).padding()
                     }
+                    }
+                    }.padding(.bottom, 50)
+                    
+                  
+                    if piltested{
+                        VStack{
+                        Text("Hoeveel milligram MDMA zit er in je pil?").font(.title).foregroundColor(Color("TextColor")).padding(.horizontal)
+                        TextField ("", text: $mdmInMG).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
+                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                            Text("Invoeren")
+                            }
+                        }
                     }
                 }
             )
