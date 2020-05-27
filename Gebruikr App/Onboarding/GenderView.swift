@@ -8,10 +8,6 @@
 
 import SwiftUI
 
-enum Gender {
-    case male, female, unspecified
-}
-
 struct GenderView: View {
     @EnvironmentObject var userData: UserData
     
