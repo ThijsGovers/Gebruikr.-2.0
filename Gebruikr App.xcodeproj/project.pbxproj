@@ -14,6 +14,7 @@
 		3F4B761F2460AABE001C5087 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B761B2460AABE001C5087 /* GenderView.swift */; };
 		3F4B76202460AABE001C5087 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4B761C2460AABE001C5087 /* NameView.swift */; };
 		3F74D0CA247D199C00746D2C /* MdmaInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F74D0C9247D199C00746D2C /* MdmaInput.swift */; };
+		3F7775D1247FDFF600E98F50 /* MotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7775D0247FDFF600E98F50 /* MotherView.swift */; };
 		3F9323992469804900D2337F /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9323982469804900D2337F /* UserData.swift */; };
 		3FA0F7BF24589EA3005D1919 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7BE24589EA3005D1919 /* HomeView.swift */; };
 		3FA0F7C62458AB3E005D1919 /* SettingsForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA0F7C52458AB3E005D1919 /* SettingsForm.swift */; };
@@ -63,6 +64,7 @@
 		3F4B761B2460AABE001C5087 /* GenderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		3F4B761C2460AABE001C5087 /* NameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
 		3F74D0C9247D199C00746D2C /* MdmaInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MdmaInput.swift; sourceTree = "<group>"; };
+		3F7775D0247FDFF600E98F50 /* MotherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotherView.swift; sourceTree = "<group>"; };
 		3F9323982469804900D2337F /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		3FA0F7BE24589EA3005D1919 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = "Gebruikr App/HomeView.swift"; sourceTree = SOURCE_ROOT; };
 		3FA0F7C52458AB3E005D1919 /* SettingsForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsForm.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				3FCF17282445A0B0007224E1 /* Preview Content */,
 				3FAD9A762450C44600CCE554 /* ColorManager.swift */,
 				3F9323982469804900D2337F /* UserData.swift */,
+				3F7775D0247FDFF600E98F50 /* MotherView.swift */,
 			);
 			path = "Gebruikr App";
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				3FA0F7CD245A14E1005D1919 /* BottomBarView.swift in Sources */,
 				3F4B761F2460AABE001C5087 /* GenderView.swift in Sources */,
 				3FA0F7CF245A14FE005D1919 /* BottomBarItem.swift in Sources */,
+				3F7775D1247FDFF600E98F50 /* MotherView.swift in Sources */,
 				3FA0F7C62458AB3E005D1919 /* SettingsForm.swift in Sources */,
 				3FCF17232445A0AC007224E1 /* SceneDelegate.swift in Sources */,
 				9121C07B247FB86500EBE96D /* UserExplenationView.swift in Sources */,

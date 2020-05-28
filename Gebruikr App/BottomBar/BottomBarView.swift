@@ -37,32 +37,26 @@ struct BottomBarView : View {
     }
     
     var body: some View {
-        NavigationView {
             VStack {
                 
                 if (selectedIndex == 0){
-                    HomeView()
+                    Spacer()
+                    Text("Dit is de tracker pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
                     Spacer()
                 }else if (selectedIndex == 1){
-
-                    VStack {
-                        Spacer()
-                        Spacer()
-                    }
+                    Spacer()
+                    Text("Dit is de test services pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
+                    Spacer()
                 }else if (selectedIndex == 2){
                     HomeView()
                 }else if (selectedIndex == 3){
-
-                    VStack {
-                        Spacer()
-                        Spacer()
-                    }
+                    Spacer()
+                    Text("Dit is de drugs info pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
+                    Spacer()
                 }else if (selectedIndex == 4){
-
-                    VStack {
-                        Spacer()
-                        Spacer()
-                    }
+                    Spacer()
+                    Text("Dit is de EHBO pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
+                    Spacer()
                 }
                 
                 
@@ -83,12 +77,12 @@ struct BottomBarView : View {
                 
             }.edgesIgnoringSafeArea(.bottom)
                 .foregroundColor(Color("TextColor"))
+                .navigationBarBackButtonHidden(true)
                 .navigationBarTitle("Gebruikr.", displayMode: .inline).navigationBarItems(trailing:
                     HStack {
                         settingButton
                     }
             ).sheet(isPresented: $isSettingPresented, content: {SettingsForm()})
-        }
     }
 }
 

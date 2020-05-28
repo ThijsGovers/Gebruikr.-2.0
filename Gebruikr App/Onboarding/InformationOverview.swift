@@ -10,13 +10,22 @@ import SwiftUI
 
 struct InformationOverview: View {
     @EnvironmentObject var userData: UserData
+    @Environment(\.presentationMode) var presentationMode
     
     @Binding public var step: Int
     
     private var completeButton: some View {
+        //        Button(action: {
+        ////            BottomBarView()
+        //
+        //        }) {
+        //            Text("Yes!").frame(width: 70).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+        //        }
+        
+        
         NavigationLink(destination: BottomBarView()){
             Text("Yes!").frame(width: 70).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
-        }
+        }.navigationBarTitle("Overzicht", displayMode: .inline).onDisappear()
     }
     
     var body: some View {
@@ -26,23 +35,24 @@ struct InformationOverview: View {
                 Text("Top!")
                 Text("Klopt dit allemaal?")
             }.font(.title)
-            .foregroundColor(Color("TextColor"))
+                .foregroundColor(Color("TextColor"))
             Spacer()
             Text("Tap hier als je toch iets wilt aanpassen:").font(.caption)
-            .foregroundColor(Color("TextColor"))
-            HStack{
-                Spacer()
+                .foregroundColor(Color("TextColor"))
+            
+            
+            NavigationLink(destination: NameView(step: $step)){
                 
-                NavigationLink(destination: NameView(step: $step)){
-                    
-                    VStack{
-                        Image(systemName: "person.fill").resizable()
-                            .frame(width: 35.0, height: 35.0).padding(.top)
-                        Spacer()
-                        Text("\(userData.gebruikrName)").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
-                    }.frame(width: 80, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
+                VStack{
+                    Image(systemName: "person.fill").resizable()
+                        .frame(width: 35.0, height: 35.0).padding(.top)
+                    Spacer()
+                    Text("\(userData.gebruikrName)").frame(width: 240).foregroundColor(Color.white).background(Color.backgroundColor)
+                }.frame(width: 240, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
                     .foregroundColor(Color("TextColor"))
-                }
+            }.padding(.bottom, 15)
+            HStack{
+                
                 
                 Spacer()
                 

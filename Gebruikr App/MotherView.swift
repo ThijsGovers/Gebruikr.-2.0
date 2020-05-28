@@ -8,14 +8,22 @@
 
 import SwiftUI
 
-struct MotherView: View {
+struct MotherView : View {
+    @EnvironmentObject var userData: UserData
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            if userData.currentPage == "OnboardingView" {
+                OnboardingView()
+            } else if userData.currentPage == "BottomBarView" {
+                BottomBarView()
+            }
+        }
     }
 }
 
 struct MotherView_Previews: PreviewProvider {
     static var previews: some View {
-        MotherView()
+        MotherView().environmentObject(UserData())
     }
 }

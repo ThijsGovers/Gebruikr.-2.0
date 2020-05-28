@@ -11,12 +11,10 @@ import SwiftUI
 struct OnboardingView: View {
     
     var body: some View {
-        NavigationView {
             VStack{
                 WizardView()
             }
-            .navigationBarTitle("Gebruikr", displayMode: .inline).foregroundColor(Color("TextColor"))
-        }
+            .navigationBarTitle("Gebruikr.", displayMode: .inline).foregroundColor(Color("TextColor"))
     }
 }
 struct OnboardingView_Previews: PreviewProvider {

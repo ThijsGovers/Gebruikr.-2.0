@@ -17,7 +17,7 @@ struct GenderView: View {
     private var nextButton: some View {
         NavigationLink(destination: WeightView(step: $step)){
             Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
-        }
+        }.navigationBarTitle("Geslacht", displayMode: .inline)
     }
     
     var body: some View {

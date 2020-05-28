@@ -38,12 +38,22 @@ struct TripAdvice {
 
 class UserData: ObservableObject  {
     
+    init() {
+//            UserDefaults.standard.set(false, forKey: "didLaunchBefore")
+           if !UserDefaults.standard.bool(forKey: "didLaunchBefore") {
+               UserDefaults.standard.set(true, forKey: "didLaunchBefore")
+               currentPage = "OnboardingView"
+           } else {
+               currentPage = "BottomBarView"
+           }
+       }
+       
+    @Published var currentPage: String
     @Published var gebruikrName: String = ""
     @Published var gender: Gender = .unspecified
     @Published var weight: Double = 60
     @Published var experience : Experience?
     @Published var mdma : MDMAPillSpecification = .unspecified
-//    @Published var test: String = "test"
     
     func calculateTripAdvice () -> TripAdvice {
         var workingWeight = weight

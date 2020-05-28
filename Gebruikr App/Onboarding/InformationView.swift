@@ -14,7 +14,7 @@ struct InformationView: View {
     private var nextButton: some View {
         NavigationLink(destination: InfoExplanationView(step: $step)){
             Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
-        }
+        }.navigationBarTitle("Gebruikr.", displayMode: .inline)
     }
     
     var body: some View {
