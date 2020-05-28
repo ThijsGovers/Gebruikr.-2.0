@@ -47,7 +47,7 @@ struct HomeView: View {
                     }
                     
                     Divider()
-                    
+                    NavigationLink(destination: MdmaInput()) {
                     HStack {
                         Image("Tripsitter")
                             .foregroundColor(.white)
@@ -59,6 +59,7 @@ struct HomeView: View {
                             Text("Start je eerste keer gebruik met de Gebruikr. tripsitter!").font(.subheadline).padding(.bottom)
                         }
                     }.padding()
+                    }
                     
                     }.frame(width: 320).padding().background(Color("BackgroundGray")).cornerRadius(10).shadow(radius: 5)
             }

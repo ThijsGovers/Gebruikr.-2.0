@@ -62,7 +62,9 @@ struct MdmaWizard : View {
                         VStack{
                         Text("Hoeveel milligram MDMA zit er in je pil?").font(.title).foregroundColor(Color("TextColor")).padding(.horizontal)
                         TextField ("", text: $mdmInMG).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
-                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                            Button(action: {
+                                self.userData.mdma = .specified(amountInMG: Int (self.mdmInMG)!) // <--dit is riskant
+                            }) {
                             Text("Invoeren")
                             }
                         }
