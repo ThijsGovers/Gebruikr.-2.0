@@ -25,6 +25,7 @@ struct GenderView: View {
         VStack{
             Spacer(minLength: 150)
             Text("Wat is je geslacht?").font(.title).padding(.bottom)
+            .foregroundColor(Color("TextColor"))
             HStack{
                 Button(action: {
                     self.userData.gender = .male
@@ -80,6 +81,7 @@ struct GenderView: View {
             }
             Spacer()
             Text("Liever niet? No biggie").font(.callout)
+            .foregroundColor(Color("TextColor"))
             Button(action: {
                 self.step += 1
                 self.userData.gender = .unspecified
@@ -95,6 +97,6 @@ struct GenderView: View {
 
 struct GenderView_Previews: PreviewProvider {
     static var previews: some View {
-        GenderView(step: .constant(1)).environmentObject(UserData())
+        GenderView(step: .constant(4)).environmentObject(UserData())
     }
 }

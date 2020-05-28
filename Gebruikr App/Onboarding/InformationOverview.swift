@@ -26,8 +26,10 @@ struct InformationOverview: View {
                 Text("Top!")
                 Text("Klopt dit allemaal?")
             }.font(.title)
+            .foregroundColor(Color("TextColor"))
             Spacer()
             Text("Tap hier als je toch iets wilt aanpassen:").font(.caption)
+            .foregroundColor(Color("TextColor"))
             HStack{
                 Spacer()
                 
@@ -39,6 +41,7 @@ struct InformationOverview: View {
                         Spacer()
                         Text("\(userData.gebruikrName)").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
                     }.frame(width: 80, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
+                    .foregroundColor(Color("TextColor"))
                 }
                 
                 Spacer()
@@ -50,7 +53,7 @@ struct InformationOverview: View {
                         Spacer()
                         Text("\(userData.weight, specifier: "%.0f") KG").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
                     }.frame(width: 80, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
-                }
+                }.foregroundColor(Color("TextColor"))
                 
                 
                 Spacer()
@@ -67,7 +70,7 @@ struct InformationOverview: View {
                         } else {
                             Text("n.v.t.").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
                         }
-                    }.frame(width: 80, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
+                    }.frame(width: 80, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5).foregroundColor(Color("TextColor"))
                     
                 }
                 Spacer()
@@ -81,6 +84,6 @@ struct InformationOverview: View {
 
 struct InformationOverview_Previews: PreviewProvider {
     static var previews: some View {
-        InformationOverview(step: .constant(4)).environmentObject(UserData())
+        InformationOverview(step: .constant(6)).environmentObject(UserData())
     }
 }

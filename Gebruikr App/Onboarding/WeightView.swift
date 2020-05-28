@@ -28,7 +28,7 @@ struct WeightView: View {
             Text("\(userData.weight, specifier: "%.0f") kg").font(.title)
             Spacer()
             nextButton
-        }
+        }.foregroundColor(Color("TextColor"))
         
     }
     
@@ -37,6 +37,6 @@ struct WeightView: View {
 
 struct WeightView_Previews: PreviewProvider {
     static var previews: some View {
-        WeightView(step: .constant(3)).environmentObject(UserData())
+        WeightView(step: .constant(5)).environmentObject(UserData())
     }
 }

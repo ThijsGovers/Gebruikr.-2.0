@@ -28,12 +28,13 @@ struct NameView: View {
             Spacer()
             nextButton
         }.padding()
+        .foregroundColor(Color("TextColor"))
     }
 }
 
 struct NameView_Previews: PreviewProvider {
     static var previews: some View {
-        NameView(step: .constant(1)).environmentObject(UserData())
+        NameView(step: .constant(3)).environmentObject(UserData())
     }
 }
 
