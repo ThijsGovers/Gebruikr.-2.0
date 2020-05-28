@@ -10,11 +10,11 @@ import SwiftUI
 
 
 let items: [BottomBarItem] = [
-    BottomBarItem(icon: "house.fill", title: "Tracker"),
-    BottomBarItem(icon: "heart", title: "Likes"),
-    BottomBarItem(icon: "house", title: "Home"),
-    BottomBarItem(icon: "person.fill", title: "Drugs"),
-    BottomBarItem(icon: "plus", title: "EHBO")
+    BottomBarItem(icon: "tracker", title: "Tracker"),
+    BottomBarItem(icon: "test services", title: "Testen"),
+    BottomBarItem(icon: "home icon", title: "Home"),
+    BottomBarItem(icon: "drugs info", title: "Drugs"),
+    BottomBarItem(icon: "ehbo", title: "EHBO")
 ]
 
 struct BottomBarView : View {

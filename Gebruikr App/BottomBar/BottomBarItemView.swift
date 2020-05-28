@@ -14,7 +14,7 @@ public struct BottomBarItemView: View {
     
     public var body: some View {
         VStack {
-            Image(systemName: item.icon)
+            Image(item.icon)
                 .imageScale(.large)
                 .foregroundColor(isSelected ? item.color : .white)
             
