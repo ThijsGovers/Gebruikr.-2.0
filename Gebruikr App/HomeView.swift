@@ -32,7 +32,7 @@ struct HomeView: View {
                     .frame(width: 320, height: 90)
                         .background(Color.backgroundColor).cornerRadius(10)
                     
-                    NavigationLink(destination: OnboardingView()) {
+                    NavigationLink(destination: BottomBarView()) {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Test je Drugs").font(.headline)

@@ -35,12 +35,12 @@ public struct BottomBar : View {
                 self.itemView(at: index)
                 
                 if index != self.items.count-1 {
-                    Spacer()
+                    Spacer().frame(width: -3)
                 }
             }
         }
         .padding()
-        .frame(width: 375.0)
+        .frame(width: 375.0, height: 110)
         .background(backgroundColor)
     
         .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: -2)
@@ -53,11 +53,11 @@ public struct BottomBar : View {
 struct BottomBar_Previews : PreviewProvider {
     static var previews: some View {
         BottomBar(selectedIndex: .constant(2), items: [
-            BottomBarItem(icon: "house.fill", title: "Tracker"),
-            BottomBarItem(icon: "heart", title: "Likes"),
-            BottomBarItem(icon: "house", title: "Home"),
-            BottomBarItem(icon: "person.fill", title: "Drugs"),
-            BottomBarItem(icon: "plus", title: "EHBO")        ])
+            BottomBarItem(icon: "tracker", title: "Tracker"),
+            BottomBarItem(icon: "test services", title: "Testen"),
+            BottomBarItem(icon: "home icon", title: "Home"),
+            BottomBarItem(icon: "drugs info", title: "Drugs"),
+            BottomBarItem(icon: "ehbo", title: "EHBO")        ])
     }
 }
 #endif

@@ -36,6 +36,11 @@ struct TripAdvice {
     var explanation : String
 }
 
+struct AdvicePill {
+    var maxAmount : Double
+}
+
+
 class UserData: ObservableObject  {
     
     init() {
@@ -54,6 +59,9 @@ class UserData: ObservableObject  {
     @Published var weight: Double = 60
     @Published var experience : Experience?
     @Published var mdma : MDMAPillSpecification = .unspecified
+    @Published var maxMg : Double = 160
+    //    @Published var maxMg : Double = AdvicePill(maxAmount: Double)
+
     
     func calculateTripAdvice () -> TripAdvice {
         var workingWeight = weight
@@ -66,6 +74,17 @@ class UserData: ObservableObject  {
         let amount = Int(floor(workingWeight / (Double(mdma.amountInMg) / 4)))
         
         return TripAdvice(amountInQuarters: amount, explanation: "Hier de berekening uitleggen of zo?")
+    }
+    
+    func calculatePillAdvice () -> AdvicePill {
+        var amount: Double = 0
+        if gender == .male {
+            amount = weight * 1.25
+        } else if gender == .female{
+            amount = weight * 1
+        }
+        
+        return AdvicePill(maxAmount: amount)
     }
 
 }
