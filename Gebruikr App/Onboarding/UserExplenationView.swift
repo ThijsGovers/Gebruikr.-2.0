@@ -10,7 +10,8 @@ import SwiftUI
 
 struct UserExplanationView: View {
     @Binding public var step: Int
-
+    @EnvironmentObject var userData: UserData
+    
     
     private var nextButton: some View {
         NavigationLink(destination: NameView(step: $step)){
@@ -21,35 +22,46 @@ struct UserExplanationView: View {
     var body: some View {
         
         VStack {
-        VStack(alignment: .leading) {
-            Text("Oh,")
-                .font(.largeTitle)
-            Text("En no worries.")
-                .font(.title)
-            Spacer ()
-                .frame(height: 20)
-            Text("Gebruikr.  deelt niets.")
-                .font(.title)
-            Text("Niks, nada, noppes.")
-                .font(.headline)
-            Spacer ()
-                .frame(height: 50)
-            Text("Alle informatie die je deelt blijft van jou, en jou alleen!")
-                .font(.headline)
+            VStack(alignment: .leading) {
+                if userData.timeCount > 16 {
+                    Text("Oh,")
+                        .font(.largeTitle).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }
+                if userData.timeCount > 17 {
+                    Text("En no worries.")
+                        .font(.title).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }
+                Spacer ()
+                    .frame(height: 20)
+                if userData.timeCount > 18 {
+                    Text("Gebruikr.  deelt niets.").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                        .font(.title)
+                }
+                if userData.timeCount > 19 {
+                    Text("Niks, nada, noppes.").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                        .font(.headline)
+                }
+                Spacer ()
+                    .frame(height: 50)
+                if userData.timeCount > 20 {
+                    Text("Alle informatie die je deelt blijft van jou, en jou alleen!").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                        .font(.headline)
+                }
             }
             Spacer()
-            
-            VStack{
-                Text("Let's Go!")
-                    .font(.title)
-                NavigationLink(destination: NameView(step: $step)){
-                Image("GebruikrIcon")
-                .frame(width: 90, height: 90)
-                }.buttonStyle(PlainButtonStyle())
-
+            if userData.timeCount > 21 {
+                VStack{
+                    Text("Let's Go!")
+                        .font(.title)
+                    NavigationLink(destination: NameView(step: $step)){
+                        Image("GebruikrIcon")
+                            .frame(width: 90, height: 90)
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                }.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
-        }.frame(width: 350, height: 600, alignment: .topLeading)
-        .foregroundColor(Color("TextColor"))
+        }.animation(.default).frame(width: 350, height: 600, alignment: .topLeading)
+            .foregroundColor(Color("TextColor"))
     }
 }
 

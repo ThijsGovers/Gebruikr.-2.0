@@ -47,7 +47,7 @@ struct InformationOverview: View {
                     Image(systemName: "person.fill").resizable()
                         .frame(width: 35.0, height: 35.0).padding(.top)
                     Spacer()
-                    Text("\(userData.gebruikrName)").frame(width: 240).foregroundColor(Color.white).background(Color.backgroundColor)
+                    Text("\(userData.username)").frame(width: 240).foregroundColor(Color.white).background(Color.backgroundColor)
                 }.frame(width: 240, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
                     .foregroundColor(Color("TextColor"))
             }.padding(.bottom, 15)
@@ -73,9 +73,9 @@ struct InformationOverview: View {
                         Image("gender").resizable()
                             .frame(width: 50.0, height: 35.0).padding(.top)
                         Spacer()
-                        if userData.gender == .male{
+                        if userData.gender == "Man"{
                             Text("MAN").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
-                        } else if userData.gender == .female {
+                        } else if userData.gender == "Vrouw" {
                             Text("Vrouw").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
                         } else {
                             Text("n.v.t.").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)

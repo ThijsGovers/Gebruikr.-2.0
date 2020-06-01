@@ -11,9 +11,12 @@ import SwiftUI
 struct PillAdvice: View {
     
     @ObservedObject var userData : UserData = UserData()
-//    @State var maxAmountMg: Double = userdata.calcul
+    
+//    init() {
+//        userData.calculatePillAdvice()
+//    }
+    
     var body: some View {
-        
         VStack {
             Text("Max gebruik!").font(.title)
             HStack{
@@ -33,16 +36,17 @@ struct PillAdvice: View {
                 Spacer()
             }.frame(width: 325, height:70).background(Color("BackgroundGray")).cornerRadius(10).shadow(radius: 2)
             
-            if (userData.mdma.amountInMg > Int(userData.maxMg)){
-                VStack{
-                    Text("lol")
-                }
-            }
+//            if (userData.mdma.amountInMg > Int(userData.maxMg)){
+//                VStack{
+//                    Text("lol")
+//                }
+//            }
             Spacer()
             NavigationLink(destination: StartTripView()){
                 Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
             }.padding(.top, 50)
         }.foregroundColor(Color("TextColor"))
+//            .onAppear{self.userData.calculatePillAdvice()}
         
     }
 }

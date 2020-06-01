@@ -19,6 +19,7 @@ let items: [BottomBarItem] = [
 
 struct BottomBarView : View {
     @State private var selectedIndex: Int = 2
+    @Environment(\.presentationMode) var presentationMode
     
     var selectedItem: BottomBarItem {
         items[selectedIndex]

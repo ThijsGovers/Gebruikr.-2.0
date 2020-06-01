@@ -28,6 +28,17 @@ struct WeightView: View {
             Text("\(userData.weight, specifier: "%.0f") kg").font(.title)
             Spacer()
             nextButton
+            HStack{
+                Circle()
+                .fill(Color.gray)
+                .frame(width: 16, height: 16)
+                Circle()
+                    .fill(Color.gray)
+                .frame(width: 16, height: 16)
+                Circle()
+                .fill(Color.backgroundColor)
+                .frame(width: 16, height: 16)
+            }
         }.foregroundColor(Color("TextColor"))
         
     }

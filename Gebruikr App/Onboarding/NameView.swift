@@ -16,7 +16,7 @@ struct NameView: View {
     private var nextButton: some View {
         NavigationLink(destination: GenderView(step: $step)){
             Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
-        }.navigationBarTitle("Nickname", displayMode: .inline)
+            }.navigationBarTitle("Nickname", displayMode: .inline)
     }
     
     var body: some View {
@@ -24,9 +24,20 @@ struct NameView: View {
             Spacer(minLength: 150)
             Text("Hi! Ik ben Gebruikr.").font(.headline)
             Text("Mag ik jouw naam?").font(.headline).padding(.bottom, 35)
-            TextField("Nickname...", text: $userData.gebruikrName).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
+            TextField("Nickname...", text: $userData.username).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
             Spacer()
             nextButton
+            HStack{
+                Circle()
+                .fill(Color.backgroundColor)
+                .frame(width: 16, height: 16)
+                Circle()
+                    .fill(Color.gray)
+                .frame(width: 16, height: 16)
+                Circle()
+                .fill(Color.gray)
+                .frame(width: 16, height: 16)
+            }
         }.padding()
         .foregroundColor(Color("TextColor"))
     }

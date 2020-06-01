@@ -9,75 +9,90 @@
 import SwiftUI
 
 struct InfoExplanationView: View {
-        @State var showWeightExplanation = false
-        @State var showGenderExplanation = false
+    //    @ObservedObject var userData : UserData = UserData()
+    @State var showWeightExplanation = false
+    @State var showGenderExplanation = false
+    @EnvironmentObject var userData: UserData
+    @State var resetCounter : Bool = false
     
     @Binding public var step: Int
-
     
     private var nextButton: some View {
-        NavigationLink(destination: UserExplanationView(step: $step)){
-            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+        NavigationLink(destination: UserExplanationView(step: $step), isActive: $resetCounter){
+            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
+                // Execute code here.
+                self.userData.timeCount = 15
+                self.resetCounter = true
+            }
         }.navigationBarTitle("Gebruikr.", displayMode: .inline)
     }
     
-        var body: some View {
-
-            VStack{
-                Text("Hiervoor heeft Gebruikr. wel wat info nodig")
+    var body: some View {
+        
+        VStack{
+            if userData.timeCount > 9{
+                Text("Hiervoor heeft Gebruikr. wel wat info nodig").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                     .font(.largeTitle).lineLimit(nil)
                     .frame(width: 350, height: 90, alignment: .leading)
-                    Spacer ()
-                        .frame(height: 20)
+                Spacer ()
+                    .frame(height: 20)
+            }
             
-                VStack(alignment: .center) {
-                    Text("Wil je weten waarom?")
+            VStack(alignment: .center) {
+                if userData.timeCount > 10{
+                    Text("Wil je weten waarom?").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                         .font(.headline)
-                
-                Text("Tap de icon!")
-                    .font(.headline)
                 }
-                
-                VStack(alignment: .center) {
-                    Spacer ()
-                        .frame(height: 60)
-
-                Button(action: {
-                    self.showWeightExplanation = true
-                }) {
-                    Image ("WeightIcon")
-                        .frame(width: 110, height: 110, alignment: .center)
-                }.buttonStyle(PlainButtonStyle())
-
-                .sheet(isPresented: $showWeightExplanation) {
-
-                    WeightExplanationView()
-
+                if userData.timeCount > 11{
+                    Text("Tap de icon!").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                        .font(.headline)
+                }
+            }
+            
+            VStack(alignment: .center) {
+                Spacer ()
+                    .frame(height: 60)
+                if userData.timeCount > 12{
+                    Button(action: {
+                        self.showWeightExplanation = true
+                    }) {
+                        Image ("WeightIcon")
+                            .frame(width: 110, height: 110, alignment: .center)
+                    }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                        
+                        .sheet(isPresented: $showWeightExplanation) {
+                            
+                            WeightExplanationView()
+                            
+                    }
                 }
                 
                 Spacer ()
                     .frame(height: 20)
-                
-                Button(action: {
-                    self.showGenderExplanation = true
-                       }) {
-                           Image ("GenderIcon")
-                               .frame(width: 110, height: 110, alignment: .center)
-                       }.buttonStyle(PlainButtonStyle())
-
-                       .sheet(isPresented: $showGenderExplanation) {
-
-                           GenderExplanationView()
+                if userData.timeCount > 13{
+                    Button(action: {
+                        self.showGenderExplanation = true
+                    }) {
+                        Image ("GenderIcon")
+                            .frame(width: 110, height: 110, alignment: .center)
+                    }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                        
+                        .sheet(isPresented: $showGenderExplanation) {
+                            
+                            GenderExplanationView()
+                    }
                 }
             }
-                Spacer()
-                nextButton
-
-
-            }.frame(width: 350, height: 650, alignment: .topLeading)
+            Spacer()
+            if userData.timeCount > 14{
+                nextButton.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+            }
+            
+        }.animation(.default).frame(width: 350, height: 650, alignment: .topLeading)
             .foregroundColor(Color("TextColor"))
-        }
+        //                .onAppear{self.userData.timeCount = 0}
     }
+}
 
 struct InfoExplanationView_Previews: PreviewProvider {
     static var previews: some View {

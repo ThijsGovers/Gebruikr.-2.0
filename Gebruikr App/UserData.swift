@@ -9,8 +9,10 @@
 import SwiftUI
 import Combine
 import Foundation
-enum Gender {
-    case male, female, unspecified
+enum Gender: String {
+    case male = "Man"
+    case female = "Vrouw"
+    case unspecified = "n.v.t."
 }
 
 enum Experience {
@@ -43,48 +45,94 @@ struct AdvicePill {
 
 class UserData: ObservableObject  {
     
+    
+    @Published var timeCount = 0
+    var timer : Timer?
+    
+    @Published var username: String {
+        didSet {
+            UserDefaults.standard.set(username, forKey: "username")
+        }
+    }
+    
+    @Published var gender: String {
+        didSet {
+            UserDefaults.standard.set(gender, forKey: "gender")
+        }
+    }
+    @Published var weight: Double {
+        didSet {
+            UserDefaults.standard.set(weight, forKey: "weight")
+        }
+    }
+    
     init() {
-//            UserDefaults.standard.set(false, forKey: "didLaunchBefore")
+        
+        self.username = UserDefaults.standard.object(forKey: "username") as? String ?? ""
+        self.gender = UserDefaults.standard.object(forKey: "gender") as? String ?? "n.v.t."
+        self.weight = UserDefaults.standard.object(forKey: "weight") as? Double ?? 60
+        
+            UserDefaults.standard.set(false, forKey: "didLaunchBefore")
            if !UserDefaults.standard.bool(forKey: "didLaunchBefore") {
                UserDefaults.standard.set(true, forKey: "didLaunchBefore")
                currentPage = "OnboardingView"
            } else {
                currentPage = "BottomBarView"
            }
+        maxMg = 0
+        self.calculatePillAdvice()
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerDidFire), userInfo: nil, repeats: true)
        }
+    
+    
+    @objc func timerDidFire() {
+        timeCount += 1
+    }
+
+    func resetCount() {
+        timeCount = 0
+    }
        
     @Published var currentPage: String
-    @Published var gebruikrName: String = ""
-    @Published var gender: Gender = .unspecified
-    @Published var weight: Double = 60
     @Published var experience : Experience?
     @Published var mdma : MDMAPillSpecification = .unspecified
-    @Published var maxMg : Double = 160
-    //    @Published var maxMg : Double = AdvicePill(maxAmount: Double)
+    @Published var maxMg : Double
+    //    @Published var maxMg : Double = AdvicePill.maxAmount
 
+//    
+//    func calculateTripAdvice () -> TripAdvice {
+//        var workingWeight = weight
+//        if gender == "Man" {
+//            workingWeight *= 1.25
+//        } else if gender == "Vrouw"{
+//            workingWeight *= 1
+//        }
+//        
+//        let amount = Int(floor(workingWeight / (Double(mdma.amountInMg) / 4)))
+//        
+//        return TripAdvice(amountInQuarters: amount, explanation: "Hier de berekening uitleggen of zo?")
+//    }
     
-    func calculateTripAdvice () -> TripAdvice {
-        var workingWeight = weight
-        if gender == .male {
-            workingWeight *= 1.25
-        } else if gender == .female{
-            workingWeight *= 1
+//    func calculatePillAdvice () -> AdvicePill {
+//        var amount: Double = 0
+//        if gender == "Man" {
+//            amount = weight * 1.25
+//        } else if gender == "Vrouw"{
+//            amount = weight * 1
+//        }
+//
+//        return AdvicePill(maxAmount: amount)
+//    }
+    
+    func calculatePillAdvice () {
+        let workingWeight = weight
+        if gender == "Man" {
+            maxMg = 1.25 * workingWeight
+        } else if gender == "Vrouw"{
+            maxMg = workingWeight
         }
         
-        let amount = Int(floor(workingWeight / (Double(mdma.amountInMg) / 4)))
-        
-        return TripAdvice(amountInQuarters: amount, explanation: "Hier de berekening uitleggen of zo?")
-    }
-    
-    func calculatePillAdvice () -> AdvicePill {
-        var amount: Double = 0
-        if gender == .male {
-            amount = weight * 1.25
-        } else if gender == .female{
-            amount = weight * 1
-        }
-        
-        return AdvicePill(maxAmount: amount)
     }
 
 }
