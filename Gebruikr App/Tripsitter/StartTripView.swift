@@ -10,6 +10,7 @@ import SwiftUI
 
 struct StartTripView: View {
     @ObservedObject var userData: UserData = UserData()
+    @State var startTrip : Bool = false
     
     @State var minutes: Double = 0
     
@@ -20,8 +21,12 @@ struct StartTripView: View {
             Slider(value: $minutes, in: 00...30, step: 5).padding(.horizontal,30)
             Text("\(minutes, specifier: "%.0f") Min").font(.title)
             Spacer()
-            NavigationLink(destination: BottomBarView()){
-                Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+            NavigationLink(destination: BottomBarView(), isActive: $startTrip){
+                Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
+                    // Execute code here.
+                    self.userData.tripsitterActive = true
+                    self.startTrip = true
+                }
             }
         }.padding(.top, 50).foregroundColor(Color("TextColor"))
         

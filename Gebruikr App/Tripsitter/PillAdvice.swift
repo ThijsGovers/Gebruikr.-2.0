@@ -12,10 +12,6 @@ struct PillAdvice: View {
     
     @ObservedObject var userData : UserData = UserData()
     
-//    init() {
-//        userData.calculatePillAdvice()
-//    }
-    
     var body: some View {
         VStack {
             Text("Max gebruik!").font(.title)
@@ -41,12 +37,8 @@ struct PillAdvice: View {
 //                    Text("lol")
 //                }
 //            }
-            Spacer()
-            NavigationLink(destination: StartTripView()){
-                Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
-            }.padding(.top, 50)
         }.foregroundColor(Color("TextColor"))
-//            .onAppear{self.userData.calculatePillAdvice()}
+            .onAppear{self.userData.calculatePillAdvice()}
         
     }
 }

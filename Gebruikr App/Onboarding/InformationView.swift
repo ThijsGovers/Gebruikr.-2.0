@@ -9,15 +9,15 @@
 import SwiftUI
 
 struct InformationView: View {
-    @ObservedObject var userData : UserData = UserData()
+    @ObservedObject var timerData : TimerData = TimerData()
     @Binding public var step: Int
     @State var resetCounter : Bool = false
     
     private var nextButton: some View {
-        NavigationLink(destination: InfoExplanationView(step: $step), isActive: $resetCounter){
+        NavigationLink(destination: InfoExplanationView(step: $step).environmentObject(timerData), isActive: $resetCounter){
             Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
                 // Execute code here.
-                self.userData.timeCount = 8
+                self.timerData.timeCount = 8
                 self.resetCounter = true
             }
         }.navigationBarTitle("Gebruikr.", displayMode: .inline)
@@ -26,20 +26,20 @@ struct InformationView: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading){
-                if userData.timeCount > 0{
+                if timerData.timeCount > 0{
                     Text("Hi!").font(.largeTitle).frame(width: 345, alignment: .leading).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
-                if userData.timeCount > 1{
+                if timerData.timeCount > 1{
                     Text("Nice dat je er bent").font(.title).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
-                if userData.timeCount > 2{
+                if timerData.timeCount > 2{
                     Text("Gebruikr gaat je helpen om elk feestje lekker te gaan").font(.headline).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
-                if userData.timeCount > 3{
+                if timerData.timeCount > 3{
                     Text("Dit kan je van Gebruikr. verwachten:").font(.headline).padding(.bottom, 30).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
             }
-            if userData.timeCount > 4{
+            if timerData.timeCount > 4{
                 HStack {
                     Image("Tripsitter")
                         .foregroundColor(.white)
@@ -53,7 +53,7 @@ struct InformationView: View {
                     
                 }.padding().frame(width: 345, height: 100).background(Color("BackgroundGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
-            if userData.timeCount > 5{
+            if timerData.timeCount > 5{
                 HStack {
                     Image("Dosering")
                         .foregroundColor(.white)
@@ -67,7 +67,7 @@ struct InformationView: View {
                     
                 }.padding().frame(width: 345, height: 100).background(Color("BackgroundGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
-            if userData.timeCount > 6{
+            if timerData.timeCount > 6{
                 HStack {
                     Image("Inzicht")
                         .foregroundColor(.white)
@@ -82,7 +82,7 @@ struct InformationView: View {
                 }.padding().frame(width: 345, height: 100).background(Color("BackgroundGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
             Spacer()
-            if userData.timeCount > 7{
+            if timerData.timeCount > 7{
                 nextButton.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
         }.animation(.default).padding()

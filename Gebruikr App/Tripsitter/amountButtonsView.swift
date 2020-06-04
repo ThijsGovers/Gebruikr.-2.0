@@ -8,21 +8,18 @@
 
 import SwiftUI
 
-enum Parts {
-    case full, threeQuarters, half, quarter, unspecified
-}
-
 struct amountButtonsView: View {
-    @State var partsAmount : Parts = .unspecified
+    @ObservedObject var userData : UserData = UserData()
     
     var body: some View {
         VStack (alignment: .leading){
             Text("Hoeveel Ga je gebruiken?").font(.title).foregroundColor(Color("TextColor")).padding(.bottom)
             HStack{
                 Button(action: {
-                    self.partsAmount = .full
+                    self.userData.partsAmount = .full
+                    self.userData.calculatePartAmount()
                 }){
-                    if partsAmount == .full{
+                    if userData.partsAmount == .full{
                         VStack{
                             Image("HeleSelected").resizable()
                             .frame(width: 39.0, height: 39.0).foregroundColor(Color.white)
@@ -43,9 +40,10 @@ struct amountButtonsView: View {
                 }.buttonStyle(PlainButtonStyle())
                 Spacer()
                 Button(action: {
-                    self.partsAmount = .threeQuarters
+                    self.userData.partsAmount = .threeQuarters
+                    self.userData.calculatePartAmount()
                 }){
-                    if partsAmount == .threeQuarters{
+                    if userData.partsAmount == .threeQuarters{
                         VStack{
                             Image("DrieKwartSelected").resizable()
                             .frame(width: 39.0, height: 39.0).foregroundColor(Color.white)
@@ -68,9 +66,10 @@ struct amountButtonsView: View {
                 Spacer()
                 
                 Button(action: {
-                    self.partsAmount = .half
+                    self.userData.partsAmount = .half
+                    self.userData.calculatePartAmount()
                 }){
-                    if partsAmount == .half{
+                    if userData.partsAmount == .half{
                         VStack{
                             Image("HalfSelected").resizable()
                             .frame(width: 39.0, height: 39.0).foregroundColor(Color.white)
@@ -93,9 +92,10 @@ struct amountButtonsView: View {
                 Spacer()
                 
                 Button(action: {
-                    self.partsAmount = .quarter
+                    self.userData.partsAmount = .quarter
+                    self.userData.calculatePartAmount()
                 }){
-                    if partsAmount == .quarter{
+                    if userData.partsAmount == .quarter{
                         VStack{
                             Image("KwartSelected").resizable()
                             .frame(width: 39.0, height: 39.0).foregroundColor(Color.white)
@@ -117,6 +117,7 @@ struct amountButtonsView: View {
                 
                 
             }
+            Text("Dosis \(userData.partMg, specifier: "%.0f") mg *").padding().foregroundColor(Color("TextColor"))
         }.frame(width: 325)
     }
 }

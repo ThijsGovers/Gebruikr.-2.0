@@ -10,7 +10,7 @@ import SwiftUI
 
 struct UserExplanationView: View {
     @Binding public var step: Int
-    @EnvironmentObject var userData: UserData
+    @EnvironmentObject var timerData : TimerData
     
     
     private var nextButton: some View {
@@ -23,33 +23,33 @@ struct UserExplanationView: View {
         
         VStack {
             VStack(alignment: .leading) {
-                if userData.timeCount > 16 {
+                if timerData.timeCount > 16 {
                     Text("Oh,")
                         .font(.largeTitle).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
-                if userData.timeCount > 17 {
+                if timerData.timeCount > 17 {
                     Text("En no worries.")
                         .font(.title).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
                 Spacer ()
                     .frame(height: 20)
-                if userData.timeCount > 18 {
+                if timerData.timeCount > 18 {
                     Text("Gebruikr.  deelt niets.").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                         .font(.title)
                 }
-                if userData.timeCount > 19 {
+                if timerData.timeCount > 19 {
                     Text("Niks, nada, noppes.").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
-                        .font(.headline)
+                        .font(.title)
                 }
                 Spacer ()
                     .frame(height: 50)
-                if userData.timeCount > 20 {
+                if timerData.timeCount > 20 {
                     Text("Alle informatie die je deelt blijft van jou, en jou alleen!").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
-                        .font(.headline)
+                        .font(.title)
                 }
             }
             Spacer()
-            if userData.timeCount > 21 {
+            if timerData.timeCount > 21 {
                 VStack{
                     Text("Let's Go!")
                         .font(.title)
@@ -67,6 +67,6 @@ struct UserExplanationView: View {
 
 struct UserExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        UserExplanationView(step: .constant(2)).environmentObject(UserData())
+        UserExplanationView(step: .constant(2))
     }
 }	

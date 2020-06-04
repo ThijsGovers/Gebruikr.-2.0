@@ -9,19 +9,14 @@
 import SwiftUI
 
 struct MdmaInput: View {
-    func makeUserData () -> UserData {
-        let g = UserData()
-        g.weight = 100
-        
-        return g
-    }
+    
     var body: some View {
-        MdmaWizard(userData: makeUserData())
+        MdmaWizard()
     }
 }
 
 struct MdmaWizard : View {
-    @ObservedObject var userData : UserData
+    @ObservedObject var userData : UserData = UserData()
     
     @State var step : Int = 0
     @State var mdmInMG : String = ""
@@ -63,11 +58,11 @@ struct MdmaWizard : View {
                         Text("Hoeveel milligram MDMA zit er in je pil?").font(.title).foregroundColor(Color("TextColor")).padding(.horizontal)
                         TextField ("", text: $mdmInMG).padding().textFieldStyle(RoundedBorderTextFieldStyle()).keyboardType(.numberPad).shadow(radius: 1).frame(width: 250)
                         Button(action: {
-                            self.userData.mdma = .specified(amountInMG: Int (self.mdmInMG)!) // <--dit is riskant
+                            self.userData.mdma = .specified(amountInMG: Double (self.mdmInMG)!) // <--dit is riskant
                         }) {
                             Text("Invoeren").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
                         }
-
+                        
                     }
                     Spacer()
                 } else {
@@ -78,26 +73,35 @@ struct MdmaWizard : View {
         case .unknown: return AnyView (
             VStack{
                 Spacer()
+                VStack(alignment: .leading){
+                    Text ("Pill niet getest!").font(.title)
+                }.frame(width: 345)
+                Spacer()
                 VStack{
-                    Text ("Gemiddelde hoeveelheid").font(.title).padding(.bottom).foregroundColor(Color("TextColor"))
-                    
-                    Text ("Omdat je niet weet hoeveel er in je pil zit zal Gebruikr. uit gaan van een gemiddelde hoeveelheid van \(userData.mdma.amountInMg)mg MDMA per pil.").padding(.horizontal)
-                    
-                    Text ("Je pil kan in werkelijkheid meer MDMA bevatten, dus pas altijd op!").padding(.horizontal)
-                    
-                }.frame(width: 345, height: 200).background(Color.white).cornerRadius(10).shadow(radius: 5)
+                    VStack(alignment: .leading){
+                        Text ("Gemiddelde hoeveelheid").font(.title).padding(.bottom)
+                        
+                        Text ("Omdat je niet weet hoeveel er in je pil zit zal Gebruikr. uit gaan van een gemiddelde hoeveelheid van \(userData.mdma.amountInMg)mg MDMA per pil.").padding(.bottom)
+                        
+                        Text ("Je pil kan in werkelijkheid meer MDMA bevatten, dus pas altijd op!")
+                    }.padding()
+                }.frame(width: 345).background(Color("BackgroundGray")).cornerRadius(10)
                 
-                
+                Spacer().frame(height: 20)
                 VStack{
-                    Text("Volgende keer even laten testen!").font(.title).padding(.bottom).foregroundColor(Color("TextColor"))
-                    
-                    Text("Dan weet je precies hoe veel mg MDMA er in je pil zit en kan Gebruikr. je beter helpen.").padding(.horizontal)
-                }.frame(width: 345, height: 200).background(Color.white).cornerRadius(10).shadow(radius: 3).padding()
+                    VStack(alignment: .leading){
+                        Text("Volgende keer even").font(.title)
+                        Text("laten testen!").font(.title).padding(.bottom)
+                        
+                        
+                        Text("Dan weet je precies hoe veel mg MDMA er in je pil zit en kan Gebruikr. je beter helpen.")
+                    }.padding()
+                }.frame(width: 345).background(Color("BackgroundGray")).cornerRadius(10)
                 Spacer()
                 NavigationLink(destination: useAmountView()){
                     Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
                 }
-            }
+            }.foregroundColor(Color("TextColor"))
             )
             
         case .specified( _): return AnyView (
