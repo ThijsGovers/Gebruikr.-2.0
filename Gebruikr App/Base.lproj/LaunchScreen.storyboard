@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -14,7 +14,40 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Bi8-2z-rbd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loader" translatesAutoresizingMaskIntoConstraints="NO" id="i8R-gg-eXH">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="1V9-Fg-JRI"/>
+                                    <constraint firstAttribute="height" constant="128" id="AMw-Qb-G4i"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Gebruikr" translatesAutoresizingMaskIntoConstraints="NO" id="7Vi-aX-UU2">
+                                <rect key="frame" x="87" y="173" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="96v-6Q-GTP"/>
+                                    <constraint firstAttribute="width" constant="240" id="gg5-wr-i7t"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7Vi-aX-UU2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-200" id="0uk-wI-gY0"/>
+                            <constraint firstItem="7Vi-aX-UU2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1an-Cv-U4Q"/>
+                            <constraint firstItem="Bi8-2z-rbd" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="7pU-ZV-ERH"/>
+                            <constraint firstItem="Bi8-2z-rbd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="8S9-4E-nvy"/>
+                            <constraint firstItem="i8R-gg-eXH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VK6-jT-MCU"/>
+                            <constraint firstItem="7Vi-aX-UU2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ctf-y8-Tw0"/>
+                            <constraint firstItem="i8R-gg-eXH" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eY2-k2-Mvg"/>
+                            <constraint firstAttribute="trailing" secondItem="Bi8-2z-rbd" secondAttribute="trailing" id="iXD-bl-4iw"/>
+                            <constraint firstItem="7Vi-aX-UU2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="m7E-Ub-cuZ"/>
+                            <constraint firstItem="7Vi-aX-UU2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="oGQ-bp-vFM"/>
+                            <constraint firstAttribute="bottom" secondItem="Bi8-2z-rbd" secondAttribute="bottom" id="uMO-60-Bbe"/>
+                            <constraint firstItem="7Vi-aX-UU2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zMe-fu-wLP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -23,4 +56,9 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Gebruikr" width="343" height="49"/>
+        <image name="launchBackground" width="414" height="896"/>
+        <image name="loader" width="65" height="65"/>
+    </resources>
 </document>

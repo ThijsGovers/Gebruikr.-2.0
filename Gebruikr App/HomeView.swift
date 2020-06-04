@@ -24,9 +24,9 @@ struct HomeView: View {
                         Text("zoveel tijd geleden").font(.subheadline).padding(.bottom)
                     }
                     HStack(alignment: .bottom){
-                        Text("0").font(.system(size: 55))
+                        Text("-").font(.system(size: 55))
                         Text("uur").font(.title)
-                        Text("00 ").font(.system(size: 55))
+                        Text("-- ").font(.system(size: 55))
                         Text("minuten").font(.title)
                     }.foregroundColor(.white)
                     .frame(width: 320, height: 90)
