@@ -42,10 +42,6 @@ struct TripAdvice {
     var explanation : String
 }
 
-struct AdvicePill {
-    var maxAmount : Double
-}
-
 class TimerData : ObservableObject {
 
     @Published var timeCount = 0
@@ -64,9 +60,20 @@ class TimerData : ObservableObject {
     }
 }
 
+struct Pill: Identifiable{
+    var id = UUID()
+//    let id: Int
+    var partsAmount: Parts
+    var partMg: Double
+    var time: Date
+}
+
 
 class UserData: ObservableObject  {
     
+    @Published var pillsUsed = [
+        Pill(partsAmount: .unspecified, partMg: 0, time: Date())
+    ]
     
     @Published var username: String {
         didSet {
@@ -96,9 +103,12 @@ class UserData: ObservableObject  {
         self.username = UserDefaults.standard.object(forKey: "username") as? String ?? ""
         self.gender = UserDefaults.standard.object(forKey: "gender") as? String ?? "n.v.t."
         self.weight = UserDefaults.standard.object(forKey: "weight") as? Double ?? 60
+        
+        UserDefaults.standard.set(false, forKey: "tripsitterActive")
         self.tripsitterActive = UserDefaults.standard.object(forKey: "tripsitterActive") as? Bool ?? false
         
-            UserDefaults.standard.set(false, forKey: "didLaunchBefore")
+        
+//            UserDefaults.standard.set(false, forKey: "didLaunchBefore")
            if !UserDefaults.standard.bool(forKey: "didLaunchBefore") {
                UserDefaults.standard.set(true, forKey: "didLaunchBefore")
                currentPage = "OnboardingView"
@@ -109,11 +119,12 @@ class UserData: ObservableObject  {
         maxMg = 0
         partMg = 0
         mdma = .unspecified
+        pillAmount = 0
         partsAmount = .unspecified
         calculatePillAdvice()
         
        }
-    
+    @Published var pillAmount : Double
     @Published var partsAmount: Parts
     @Published var currentPage: String
     @Published var experience : Experience?
@@ -136,16 +147,17 @@ class UserData: ObservableObject  {
 //        return TripAdvice(amountInQuarters: amount, explanation: "Hier de berekening uitleggen of zo?")
 //    }
     
-//    func calculatePillAdvice () -> AdvicePill {
-//        var amount: Double = 0
-//        if gender == "Man" {
-//            amount = weight * 1.25
-//        } else if gender == "Vrouw"{
-//            amount = weight * 1
-//        }
-//
-//        return AdvicePill(maxAmount: amount)
-//    }
+    func addPill() {
+          pillsUsed.append(Pill(partsAmount: partsAmount, partMg: partMg, time: Date()))
+    }
+    
+    func getTotalMg() -> Double{
+        var sum : Double = 0
+        for pill in pillsUsed {
+            sum = sum + pill.partMg
+        }
+        return sum
+    }
     
     func calculatePillAdvice () {
         let workingWeight = weight

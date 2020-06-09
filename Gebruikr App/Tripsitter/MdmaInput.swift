@@ -16,7 +16,8 @@ struct MdmaInput: View {
 }
 
 struct MdmaWizard : View {
-    @ObservedObject var userData : UserData = UserData()
+//    @ObservedObject var userData : UserData = UserData()
+    @EnvironmentObject var userData: UserData
     
     @State var step : Int = 0
     @State var mdmInMG : String = ""
@@ -81,7 +82,7 @@ struct MdmaWizard : View {
                     VStack(alignment: .leading){
                         Text ("Gemiddelde hoeveelheid").font(.title).padding(.bottom)
                         
-                        Text ("Omdat je niet weet hoeveel er in je pil zit zal Gebruikr. uit gaan van een gemiddelde hoeveelheid van \(userData.mdma.amountInMg)mg MDMA per pil.").padding(.bottom)
+                        Text ("Omdat je niet weet hoeveel er in je pil zit zal Gebruikr. uit gaan van een gemiddelde hoeveelheid van \(userData.mdma.amountInMg, specifier: "%.0f")mg MDMA per pil.").padding(.bottom)
                         
                         Text ("Je pil kan in werkelijkheid meer MDMA bevatten, dus pas altijd op!")
                     }.padding()
@@ -106,8 +107,8 @@ struct MdmaWizard : View {
             
         case .specified( _): return AnyView (
             VStack{
-                Text("De hoeveelheid mdma in de pil is \(userData.mdma.amountInMg)").foregroundColor(Color("TextColor")).font(.title).padding()
-                if(userData.mdma.amountInMg > 180){
+                Text("De hoeveelheid mdma in de pil is \(userData.mdma.amountInMg, specifier: "%.0f")").foregroundColor(Color("TextColor")).font(.title).padding()
+                if(userData.mdma.amountInMg > 220){
                     Text("Let op dit is een zware pill").font(.title).foregroundColor(.red)
                 }
                 NavigationLink(destination: useAmountView()){
@@ -129,7 +130,7 @@ struct MdmaWizard : View {
 
 struct MdmaInput_Previews: PreviewProvider {
     static var previews: some View {
-        MdmaInput()
+        MdmaInput().environmentObject(UserData())
     }
 }
 

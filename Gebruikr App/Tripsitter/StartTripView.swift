@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct StartTripView: View {
-    @ObservedObject var userData: UserData = UserData()
+    @EnvironmentObject var userData: UserData
     @State var startTrip : Bool = false
     
     @State var minutes: Double = 0
@@ -24,6 +24,8 @@ struct StartTripView: View {
             NavigationLink(destination: BottomBarView(), isActive: $startTrip){
                 Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
                     // Execute code here.
+                    self.userData.addPill()
+                    self.userData.mdma = .unspecified
                     self.userData.tripsitterActive = true
                     self.startTrip = true
                 }
@@ -35,6 +37,6 @@ struct StartTripView: View {
 
 struct StartTripView_Previews: PreviewProvider {
     static var previews: some View {
-        StartTripView()
+        StartTripView().environmentObject(UserData())
     }
 }
