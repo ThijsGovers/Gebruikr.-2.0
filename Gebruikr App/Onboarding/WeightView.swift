@@ -10,6 +10,7 @@ import SwiftUI
 
 struct WeightView: View {
     @EnvironmentObject var userData: UserData
+     @State var showWeightExplanation = false
     
     @Binding public var step: Int
     
@@ -22,7 +23,21 @@ struct WeightView: View {
     var body: some View {
         VStack{
             Spacer(minLength: 150)
-            Text("Wat is je gewicht?").padding(30).font(.title)
+            HStack{
+                Text("Wat is je gewicht?").padding(.vertical, 30).font(.title)
+            Button(action: {
+                self.showWeightExplanation = true
+            }) {
+                Image ("Info").resizable()
+                    .frame(width: 30, height: 30, alignment: .center).padding(.bottom, 30)
+            }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                
+                .sheet(isPresented: $showWeightExplanation) {
+                    
+                    WeightExplanationView()
+                    
+            }
+            }
             
             Slider(value: $userData.weight, in: 40...150, step: 1).padding(.horizontal,30)
             Text("\(userData.weight, specifier: "%.0f") kg").font(.title)

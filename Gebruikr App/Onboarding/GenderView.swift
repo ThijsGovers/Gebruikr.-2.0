@@ -10,6 +10,7 @@ import SwiftUI
 
 struct GenderView: View {
     @EnvironmentObject var userData: UserData
+    @State var showGenderExplanation = false
     
     @Binding public var step: Int
     
@@ -26,8 +27,24 @@ struct GenderView: View {
         
         VStack{
             Spacer(minLength: 150)
-            Text("Wat is je biologische geslacht?").font(.title).padding(.bottom)
-                .foregroundColor(Color("TextColor"))
+            HStack{
+                VStack{
+                    Text("Wat is je").font(.title)
+                Text("biologische geslacht?").font(.title)
+                }
+                Button(action: {
+                    self.showGenderExplanation = true
+                }) {
+                    Image ("Info").resizable()
+                        .frame(width: 30, height: 30, alignment: .center)
+                }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    
+                    .sheet(isPresented: $showGenderExplanation) {
+                        
+                        GenderExplanationView()
+                        
+                }
+            }.foregroundColor(Color("TextColor"))
             HStack{
                 Button(action: {
                     self.userData.gender = "Man"
