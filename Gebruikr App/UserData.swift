@@ -137,7 +137,7 @@ class UserData: ObservableObject  {
                 mdma = .unspecified
                 pillAmount = 0
                 partsAmount = .unspecified
-//                calculatePillAdvice()
+                calculatePillAdvice()
                 self.pillsUsed = decoded
                 return
             }
@@ -165,7 +165,7 @@ class UserData: ObservableObject  {
         mdma = .unspecified
         pillAmount = 0
         partsAmount = .unspecified
-//        calculatePillAdvice()
+        calculatePillAdvice()
         
     }
     

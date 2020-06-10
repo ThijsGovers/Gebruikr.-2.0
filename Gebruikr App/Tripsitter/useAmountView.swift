@@ -232,7 +232,8 @@ struct useAmountView: View {
             NavigationLink(destination: StartTripView()){
                 Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
             }.padding(.top, 50)
-        }.onAppear{
+        }
+        .onAppear{
             self.userData.calculatePillAdvice()
         }
     }
