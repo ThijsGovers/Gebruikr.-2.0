@@ -16,18 +16,18 @@ struct TipBoxView: View {
         VStack{
             
 
-            VStack(alignment: .leading) {
+            VStack {
                 HStack {
                     Image(image)
                     Text(header).font(.title)
-                }
+                }.frame(width: 325, alignment: .leading)
                 
                 Text(paragraph)
-                    .frame(width: 340, height: nil, alignment: .leading)
+                    
                 
-            }.frame(width: 360, height: 120)
+            }.frame(width: 325, alignment: .leading).padding()
                 .background(Color("BackgroundPillsUsed"))
-                .cornerRadius(5)
+                .cornerRadius(10)
                 Spacer()
                     .frame(height: 10)
 

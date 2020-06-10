@@ -88,7 +88,7 @@ struct InformationOverview: View {
             Spacer()
             completeButton
             Spacer()
-        }.navigationBarBackButtonHidden(true)
+        }.navigationBarTitle("").navigationBarHidden(true).navigationBarBackButtonHidden(true)
     }
 }
 

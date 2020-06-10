@@ -34,7 +34,7 @@ struct MdmaWizard : View {
                     HStack{
                         Button(action: {
                             self.piltested = true
-                            //self.userData.mdma = .specified(amountInMG: Int (self.mdmInMG)!) // <--dit is riskant
+                            self.userData.calculatePillAdvice()
                         }){
                             if piltested == true{
                                 Text("Ja!").font(.title).foregroundColor(Color.white).frame(width:100, height: 50).background(Color.backgroundColor).cornerRadius(10).shadow(radius: 3)
@@ -46,6 +46,8 @@ struct MdmaWizard : View {
                         
                         
                         Button(action: {
+                            self.piltested = false
+                            self.userData.calculatePillAdvice()
                             self.userData.mdma = .unknown
                         }) {
                             Text("Nee").font(.title).foregroundColor(Color("TextColor")).frame(width:100, height: 50).background(Color.white).cornerRadius(10).shadow(radius: 3).padding()

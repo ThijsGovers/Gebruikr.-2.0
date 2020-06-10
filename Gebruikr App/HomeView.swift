@@ -30,10 +30,14 @@ struct HomeView: View {
                             Text("zoveel tijd geleden").font(.subheadline).padding(.bottom)
                         }
                         HStack(alignment: .bottom){
-                            Text("0 ").font(.system(size: 55))
+                            Text("\(userData.hoursSinceLastPill)").font(.system(size: 55))
                             Text("uur").font(.title)
-                            Text("00 ").font(.system(size: 55))
-                            Text("minuten").font(.title)
+                            Text("\(userData.minutesSinceLastPill)").font(.system(size: 55))
+                            if (self.userData.minutesSinceLastPill < 2 && self.userData.minutesSinceLastPill < 0){
+                                Text("minuut").font(.title)
+                            } else{
+                                Text("minuten").font(.title)
+                            }
                         }.foregroundColor(.white)
                             .frame(width: 320, height: 90)
                             .background(Color.backgroundColor).cornerRadius(10)
@@ -41,35 +45,26 @@ struct HomeView: View {
                         Text("Dit heb je al gebruikt:").font(.headline).padding(.top)
                         ForEach(userData.pillsUsed){ pill in
                             HStack{
+                                if(pill.partsAmount != .unspecified){
+                                    HStack{
+                                Image("klok").resizable()
+                                .frame(width: 25.0, height: 25.0).foregroundColor(Color("TextColor"))
+                                Text("\(pill.time, formatter: Self.taskDateFormat)")
+                                    }.frame(width: 110).padding(.trailing, 25)
+                                }
                                 if(pill.partsAmount == .full){
-                                    Image("klok").resizable()
-                                    .frame(width: 25.0, height: 25.0).foregroundColor(Color("TextColor"))
-                                    Text("\(pill.time, formatter: Self.taskDateFormat)")
-                                    Spacer()
                                   Image("Hele").resizable()
                                     .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
                                     Text("Hele - \(pill.partMg, specifier: "%.0f") mg")
                                 } else if (pill.partsAmount == .threeQuarters){
-                                    Image("klok").resizable()
-                                    .frame(width: 25.0, height: 25.0).foregroundColor(Color("TextColor"))
-                                    Text("\(pill.time, formatter: Self.taskDateFormat)")
-                                    Spacer()
                                     Image("DrieKwart").resizable()
                                     .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
                                     Text("Driekwart - \(pill.partMg, specifier: "%.0f") mg")
                                 } else if (pill.partsAmount == .half){
-                                    Image("klok").resizable()
-                                    .frame(width: 25.0, height: 25.0).foregroundColor(Color("TextColor"))
-                                    Text("\(pill.time, formatter: Self.taskDateFormat)")
-                                    Spacer()
                                     Image("Half").resizable()
                                     .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
                                     Text("Halfje - \(pill.partMg, specifier: "%.0f") mg")
                                 } else if (pill.partsAmount == .quarter){
-                                    Image("klok").resizable()
-                                    .frame(width: 25.0, height: 25.0).foregroundColor(Color("TextColor"))
-                                    Text("\(pill.time, formatter: Self.taskDateFormat)")
-                                    Spacer()
                                     Image("Kwart").resizable()
                                     .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
                                     Text("Kwartje - \(pill.partMg, specifier: "%.0f") mg")

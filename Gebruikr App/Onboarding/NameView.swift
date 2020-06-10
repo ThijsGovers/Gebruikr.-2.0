@@ -22,7 +22,7 @@ struct NameView: View {
     
     var body: some View {
         VStack {
-            Spacer(minLength: 150)
+            Spacer()
             
             HStack{
                 VStack{
@@ -41,7 +41,7 @@ struct NameView: View {
                         NameExplanationView()
                         
                 }
-            }.padding(.bottom, 35)
+            }.padding(.bottom)
             
             TextField("Nickname...", text: $userData.username).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
             Spacer()
@@ -58,7 +58,7 @@ struct NameView: View {
                     .frame(width: 16, height: 16)
             }
         }.padding()
-            .navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
+            .navigationBarTitle("").navigationBarHidden(true).navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
 

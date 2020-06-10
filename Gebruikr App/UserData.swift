@@ -103,13 +103,15 @@ class UserData: ObservableObject  {
         }
     }
     
-    @Published var pillAmount : Double
-    @Published var partsAmount: Parts
+    @Published var pillAmount : Double = 0
+    @Published var partsAmount: Parts = .unspecified
     @Published var currentPage: String
     @Published var experience : Experience?
-    @Published var mdma : MDMAPillSpecification
-    @Published var maxMg : Double
-    @Published var partMg : Double
+    @Published var mdma : MDMAPillSpecification = .unspecified
+    @Published var maxMg : Double = 0
+    @Published var partMg : Double = 0
+    @Published var hoursSinceLastPill: Int = 0
+    @Published var minutesSinceLastPill: Int = 0
     
     init() {
         if let pillsUsed = UserDefaults.standard.data(forKey: "pillsUsed") {
@@ -132,13 +134,14 @@ class UserData: ObservableObject  {
                     currentPage = "BottomBarView"
                 }
                 
-                maxMg = 0
-                partMg = 0
-                mdma = .unspecified
-                pillAmount = 0
-                partsAmount = .unspecified
+//                maxMg = 0
+//                partMg = 0
+//                mdma = .unspecified
+//                pillAmount = 0
+//                partsAmount = .unspecified
                 calculatePillAdvice()
                 self.pillsUsed = decoded
+                getTime()
                 return
             }
         }
@@ -160,11 +163,11 @@ class UserData: ObservableObject  {
             currentPage = "BottomBarView"
         }
         
-        maxMg = 0
-        partMg = 0
-        mdma = .unspecified
-        pillAmount = 0
-        partsAmount = .unspecified
+//        maxMg = 0
+//        partMg = 0
+//        mdma = .unspecified
+//        pillAmount = 0
+//        partsAmount = .unspecified
         calculatePillAdvice()
         
     }
@@ -184,6 +187,18 @@ class UserData: ObservableObject  {
     //        return TripAdvice(amountInQuarters: amount, explanation: "Hier de berekening uitleggen of zo?")
     //    }
     
+    
+    
+    
+    func getTime(){
+        let lastPill = pillsUsed.last
+        let lastPillUsed = lastPill?.time ?? Date()
+        let currentDate = Date()
+        let timeSinceLastPill = currentDate - lastPillUsed
+        hoursSinceLastPill = Int(timeSinceLastPill) / 3600
+        minutesSinceLastPill = (Int(timeSinceLastPill) % 3600) / 60
+    }
+    
     func resetAll() {
         UserDefaults.standard.set(false, forKey: "didLaunchBefore")
         UserDefaults.standard.set(false, forKey: "tripsitterActive")
@@ -195,6 +210,7 @@ class UserData: ObservableObject  {
     
     func addPill() {
         pillsUsed.append(Pill(partsAmount: partsAmount, partMg: partMg, time: Date()))
+        getTime()
     }
     
     func getTotalMg() -> Double{
@@ -229,4 +245,12 @@ class UserData: ObservableObject  {
         }
     }
     
+}
+
+extension Date {
+
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+    }
+
 }

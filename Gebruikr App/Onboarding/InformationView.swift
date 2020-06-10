@@ -85,7 +85,7 @@ struct InformationView: View {
             if timerData.timeCount > 7{
                 nextButton.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
-        }.navigationBarBackButtonHidden(true).animation(.default).padding()
+        }.navigationBarTitle("").navigationBarHidden(true).navigationBarBackButtonHidden(true).animation(.default).padding()
     }
 }
 

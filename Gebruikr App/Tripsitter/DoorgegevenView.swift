@@ -13,25 +13,19 @@ struct DoorgegevenView: View {
     @EnvironmentObject var userData: UserData
     var body: some View {
         ScrollView(.vertical) {
-            VStack {
+            VStack{
             
-
-            ExplanationTitleView(title: "Thanks voor het doorgeven!")
-            //Hier moet een else if statement komen waarin de state van de app opgehaald moet worden. Als tripsittr active = false is komt het onderstaande hier te staan.
+            Text("Thanks voor het doorgeven!").font(.title)
                 
             if(userData.tripsitterActive == false){
-            TipBoxView(header: "", image: "", paragraph: "De effecten van XTC zal je na 30 - 60 minuten wel gaan voelen en houden ongeveer tot 4 uur aan. Let wel op dat je niet te snel bijneemt!")
+            TipBoxView(header: "Effecten", image: "", paragraph: "De effecten van XTC zal je na 30 - 60 minuten wel gaan voelen en houden ongeveer tot 4 uur aan. Let wel op dat je niet te snel bijneemt!")
                 }
                 
             else {
             //Deze tip moet worden opgeroepen wanneer tripsittr active = true
-            TipBoxView(header: "", image: "", paragraph: "Over het algemeen kickt het bijnemen van XTC wat sneller in. Houd hier rekening mee!")
+            TipBoxView(header: "Effecten", image: "", paragraph: "Over het algemeen kickt het bijnemen van XTC wat sneller in. Houd hier rekening mee!")
                 }
-                
-            Spacer()
-                .frame(height:10)
-            
-            ExplanationTitleView(title: "Tips")
+                Text("Tips").font(.title)
                 
             TipBoxView(header: "App je vrienden", image: "Whapp icon", paragraph: "Laat je vrienden even weten dat je gaat bijnemen. Dan zijn zij in ieder geval ook op de hoogte")
                 
@@ -41,11 +35,11 @@ struct DoorgegevenView: View {
                 
                 Spacer()
                 NavigationLink(destination: BottomBarView()){
-                    Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
-                }.padding(.top, 50)
+                    Text("Home").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+                }
             
             }
-        }
+        }.foregroundColor(Color("TextColor"))
     }
 }
 

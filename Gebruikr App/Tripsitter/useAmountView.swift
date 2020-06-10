@@ -124,7 +124,7 @@ struct useAmountView: View {
             VStack{
                 Text("Max gebruik!").font(.title).frame(width: 325, alignment: .leading)
                 if(userData.tripsitterActive == true){
-                VStack(spacing: 0){
+                VStack{
                     HStack{
                         Spacer()
                         Image("NogNietGebruikt").resizable()
