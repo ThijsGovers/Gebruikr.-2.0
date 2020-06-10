@@ -34,7 +34,7 @@ struct ExplanationTitleView: View {
         .font(.largeTitle).lineLimit(nil).foregroundColor(Color("TextColor"))
         .frame(width: 350, height: 90, alignment: .leading)
         Spacer ()
-            .frame(height: 20)
+            .frame(height: 10)
             
         }
     }

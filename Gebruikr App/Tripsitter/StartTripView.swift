@@ -21,7 +21,7 @@ struct StartTripView: View {
             Slider(value: $minutes, in: 00...30, step: 5).padding(.horizontal,30)
             Text("\(minutes, specifier: "%.0f") Min").font(.title)
             Spacer()
-            NavigationLink(destination: BottomBarView(), isActive: $startTrip){
+            NavigationLink(destination: DoorgegevenView(), isActive: $startTrip){
                 Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
                     // Execute code here.
                     self.userData.addPill()

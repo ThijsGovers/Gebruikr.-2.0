@@ -26,7 +26,7 @@ struct GenderView: View {
         
         VStack{
             Spacer(minLength: 150)
-            Text("Wat is je geslacht?").font(.title).padding(.bottom)
+            Text("Wat is je biologische geslacht?").font(.title).padding(.bottom)
                 .foregroundColor(Color("TextColor"))
             HStack{
                 Button(action: {
