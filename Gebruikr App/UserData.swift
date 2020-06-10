@@ -19,7 +19,7 @@ enum Experience {
     case experienced, unexperienced
 }
 
-enum Parts {
+enum Parts : String, Codable{
     case full, threeQuarters, half, quarter, unspecified
 }
 
@@ -43,26 +43,26 @@ struct TripAdvice {
 }
 
 class TimerData : ObservableObject {
-
+    
     @Published var timeCount = 0
     var timer : Timer?
-
+    
     init() {
         timer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(timerDidFire), userInfo: nil, repeats: true)
     }
-
+    
     @objc func timerDidFire() {
         timeCount += 1
     }
-
+    
     func resetCount() {
         timeCount = 0
     }
 }
 
-struct Pill: Identifiable{
+struct Pill: Identifiable, Codable{
     var id = UUID()
-//    let id: Int
+    //    let id: Int
     var partsAmount: Parts
     var partMg: Double
     var time: Date
@@ -71,9 +71,14 @@ struct Pill: Identifiable{
 
 class UserData: ObservableObject  {
     
-    @Published var pillsUsed = [
-        Pill(partsAmount: .unspecified, partMg: 0, time: Date())
-    ]
+    @Published var pillsUsed: [Pill] {
+        didSet {
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(pillsUsed) {
+                UserDefaults.standard.set(encoded, forKey: "pillsUsed")
+            }
+        }
+    }
     
     @Published var username: String {
         didSet {
@@ -98,23 +103,62 @@ class UserData: ObservableObject  {
         }
     }
     
+    @Published var pillAmount : Double
+    @Published var partsAmount: Parts
+    @Published var currentPage: String
+    @Published var experience : Experience?
+    @Published var mdma : MDMAPillSpecification
+    @Published var maxMg : Double
+    @Published var partMg : Double
+    
     init() {
+        if let pillsUsed = UserDefaults.standard.data(forKey: "pillsUsed") {
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode([Pill].self, from: pillsUsed) {
+                
+                self.username = UserDefaults.standard.object(forKey: "username") as? String ?? ""
+                self.gender = UserDefaults.standard.object(forKey: "gender") as? String ?? "n.v.t."
+                self.weight = UserDefaults.standard.object(forKey: "weight") as? Double ?? 60
+                
+                //        UserDefaults.standard.set(false, forKey: "tripsitterActive")
+                self.tripsitterActive = UserDefaults.standard.object(forKey: "tripsitterActive") as? Bool ?? false
+                self.pillsUsed = [ Pill(partsAmount: .full, partMg: 0, time: Date())]
+                
+                //            UserDefaults.standard.set(false, forKey: "didLaunchBefore")
+                if !UserDefaults.standard.bool(forKey: "didLaunchBefore") {
+                    UserDefaults.standard.set(true, forKey: "didLaunchBefore")
+                    currentPage = "OnboardingView"
+                } else {
+                    currentPage = "BottomBarView"
+                }
+                
+                maxMg = 0
+                partMg = 0
+                mdma = .unspecified
+                pillAmount = 0
+                partsAmount = .unspecified
+                calculatePillAdvice()
+                self.pillsUsed = decoded
+                return
+            }
+        }
+        
+        self.pillsUsed = []
         
         self.username = UserDefaults.standard.object(forKey: "username") as? String ?? ""
         self.gender = UserDefaults.standard.object(forKey: "gender") as? String ?? "n.v.t."
         self.weight = UserDefaults.standard.object(forKey: "weight") as? Double ?? 60
         
-        UserDefaults.standard.set(false, forKey: "tripsitterActive")
+        //        UserDefaults.standard.set(false, forKey: "tripsitterActive")
         self.tripsitterActive = UserDefaults.standard.object(forKey: "tripsitterActive") as? Bool ?? false
         
-        
-//            UserDefaults.standard.set(false, forKey: "didLaunchBefore")
-           if !UserDefaults.standard.bool(forKey: "didLaunchBefore") {
-               UserDefaults.standard.set(true, forKey: "didLaunchBefore")
-               currentPage = "OnboardingView"
-           } else {
-               currentPage = "BottomBarView"
-           }
+        //            UserDefaults.standard.set(false, forKey: "didLaunchBefore")
+        if !UserDefaults.standard.bool(forKey: "didLaunchBefore") {
+            UserDefaults.standard.set(true, forKey: "didLaunchBefore")
+            currentPage = "OnboardingView"
+        } else {
+            currentPage = "BottomBarView"
+        }
         
         maxMg = 0
         partMg = 0
@@ -123,32 +167,39 @@ class UserData: ObservableObject  {
         partsAmount = .unspecified
         calculatePillAdvice()
         
-       }
-    @Published var pillAmount : Double
-    @Published var partsAmount: Parts
-    @Published var currentPage: String
-    @Published var experience : Experience?
-    @Published var mdma : MDMAPillSpecification
-    @Published var maxMg : Double
-    @Published var partMg : Double
-    //    @Published var maxMg : Double = AdvicePill.maxAmount
-
-//    
-//    func calculateTripAdvice () -> TripAdvice {
-//        var workingWeight = weight
-//        if gender == "Man" {
-//            workingWeight *= 1.25
-//        } else if gender == "Vrouw"{
-//            workingWeight *= 1
-//        }
-//        
-//        let amount = Int(floor(workingWeight / (Double(mdma.amountInMg) / 4)))
-//        
-//        return TripAdvice(amountInQuarters: amount, explanation: "Hier de berekening uitleggen of zo?")
-//    }
+    }
+    
+    
+    //
+    //    func calculateTripAdvice () -> TripAdvice {
+    //        var workingWeight = weight
+    //        if gender == "Man" {
+    //            workingWeight *= 1.25
+    //        } else if gender == "Vrouw"{
+    //            workingWeight *= 1
+    //        }
+    //
+    //        let amount = Int(floor(workingWeight / (Double(mdma.amountInMg) / 4)))
+    //
+    //        return TripAdvice(amountInQuarters: amount, explanation: "Hier de berekening uitleggen of zo?")
+    //    }
+    
+    func resetAll() {
+        UserDefaults.standard.set(false, forKey: "didLaunchBefore")
+        UserDefaults.standard.set(false, forKey: "tripsitterActive")
+        UserDefaults.standard.set("", forKey: "username")
+        UserDefaults.standard.set("n.v.t.", forKey: "gender")
+        UserDefaults.standard.set(60, forKey: "weight")
+        maxMg = 0
+        partMg = 0
+        mdma = .unspecified
+        pillAmount = 0
+        partsAmount = .unspecified
+        self.pillsUsed = []
+    }
     
     func addPill() {
-          pillsUsed.append(Pill(partsAmount: partsAmount, partMg: partMg, time: Date()))
+        pillsUsed.append(Pill(partsAmount: partsAmount, partMg: partMg, time: Date()))
     }
     
     func getTotalMg() -> Double{
@@ -182,5 +233,5 @@ class UserData: ObservableObject  {
             partMg = mdma.amountInMg * 0.25
         }
     }
-
+    
 }

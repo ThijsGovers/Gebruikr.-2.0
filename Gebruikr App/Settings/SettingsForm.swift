@@ -66,6 +66,14 @@ struct SettingsForm: View {
                     }
                     
                 })
+                Section {
+                    Button(action: {
+                        self.userData.resetAll()
+                        self.refresh.toggle()
+                    }) {
+                        Text("Reset All Settings")
+                    }
+                }
             }.navigationBarItems(
                 trailing: Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
