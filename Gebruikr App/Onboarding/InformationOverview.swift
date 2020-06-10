@@ -25,7 +25,7 @@ struct InformationOverview: View {
         
         NavigationLink(destination: BottomBarView()){
             Text("Yes!").frame(width: 70).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
-        }.navigationBarTitle("Overzicht", displayMode: .inline).onDisappear()
+        }
     }
     
     var body: some View {
@@ -88,7 +88,7 @@ struct InformationOverview: View {
             Spacer()
             completeButton
             Spacer()
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 

@@ -20,7 +20,7 @@ struct InformationView: View {
                 self.timerData.timeCount = 8
                 self.resetCounter = true
             }
-        }.navigationBarTitle("Gebruikr.", displayMode: .inline)
+        }
     }
     
     var body: some View {
@@ -85,7 +85,7 @@ struct InformationView: View {
             if timerData.timeCount > 7{
                 nextButton.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
-        }.animation(.default).padding()
+        }.navigationBarBackButtonHidden(true).animation(.default).padding()
     }
 }
 

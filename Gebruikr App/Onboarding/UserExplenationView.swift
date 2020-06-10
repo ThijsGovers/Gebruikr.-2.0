@@ -16,7 +16,7 @@ struct UserExplanationView: View {
     private var nextButton: some View {
         NavigationLink(destination: NameView(step: $step)){
             Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
-        }.navigationBarTitle("Gebruikr.", displayMode: .inline)
+        }
     }
     
     var body: some View {
@@ -61,7 +61,7 @@ struct UserExplanationView: View {
                 }.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
         }.animation(.default).frame(width: 350, height: 600, alignment: .topLeading)
-            .foregroundColor(Color("TextColor"))
+            .navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
 

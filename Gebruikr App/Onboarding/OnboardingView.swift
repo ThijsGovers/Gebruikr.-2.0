@@ -13,8 +13,8 @@ struct OnboardingView: View {
     var body: some View {
             VStack{
                 WizardView()
-            }
-            .navigationBarTitle("Gebruikr.", displayMode: .inline).foregroundColor(Color("TextColor"))
+            }.navigationBarBackButtonHidden(true)
+            .foregroundColor(Color("TextColor"))
     }
 }
 struct OnboardingView_Previews: PreviewProvider {

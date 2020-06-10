@@ -19,7 +19,7 @@ struct DoorgegevenView: View {
             ExplanationTitleView(title: "Thanks voor het doorgeven!")
             //Hier moet een else if statement komen waarin de state van de app opgehaald moet worden. Als tripsittr active = false is komt het onderstaande hier te staan.
                 
-            if(userData.tripsitterActive == true){
+            if(userData.tripsitterActive == false){
             TipBoxView(header: "", image: "", paragraph: "De effecten van XTC zal je na 30 - 60 minuten wel gaan voelen en houden ongeveer tot 4 uur aan. Let wel op dat je niet te snel bijneemt!")
                 }
                 
@@ -40,6 +40,9 @@ struct DoorgegevenView: View {
             TipBoxView (header: "Ga je een beetje hard?", image: "te hard gaan icon", paragraph: "Geef het even aan bij je vrienden en zoek even een rustige plek om te zitten.")
                 
                 Spacer()
+                NavigationLink(destination: BottomBarView()){
+                    Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+                }.padding(.top, 50)
             
             }
         }

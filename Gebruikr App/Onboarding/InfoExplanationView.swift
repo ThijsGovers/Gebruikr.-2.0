@@ -24,7 +24,7 @@ struct InfoExplanationView: View {
                 self.timerData.timeCount = 15
                 self.resetCounter = true
             }
-        }.navigationBarTitle("Gebruikr.", displayMode: .inline)
+        }
     }
     
     var body: some View {
@@ -89,8 +89,7 @@ struct InfoExplanationView: View {
             }
             
         }.animation(.default).frame(width: 350, height: 650, alignment: .topLeading)
-            .foregroundColor(Color("TextColor"))
-        //                .onAppear{self.userData.timeCount = 0}
+            .navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
 

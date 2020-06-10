@@ -122,7 +122,7 @@ class UserData: ObservableObject  {
                 
                 //        UserDefaults.standard.set(false, forKey: "tripsitterActive")
                 self.tripsitterActive = UserDefaults.standard.object(forKey: "tripsitterActive") as? Bool ?? false
-                self.pillsUsed = [ Pill(partsAmount: .full, partMg: 0, time: Date())]
+                self.pillsUsed = []
                 
                 //            UserDefaults.standard.set(false, forKey: "didLaunchBefore")
                 if !UserDefaults.standard.bool(forKey: "didLaunchBefore") {
@@ -137,7 +137,7 @@ class UserData: ObservableObject  {
                 mdma = .unspecified
                 pillAmount = 0
                 partsAmount = .unspecified
-                calculatePillAdvice()
+//                calculatePillAdvice()
                 self.pillsUsed = decoded
                 return
             }
@@ -165,7 +165,7 @@ class UserData: ObservableObject  {
         mdma = .unspecified
         pillAmount = 0
         partsAmount = .unspecified
-        calculatePillAdvice()
+//        calculatePillAdvice()
         
     }
     
@@ -190,11 +190,6 @@ class UserData: ObservableObject  {
         UserDefaults.standard.set("", forKey: "username")
         UserDefaults.standard.set("n.v.t.", forKey: "gender")
         UserDefaults.standard.set(60, forKey: "weight")
-        maxMg = 0
-        partMg = 0
-        mdma = .unspecified
-        pillAmount = 0
-        partsAmount = .unspecified
         self.pillsUsed = []
     }
     

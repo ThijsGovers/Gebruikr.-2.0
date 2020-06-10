@@ -16,7 +16,7 @@ struct NameView: View {
     private var nextButton: some View {
         NavigationLink(destination: GenderView(step: $step)){
             Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
-            }.navigationBarTitle("Nickname", displayMode: .inline)
+            }
     }
     
     var body: some View {
@@ -39,7 +39,7 @@ struct NameView: View {
                 .frame(width: 16, height: 16)
             }
         }.padding()
-        .foregroundColor(Color("TextColor"))
+        .navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
 
