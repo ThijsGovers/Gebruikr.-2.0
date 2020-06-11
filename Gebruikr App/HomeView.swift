@@ -23,8 +23,10 @@ struct HomeView: View {
                 Text("Hi!").font(.title).padding()
                 
                 //homeframe
+                
                 VStack (alignment: .leading){
                     if(userData.tripsitterActive == true){
+
                         VStack (alignment: .leading){
                             Text("Laatste keer gebruikt").font(.headline)
                             Text("zoveel tijd geleden").font(.subheadline).padding(.bottom)
@@ -41,7 +43,7 @@ struct HomeView: View {
                         }.foregroundColor(.white)
                             .frame(width: 320, height: 90)
                             .background(Color.backgroundColor).cornerRadius(10)
-                        
+                    ScrollView(.vertical) {
                         Text("Dit heb je al gebruikt:").font(.headline).padding(.top)
                         ForEach(userData.pillsUsed){ pill in
                             HStack{
@@ -80,6 +82,7 @@ struct HomeView: View {
                         NavigationLink(destination: MdmaInput()) {
                             Text("Bijnemen").foregroundColor(Color.white).padding(12).font(.headline).background(Capsule().fill(Color("TextColor")))
                         }.frame(width: 320, alignment: .center)
+                        }
                     } else {
                         VStack(alignment: .leading)  {
                             Text("Laatste keer gebruikt").font(.headline)

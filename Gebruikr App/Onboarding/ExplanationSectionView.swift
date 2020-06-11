@@ -17,7 +17,7 @@ struct ExplanationSectionView: View {
             
             Text (header)
                 .font(.headline)
-                .frame(width: 350, height: 30, alignment: .topLeading).foregroundColor(Color("TextColor"))
+                .frame(width: 350, height: nil, alignment: .topLeading).foregroundColor(Color("TextColor"))
                 
             Text(paragraph)
                 .frame(width: 350, height: nil, alignment: .topLeading).foregroundColor(Color("TextColor"))

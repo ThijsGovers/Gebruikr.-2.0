@@ -77,7 +77,7 @@ struct MdmaWizard : View {
             VStack{
                 Spacer()
                 VStack(alignment: .leading){
-                    Text ("Pill niet getest!").font(.title)
+                    Text ("Pil niet getest!").font(.title)
                 }.frame(width: 345)
                 Spacer()
                 VStack{
