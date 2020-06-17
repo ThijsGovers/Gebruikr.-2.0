@@ -61,7 +61,7 @@ struct UserExplanationView: View {
                 }.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
         }.animation(.default).frame(width: 350, height: 600, alignment: .topLeading)
-            .navigationBarTitle("").navigationBarHidden(true).navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
+            .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
 

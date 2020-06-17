@@ -126,19 +126,36 @@ struct useAmountView: View {
                 if(userData.tripsitterActive == true){
                 VStack{
                     HStack{
+                        if (userData.calculatePillAdvice() - userData.getTotalMg() <= 0){
                         Spacer()
                         Image("NogNietGebruikt").resizable()
                             .frame(width: 39.0, height: 39.0)
                         Spacer()
                         VStack(alignment: .leading){
-                            Text("Goed")
-                            Text("Bezig")
+                            Text("Neem niet")
+                            Text("meer bij")
                         }
                         Divider().background(Color("TextColor")).frame(height: 50)
                         Image("Kwart").resizable()
                             .frame(width: 39.0, height: 39.0)
                         Spacer()
-                        Text("\(userData.maxMg, specifier: "%.0f") mg").font(.headline)
+                        
+                            Text("0 mg").font(.headline)
+                        }else{
+                            Spacer()
+                            Image("NogNietGebruikt").resizable()
+                                .frame(width: 39.0, height: 39.0)
+                            Spacer()
+                            VStack(alignment: .leading){
+                                Text("Goed")
+                                Text("Bezig")
+                            }
+                            Divider().background(Color("TextColor")).frame(height: 50)
+                            Image("Kwart").resizable()
+                                .frame(width: 39.0, height: 39.0)
+                            Spacer()
+                        Text("\(userData.calculatePillAdvice() - userData.getTotalMg(), specifier: "%.0f") mg").font(.headline)
+                        }
                         Spacer()
                     }.frame(width: 325, height:70).background(Color("BackgroundGray")).cornerRadius(10).shadow(radius: 2)
                         VStack{
@@ -192,13 +209,12 @@ struct useAmountView: View {
                             Image("Kwart").resizable()
                                 .frame(width: 39.0, height: 39.0)
                             Spacer()
-                            Text("\(userData.maxMg, specifier: "%.0f") mg").font(.headline)
+                            Text("\(userData.calculatePillAdvice(), specifier: "%.0f") mg").font(.headline)
                             Spacer()
                         }.frame(width: 325, height:70).background(Color("BackgroundGray")).cornerRadius(10).shadow(radius: 2)
                     }
-                        Spacer()
                     }
-                if (userData.maxMg < userData.partMg){
+                if (userData.calculatePillAdvice() - userData.getTotalMg() < userData.partMg){
                     VStack(){
                         HStack{
                             VStack(alignment: .leading){
@@ -211,7 +227,7 @@ struct useAmountView: View {
                             
                         }.padding()
                     }.frame(width: 310, alignment: .leading).background(Color("BackgroundPillsUsed")).cornerRadius(10)
-                } else if (userData.maxMg == userData.partMg){
+                } else if (userData.calculatePillAdvice() - userData.getTotalMg() == userData.partMg){
                     VStack(){
                         HStack{
                             VStack(alignment: .leading){
@@ -232,9 +248,6 @@ struct useAmountView: View {
             NavigationLink(destination: StartTripView()){
                 Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
             }.padding(.top, 50)
-        }
-        .onAppear{
-            self.userData.calculatePillAdvice()
         }
     }
 }

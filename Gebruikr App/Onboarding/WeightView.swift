@@ -54,7 +54,7 @@ struct WeightView: View {
                 .fill(Color.backgroundColor)
                 .frame(width: 16, height: 16)
             }
-        }.navigationBarTitle("").navigationBarHidden(true).navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
+        }.navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
         
     }
     

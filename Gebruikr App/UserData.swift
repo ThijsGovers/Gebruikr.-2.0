@@ -139,7 +139,7 @@ class UserData: ObservableObject  {
 //                mdma = .unspecified
 //                pillAmount = 0
 //                partsAmount = .unspecified
-                calculatePillAdvice()
+//                calculatePillAdvice()
                 self.pillsUsed = decoded
                 getTime()
                 return
@@ -168,7 +168,7 @@ class UserData: ObservableObject  {
 //        mdma = .unspecified
 //        pillAmount = 0
 //        partsAmount = .unspecified
-        calculatePillAdvice()
+//        calculatePillAdvice()
         
     }
     
@@ -221,13 +221,16 @@ class UserData: ObservableObject  {
         return sum
     }
     
-    func calculatePillAdvice () {
+    func calculatePillAdvice() -> Double {
+        var maxMgPill : Double = 0
         let workingWeight = weight
         if gender == "Man" {
-            maxMg = 1.25 * workingWeight
+            maxMgPill = 1.25 * workingWeight
         } else if gender == "Vrouw"{
-            maxMg = workingWeight
+            maxMgPill = workingWeight
         }
+        
+        return maxMgPill
         
     }
     
@@ -243,6 +246,30 @@ class UserData: ObservableObject  {
         else if partsAmount == .quarter{
             partMg = mdma.amountInMg * 0.25
         }
+    }
+    
+    func calculateAdvice(){
+        var maxMgPill: Double = 0
+        var part: Double = 0
+        maxMgPill = calculatePillAdvice() - getTotalMg()
+        
+        if partsAmount == .full{
+            part = mdma.amountInMg
+        } else if partsAmount == .threeQuarters{
+            part = mdma.amountInMg * 0.75
+        }
+        else if partsAmount == .half{
+            part = mdma.amountInMg * 0.5
+        }
+        else if partsAmount == .quarter{
+            part = mdma.amountInMg * 0.25
+        }
+        
+        if (part > maxMgPill){
+            
+        }
+        
+        
     }
     
 }

@@ -58,7 +58,7 @@ struct NameView: View {
                     .frame(width: 16, height: 16)
             }
         }.padding()
-            .navigationBarTitle("").navigationBarHidden(true).navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
+            .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
 

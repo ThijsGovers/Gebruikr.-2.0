@@ -128,7 +128,7 @@ struct GenderView: View {
                     .fill(Color.gray)
                     .frame(width: 16, height: 16)
             }
-        }.navigationBarTitle("").navigationBarHidden(true).navigationBarBackButtonHidden(true)
+        }.navigationBarTitle("").navigationBarBackButtonHidden(true)
         
     }
 }

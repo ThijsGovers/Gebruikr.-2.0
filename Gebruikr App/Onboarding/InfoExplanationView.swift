@@ -89,7 +89,7 @@ struct InfoExplanationView: View {
             }
             
         }.animation(.default).frame(width: 350, height: 650, alignment: .topLeading)
-            .navigationBarTitle("").navigationBarHidden(true).navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
+            .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
 
