@@ -9,13 +9,12 @@
 import SwiftUI
 
 struct useAmountView: View {
-//    @ObservedObject var userData : UserData = UserData()
     @EnvironmentObject var userData: UserData
     
     var body: some View {
         VStack{
              VStack (alignment: .leading){
-                       Text("Hoeveel Ga je gebruiken?").font(.title).foregroundColor(Color("TextColor"))
+                Text("Hoeveel Ga je gebruiken?").font(.title).padding(.top, 5).foregroundColor(Color("TextColor"))
                        HStack{
                            Button(action: {
                                self.userData.partsAmount = .full
@@ -122,7 +121,7 @@ struct useAmountView: View {
             
             
             VStack{
-                Text("Max gebruik!").font(.title).frame(width: 325, alignment: .leading)
+                Text("Max gebruik!").font(.callout).frame(width: 325, alignment: .leading)
                 if(userData.tripsitterActive == true){
                 VStack{
                     HStack{
@@ -184,15 +183,10 @@ struct useAmountView: View {
                                     }.padding(.bottom,5)
                                 }
                                 Text("Neem in ieder geval niet meer dan:").font(.headline).padding(.top)
-                                HStack{
-                                    Text("1 X").font(.headline)
-                                    Image("Kwart").resizable()
-                                        .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
-                                    Text("Kwartje - 17,5 mg")
-                                }.padding(.bottom,5)
-                            }.padding()
+                                userData.calculateAdvice()
+                            }.frame(width: 320).padding()
                         }
-                        }.frame(width: 310, height: 200).background(Color("BackgroundPillsUsed")).cornerRadius(10)
+                        }.frame(width: 310, height: 150).background(Color("BackgroundPillsUsed")).cornerRadius(10)
                 }
                     }else{
                     VStack(spacing: 0){
@@ -215,37 +209,35 @@ struct useAmountView: View {
                     }
                     }
                 if (userData.calculatePillAdvice() - userData.getTotalMg() < userData.partMg){
-                    VStack(){
                         HStack{
                             VStack(alignment: .leading){
                                 Text("Neem een kleinere dosis").font(.headline).padding(.bottom, 5)
-                                Text("Het is beter om hierna niet  meer bij te nemen.")
+                                Text("Het is beter om niet meer te nemen dan je limiet.")
                             }
                             Spacer()
                             Image("Kwart").resizable()
                                 .frame(width: 30.0, height: 30.0).foregroundColor(Color("TextColor"))
                             
-                        }.padding()
-                    }.frame(width: 310, alignment: .leading).background(Color("BackgroundPillsUsed")).cornerRadius(10)
+                        }.padding().frame(width: 310, alignment: .leading).background(Color("BackgroundPillsUsed")).cornerRadius(10)
+                    Spacer()
                 } else if (userData.calculatePillAdvice() - userData.getTotalMg() == userData.partMg){
-                    VStack(){
                         HStack{
                             VStack(alignment: .leading){
                                 Text("Je bereikt je max").font(.headline).padding(.bottom, 5)
-                                Text("Het is beter om hierna niet  meer bij te nemen.")
+                                Text("Het is beter om hierna niet meer bij te nemen.")
                             }
                             Spacer()
                             Image("Kwart").resizable()
                                 .frame(width: 30.0, height: 30.0).foregroundColor(Color("TextColor"))
                             
-                        }.padding()
-                    }.frame(width: 310, alignment: .leading).background(Color("BackgroundPillsUsed")).cornerRadius(10)
+                        }.padding().frame(width: 310, alignment: .leading).background(Color("BackgroundPillsUsed")).cornerRadius(10)
+                    Spacer()
                 } else{
                     Spacer()
                 }
             }.foregroundColor(Color("TextColor"))
             Spacer().frame(height: 1)
-            NavigationLink(destination: StartTripView()){
+            NavigationLink(destination: StartTripView().navigationBarTitle("Tripsitter", displayMode: .inline)){
                 Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
             }.padding(.top, 50)
         }

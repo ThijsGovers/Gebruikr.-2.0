@@ -76,7 +76,6 @@ struct SettingsForm: View {
                 }
             }.navigationBarItems(
                 trailing: Button(action: {
-//                    self.userData.calculatePillAdvice()
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("Opslaan").foregroundColor(Color("TextColor")).font(.headline)

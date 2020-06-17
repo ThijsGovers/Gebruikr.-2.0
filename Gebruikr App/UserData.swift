@@ -62,13 +62,12 @@ class TimerData : ObservableObject {
 
 struct Pill: Identifiable, Codable{
     var id = UUID()
-    //    let id: Int
     var partsAmount: Parts
     var partMg: Double
     var time: Date
 }
 
-
+// Single source of truth
 class UserData: ObservableObject  {
     
     @Published var pillsUsed: [Pill] {
@@ -108,7 +107,6 @@ class UserData: ObservableObject  {
     @Published var currentPage: String
     @Published var experience : Experience?
     @Published var mdma : MDMAPillSpecification = .unspecified
-    @Published var maxMg : Double = 0
     @Published var partMg : Double = 0
     @Published var hoursSinceLastPill: Int = 0
     @Published var minutesSinceLastPill: Int = 0
@@ -134,12 +132,6 @@ class UserData: ObservableObject  {
                     currentPage = "BottomBarView"
                 }
                 
-//                maxMg = 0
-//                partMg = 0
-//                mdma = .unspecified
-//                pillAmount = 0
-//                partsAmount = .unspecified
-//                calculatePillAdvice()
                 self.pillsUsed = decoded
                 getTime()
                 return
@@ -163,33 +155,9 @@ class UserData: ObservableObject  {
             currentPage = "BottomBarView"
         }
         
-//        maxMg = 0
-//        partMg = 0
-//        mdma = .unspecified
-//        pillAmount = 0
-//        partsAmount = .unspecified
-//        calculatePillAdvice()
-        
     }
     
-    
-    //
-    //    func calculateTripAdvice () -> TripAdvice {
-    //        var workingWeight = weight
-    //        if gender == "Man" {
-    //            workingWeight *= 1.25
-    //        } else if gender == "Vrouw"{
-    //            workingWeight *= 1
-    //        }
-    //
-    //        let amount = Int(floor(workingWeight / (Double(mdma.amountInMg) / 4)))
-    //
-    //        return TripAdvice(amountInQuarters: amount, explanation: "Hier de berekening uitleggen of zo?")
-    //    }
-    
-    
-    
-    
+    // update timer homeview
     func getTime(){
         let lastPill = pillsUsed.last
         let lastPillUsed = lastPill?.time ?? Date()
@@ -199,6 +167,7 @@ class UserData: ObservableObject  {
         minutesSinceLastPill = (Int(timeSinceLastPill) % 3600) / 60
     }
     
+    // reset alle userdefaults
     func resetAll() {
         UserDefaults.standard.set(false, forKey: "didLaunchBefore")
         UserDefaults.standard.set(false, forKey: "tripsitterActive")
@@ -208,11 +177,13 @@ class UserData: ObservableObject  {
         self.pillsUsed = []
     }
     
-    func addPill() {
-        pillsUsed.append(Pill(partsAmount: partsAmount, partMg: partMg, time: Date()))
+    // voeg pill to aan array
+    func addPill(intakeTime: Double) {
+        pillsUsed.append(Pill(partsAmount: partsAmount, partMg: partMg, time: Date().addingTimeInterval(intakeTime)))
         getTime()
     }
     
+    // telt het mg mdma van alle genomen pillen bij elkaaar op
     func getTotalMg() -> Double{
         var sum : Double = 0
         for pill in pillsUsed {
@@ -221,6 +192,7 @@ class UserData: ObservableObject  {
         return sum
     }
     
+    // berekent het max mg wat de gebruikr mag hebben
     func calculatePillAdvice() -> Double {
         var maxMgPill : Double = 0
         let workingWeight = weight
@@ -234,6 +206,7 @@ class UserData: ObservableObject  {
         
     }
     
+    // berekent het aantal mg voor de pilkeuze
     func calculatePartAmount (){
         if partsAmount == .full{
             partMg = mdma.amountInMg
@@ -248,32 +221,62 @@ class UserData: ObservableObject  {
         }
     }
     
-    func calculateAdvice(){
+    //berekent het advies
+    func calculateAdvice() -> AnyView{
         var maxMgPill: Double = 0
-        var part: Double = 0
         maxMgPill = calculatePillAdvice() - getTotalMg()
         
-        if partsAmount == .full{
-            part = mdma.amountInMg
-        } else if partsAmount == .threeQuarters{
-            part = mdma.amountInMg * 0.75
+        if (maxMgPill < mdma.amountInMg * 0.25){
+            return AnyView(
+            HStack{
+                Text("neem niet meer bij plss")
+            }.padding(.bottom,5)
+                )
+        } else if (maxMgPill < mdma.amountInMg * 0.5 ){
+            return AnyView(
+            HStack{
+                Text("1 X").font(.headline)
+                Image("Kwart").resizable()
+                    .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
+                Text("Kwartje - \(mdma.amountInMg * 0.25, specifier: "%.0f") mg")
+            }.padding(.bottom,5)
+                )
+        } else if (maxMgPill < mdma.amountInMg * 0.75){
+            return AnyView(
+            HStack{
+                Text("1 X").font(.headline)
+                Image("Half").resizable()
+                    .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
+                Text("Halfje - \(mdma.amountInMg * 0.5, specifier: "%.0f") mg")
+            }.padding(.bottom,5)
+                )
+        } else if (maxMgPill < mdma.amountInMg){
+            return AnyView(
+            HStack{
+                Text("1 X").font(.headline)
+                Image("Driekwart").resizable()
+                    .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
+                Text("Driekwart - \(mdma.amountInMg * 0.75, specifier: "%.0f") mg")
+            }.padding(.bottom,5)
+                )
         }
-        else if partsAmount == .half{
-            part = mdma.amountInMg * 0.5
+        else if (maxMgPill == mdma.amountInMg){
+            return AnyView(
+            HStack{
+                Text("1 X").font(.headline)
+                Image("Hele").resizable()
+                    .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
+                Text("Hele - \(mdma.amountInMg, specifier: "%.0f") mg")
+            }.padding(.bottom,5)
+                )
         }
-        else if partsAmount == .quarter{
-            part = mdma.amountInMg * 0.25
-        }
-        
-        if (part > maxMgPill){
-            
-        }
-        
+        return AnyView(Text("hallo"))
         
     }
     
 }
 
+//extension voor het berekenen van de tijddelta tussen de laatstgenomen pil en de huidige tijd
 extension Date {
 
     static func - (lhs: Date, rhs: Date) -> TimeInterval {

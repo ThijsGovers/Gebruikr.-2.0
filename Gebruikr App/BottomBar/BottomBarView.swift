@@ -60,20 +60,6 @@ struct BottomBarView : View {
                     Spacer()
                 }
                 
-                
-//                switch selectedIndex {
-//                    case 0:
-//                        HomeView()
-//                    case 1:
-//                        HomeView()
-//                    case 2:
-//                        HomeView()
-//                    case 3:
-//                        HomeView()
-//                    case 4:
-//                        HomeView()
-//                }
-                
                 BottomBar(selectedIndex: $selectedIndex, items: items)
                 
             }.edgesIgnoringSafeArea(.bottom)

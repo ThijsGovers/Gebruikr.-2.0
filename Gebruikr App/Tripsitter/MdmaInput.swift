@@ -16,7 +16,6 @@ struct MdmaInput: View {
 }
 
 struct MdmaWizard : View {
-//    @ObservedObject var userData : UserData = UserData()
     @EnvironmentObject var userData: UserData
     
     @State var step : Int = 0
@@ -34,7 +33,6 @@ struct MdmaWizard : View {
                     HStack{
                         Button(action: {
                             self.piltested = true
-//                            self.userData.calculatePillAdvice()
                         }){
                             if piltested == true{
                                 Text("Ja!").font(.title).foregroundColor(Color.white).frame(width:100, height: 50).background(Color.backgroundColor).cornerRadius(10).shadow(radius: 3)
@@ -47,7 +45,6 @@ struct MdmaWizard : View {
                         
                         Button(action: {
                             self.piltested = false
-//                            self.userData.calculatePillAdvice()
                             self.userData.mdma = .unknown
                         }) {
                             Text("Nee").font(.title).foregroundColor(Color("TextColor")).frame(width:100, height: 50).background(Color.white).cornerRadius(10).shadow(radius: 3).padding()
@@ -84,7 +81,7 @@ struct MdmaWizard : View {
                     VStack(alignment: .leading){
                         Text ("Gemiddelde hoeveelheid").font(.title).padding(.bottom)
                         
-                        Text ("Omdat je niet weet hoeveel er in je pil zit zal Gebruikr. uit gaan van een gemiddelde hoeveelheid van \(userData.mdma.amountInMg, specifier: "%.0f")mg MDMA per pil.").padding(.bottom)
+                        Text ("Omdat je niet weet hoeveel er in je pil zit zal Gebruikr. uit gaan van een gemiddelde hoeveelheid van \(userData.mdma.amountInMg, specifier: "%.0f") mg MDMA per pil.").padding(.bottom)
                         
                         Text ("Je pil kan in werkelijkheid meer MDMA bevatten, dus pas altijd op!")
                     }.padding()
@@ -101,7 +98,7 @@ struct MdmaWizard : View {
                     }.padding()
                 }.frame(width: 345).background(Color("BackgroundGray")).cornerRadius(10)
                 Spacer()
-                NavigationLink(destination: useAmountView()){
+                NavigationLink(destination: useAmountView().navigationBarTitle("Tripsitter", displayMode: .inline)){
                     Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
                 }
             }.foregroundColor(Color("TextColor"))
@@ -109,11 +106,11 @@ struct MdmaWizard : View {
             
         case .specified( _): return AnyView (
             VStack{
-                Text("De hoeveelheid mdma in de pil is \(userData.mdma.amountInMg, specifier: "%.0f")").foregroundColor(Color("TextColor")).font(.title).padding()
+                Text("De hoeveelheid mdma in de pil is \(userData.mdma.amountInMg, specifier: "%.0f") mg").foregroundColor(Color("TextColor")).font(.title).padding()
                 if(userData.mdma.amountInMg > 220){
                     Text("Let op dit is een zware pill").font(.title).foregroundColor(.red)
                 }
-                NavigationLink(destination: useAmountView()){
+                NavigationLink(destination: useAmountView().navigationBarTitle("Tripsitter", displayMode: .inline)){
                     Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
                 }.padding(.top, 50)
                 Spacer()

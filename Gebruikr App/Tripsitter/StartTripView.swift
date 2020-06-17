@@ -21,10 +21,10 @@ struct StartTripView: View {
             Slider(value: $minutes, in: 00...30, step: 5).padding(.horizontal,30)
             Text("\(minutes, specifier: "%.0f") Min").font(.title)
             Spacer()
-            NavigationLink(destination: DoorgegevenView(), isActive: $startTrip){
+            NavigationLink(destination: DoorgegevenView().navigationBarTitle("Tripsitter", displayMode: .inline), isActive: $startTrip){
                 Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
-                    // Execute code here.
-                    self.userData.addPill()
+
+                    self.userData.addPill(intakeTime: self.minutes * 60)
                     self.userData.mdma = .unspecified
                     self.userData.tripsitterActive = true
                     self.startTrip = true
