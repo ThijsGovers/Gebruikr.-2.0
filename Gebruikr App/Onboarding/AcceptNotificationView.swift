@@ -16,7 +16,8 @@ struct AcceptNotificationView: View {
     var body: some View {
         VStack {
             Spacer().frame(height: 20)
-            ExplanationTitleView (title: "Waarom wilt Gebruikr. mij notificaties zenden?")
+            ExplanationTitleView (title: "Gebruikr. notifacties")
+            ExplanationSectionView(header: "Waarom?", paragraph: "Gebruikr. zal jouw mobiele tripsitter zijn, accepteer de notifiacties zodat hij met jou in contact kan blijven!")
             Spacer()
             Button(action: {
                 self.showNotificationExplanation = true
