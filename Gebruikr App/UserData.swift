@@ -167,6 +167,12 @@ class UserData: ObservableObject  {
         minutesSinceLastPill = (Int(timeSinceLastPill) % 3600) / 60
     }
     
+    func killTripsittr(){
+        let lastPill = pillsUsed.last
+        let lastPillUsed = lastPill?.time ?? Date()
+        let currentDate = Date()
+    }
+    
     // reset alle userdefaults
     func resetAll() {
         UserDefaults.standard.set(false, forKey: "didLaunchBefore")

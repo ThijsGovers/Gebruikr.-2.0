@@ -21,7 +21,12 @@ struct NotificationExplanationView: View {
             ExplanationSectionView(header: "How you doin?😏", paragraph: "Verder zal Gebruikr.  je af en toe vragen hoe het met je gaat, zodat jij aan kan geven hoe het gaat en Gebruikr.  jou hier nog wat extra tips over kan geven als het even niet zo goed gaat!")
             Spacer()
             
-            AcceptNotificationView()
+            VStack {
+                Text("Swipe Down!")
+                Image(systemName: "arrow.down")
+                    .font(.system(size: 40.0))
+            }.foregroundColor(Color("TextColor"))
+//            AcceptNotificationView()
         }
     }
 }

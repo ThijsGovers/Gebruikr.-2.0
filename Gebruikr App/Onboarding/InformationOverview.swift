@@ -12,18 +12,11 @@ struct InformationOverview: View {
     @EnvironmentObject var userData: UserData
     @Environment(\.presentationMode) var presentationMode
     
+    
     @Binding public var step: Int
     
     private var completeButton: some View {
-        //        Button(action: {
-        ////            BottomBarView()
-        //
-        //        }) {
-        //            Text("Yes!").frame(width: 70).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
-        //        }
-        
-        
-        NavigationLink(destination: BottomBarView()){
+        NavigationLink(destination: AcceptNotificationView()){
             Text("Yes!").frame(width: 70).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
         }
     }

@@ -24,7 +24,7 @@ struct WeightExplanationView: View {
             Spacer()
                         
             VStack {
-                Text("Swipe!")
+                Text("Swipe Down!!")
                 Image(systemName: "arrow.down")
                     .font(.system(size: 40.0))
             }.foregroundColor(Color("TextColor"))
