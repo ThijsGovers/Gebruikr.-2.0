@@ -10,15 +10,16 @@ import SwiftUI
 
 
 let items: [BottomBarItem] = [
-    BottomBarItem(icon: "house.fill", title: "Tracker"),
-    BottomBarItem(icon: "heart", title: "Likes"),
-    BottomBarItem(icon: "house", title: "Home"),
-    BottomBarItem(icon: "person.fill", title: "Drugs"),
-    BottomBarItem(icon: "plus", title: "EHBO")
+    BottomBarItem(icon: "tracker", title: "Tracker"),
+    BottomBarItem(icon: "test services", title: "Testen"),
+    BottomBarItem(icon: "home icon", title: "Home"),
+    BottomBarItem(icon: "drugs info", title: "Drugs"),
+    BottomBarItem(icon: "ehbo", title: "EHBO")
 ]
 
 struct BottomBarView : View {
     @State private var selectedIndex: Int = 2
+    @Environment(\.presentationMode) var presentationMode
     
     var selectedItem: BottomBarItem {
         items[selectedIndex]
@@ -37,58 +38,38 @@ struct BottomBarView : View {
     }
     
     var body: some View {
-        NavigationView {
             VStack {
                 
                 if (selectedIndex == 0){
-                    HomeView()
+                    Spacer()
+                    Text("Dit is de tracker pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
                     Spacer()
                 }else if (selectedIndex == 1){
-
-                    VStack {
-                        Spacer()
-                        Spacer()
-                    }
+                    Spacer()
+                    Text("Dit is de test services pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
+                    Spacer()
                 }else if (selectedIndex == 2){
                     HomeView()
                 }else if (selectedIndex == 3){
-
-                    VStack {
-                        Spacer()
-                        Spacer()
-                    }
+                    Spacer()
+                    Text("Dit is de drugs info pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
+                    Spacer()
                 }else if (selectedIndex == 4){
-
-                    VStack {
-                        Spacer()
-                        Spacer()
-                    }
+                    Spacer()
+                    Text("Dit is de EHBO pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
+                    Spacer()
                 }
-                
-                
-//                switch selectedIndex {
-//                    case 0:
-//                        HomeView()
-//                    case 1:
-//                        HomeView()
-//                    case 2:
-//                        HomeView()
-//                    case 3:
-//                        HomeView()
-//                    case 4:
-//                        HomeView()
-//                }
                 
                 BottomBar(selectedIndex: $selectedIndex, items: items)
                 
             }.edgesIgnoringSafeArea(.bottom)
                 .foregroundColor(Color("TextColor"))
+                .navigationBarBackButtonHidden(true)
                 .navigationBarTitle("Gebruikr.", displayMode: .inline).navigationBarItems(trailing:
                     HStack {
                         settingButton
                     }
             ).sheet(isPresented: $isSettingPresented, content: {SettingsForm()})
-        }
     }
 }
 

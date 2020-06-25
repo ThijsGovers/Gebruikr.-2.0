@@ -10,11 +10,13 @@ import SwiftUI
 
 struct InformationOverview: View {
     @EnvironmentObject var userData: UserData
+    @Environment(\.presentationMode) var presentationMode
+    
     
     @Binding public var step: Int
     
     private var completeButton: some View {
-        NavigationLink(destination: BottomBarView()){
+        NavigationLink(destination: AcceptNotificationView()){
             Text("Yes!").frame(width: 70).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
         }
     }
@@ -26,20 +28,24 @@ struct InformationOverview: View {
                 Text("Top!")
                 Text("Klopt dit allemaal?")
             }.font(.title)
+                .foregroundColor(Color("TextColor"))
             Spacer()
             Text("Tap hier als je toch iets wilt aanpassen:").font(.caption)
-            HStack{
-                Spacer()
+                .foregroundColor(Color("TextColor"))
+            
+            
+            NavigationLink(destination: NameView(step: $step)){
                 
-                NavigationLink(destination: NameView(step: $step)){
-                    
-                    VStack{
-                        Image(systemName: "person.fill").resizable()
-                            .frame(width: 35.0, height: 35.0).padding(.top)
-                        Spacer()
-                        Text("\(userData.gebruikrName)").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
-                    }.frame(width: 80, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
-                }
+                VStack{
+                    Image(systemName: "person.fill").resizable()
+                        .frame(width: 35.0, height: 35.0).padding(.top)
+                    Spacer()
+                    Text("\(userData.username)").frame(width: 240).foregroundColor(Color.white).background(Color.backgroundColor)
+                }.frame(width: 240, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
+                    .foregroundColor(Color("TextColor"))
+            }.padding(.bottom, 15)
+            HStack{
+                
                 
                 Spacer()
                 
@@ -50,7 +56,7 @@ struct InformationOverview: View {
                         Spacer()
                         Text("\(userData.weight, specifier: "%.0f") KG").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
                     }.frame(width: 80, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
-                }
+                }.foregroundColor(Color("TextColor"))
                 
                 
                 Spacer()
@@ -60,14 +66,14 @@ struct InformationOverview: View {
                         Image("gender").resizable()
                             .frame(width: 50.0, height: 35.0).padding(.top)
                         Spacer()
-                        if userData.gender == .male{
+                        if userData.gender == "Man"{
                             Text("MAN").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
-                        } else if userData.gender == .female {
+                        } else if userData.gender == "Vrouw" {
                             Text("Vrouw").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
                         } else {
                             Text("n.v.t.").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
                         }
-                    }.frame(width: 80, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
+                    }.frame(width: 80, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5).foregroundColor(Color("TextColor"))
                     
                 }
                 Spacer()
@@ -75,12 +81,12 @@ struct InformationOverview: View {
             Spacer()
             completeButton
             Spacer()
-        }
+        }.navigationBarTitle("").navigationBarBackButtonHidden(true)
     }
 }
 
 struct InformationOverview_Previews: PreviewProvider {
     static var previews: some View {
-        InformationOverview(step: .constant(4)).environmentObject(UserData())
+        InformationOverview(step: .constant(6)).environmentObject(UserData())
     }
 }

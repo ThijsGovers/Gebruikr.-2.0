@@ -14,7 +14,7 @@ public struct BottomBarItemView: View {
     
     public var body: some View {
         VStack {
-            Image(systemName: item.icon)
+            Image(item.icon)
                 .imageScale(.large)
                 .foregroundColor(isSelected ? item.color : .white)
             
@@ -27,7 +27,7 @@ public struct BottomBarItemView: View {
                     .foregroundColor(.white).font(.system(size: 11))
             }
         }
-        .padding(isSelected ? 15 : 0)
+        .padding(isSelected ? 15 : 0).frame(width: 80)
         .background(
             Circle()
                 .fill(isSelected ? Color.white : Color.clear)

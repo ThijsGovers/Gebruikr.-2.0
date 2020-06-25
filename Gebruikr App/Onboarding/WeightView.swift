@@ -10,6 +10,7 @@ import SwiftUI
 
 struct WeightView: View {
     @EnvironmentObject var userData: UserData
+     @State var showWeightExplanation = false
     
     @Binding public var step: Int
     
@@ -22,13 +23,38 @@ struct WeightView: View {
     var body: some View {
         VStack{
             Spacer(minLength: 150)
-            Text("Wat is je gewicht?").padding(30).font(.title)
+            HStack{
+                Text("Wat is je gewicht?").padding(.vertical, 30).font(.title)
+            Button(action: {
+                self.showWeightExplanation = true
+            }) {
+                Image ("Info").resizable()
+                    .frame(width: 30, height: 30, alignment: .center).padding(.bottom, 30)
+            }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                
+                .sheet(isPresented: $showWeightExplanation) {
+                    
+                    WeightExplanationView()
+                    
+            }
+            }
             
             Slider(value: $userData.weight, in: 40...150, step: 1).padding(.horizontal,30)
             Text("\(userData.weight, specifier: "%.0f") kg").font(.title)
             Spacer()
             nextButton
-        }
+            HStack{
+                Circle()
+                .fill(Color.gray)
+                .frame(width: 16, height: 16)
+                Circle()
+                    .fill(Color.gray)
+                .frame(width: 16, height: 16)
+                Circle()
+                .fill(Color.backgroundColor)
+                .frame(width: 16, height: 16)
+            }
+        }.navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
         
     }
     
@@ -37,6 +63,6 @@ struct WeightView: View {
 
 struct WeightView_Previews: PreviewProvider {
     static var previews: some View {
-        WeightView(step: .constant(3)).environmentObject(UserData())
+        WeightView(step: .constant(5)).environmentObject(UserData())
     }
 }

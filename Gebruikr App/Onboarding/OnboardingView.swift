@@ -11,12 +11,10 @@ import SwiftUI
 struct OnboardingView: View {
     
     var body: some View {
-        NavigationView {
             VStack{
                 WizardView()
-            }
-            .navigationBarTitle("Gebruikr", displayMode: .inline).foregroundColor(Color("TextColor"))
-        }
+            }.navigationBarBackButtonHidden(true)
+            .foregroundColor(Color("TextColor"))
     }
 }
 struct OnboardingView_Previews: PreviewProvider {
@@ -34,15 +32,21 @@ struct WizardView : View{
                 InformationView(step: $step)
             }
             else if step == 1 {
-                NameView(step: $step)
+                InfoExplanationView(step: $step)
             }
             else if step == 2 {
-                GenderView(step: $step)
+                UserExplanationView(step: $step)
             }
             else if step == 3 {
-                WeightView(step: $step)
+                NameView(step: $step)
             }
             else if step == 4 {
+                GenderView(step: $step)
+            }
+            else if step == 5 {
+                WeightView(step: $step)
+            }
+            else if step == 6 {
                 InformationOverview(step: $step)
             }
         }

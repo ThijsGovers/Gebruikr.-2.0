@@ -10,6 +10,7 @@ import SwiftUI
 
 struct NameView: View {
     @EnvironmentObject var userData: UserData
+    @State var showNameExplanation = false
     
     @Binding public var step: Int
     
@@ -21,19 +22,49 @@ struct NameView: View {
     
     var body: some View {
         VStack {
-            Spacer(minLength: 150)
-            Text("Hi! Ik ben Gebruikr.").font(.headline)
-            Text("Mag ik jouw naam?").font(.headline).padding(.bottom, 35)
-            TextField("Nickname...", text: $userData.gebruikrName).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
+            Spacer()
+            
+            HStack{
+                VStack{
+                    Text("Hi! Ik ben Gebruikr.").font(.title)
+                    Text("Mag ik jouw naam?").font(.title)
+                }
+                Button(action: {
+                    self.showNameExplanation = true
+                }) {
+                    Image ("Info").resizable()
+                        .frame(width: 30, height: 30, alignment: .center).padding(.bottom, 50)
+                }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    
+                    .sheet(isPresented: $showNameExplanation) {
+                        
+                        NameExplanationView()
+                        
+                }
+            }.padding(.bottom)
+            
+            TextField("Nickname...", text: $userData.username).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
             Spacer()
             nextButton
+            HStack{
+                Circle()
+                    .fill(Color.backgroundColor)
+                    .frame(width: 16, height: 16)
+                Circle()
+                    .fill(Color.gray)
+                    .frame(width: 16, height: 16)
+                Circle()
+                    .fill(Color.gray)
+                    .frame(width: 16, height: 16)
+            }
         }.padding()
+            .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
 
 struct NameView_Previews: PreviewProvider {
     static var previews: some View {
-        NameView(step: .constant(1)).environmentObject(UserData())
+        NameView(step: .constant(3)).environmentObject(UserData())
     }
 }
 

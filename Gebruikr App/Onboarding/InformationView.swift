@@ -9,63 +9,83 @@
 import SwiftUI
 
 struct InformationView: View {
+    @ObservedObject var timerData : TimerData = TimerData()
     @Binding public var step: Int
+    @State var resetCounter : Bool = false
     
     private var nextButton: some View {
-        NavigationLink(destination: NameView(step: $step)){
-            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+        NavigationLink(destination: InfoExplanationView(step: $step).environmentObject(timerData), isActive: $resetCounter){
+            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
+                // Execute code here.
+                self.timerData.timeCount = 8
+                self.resetCounter = true
+            }
         }
     }
     
     var body: some View {
         VStack {
             VStack(alignment: .leading){
-                Text("Hi!").font(.largeTitle)
-                Text("Nice dat je er bent").font(.title)
-                Text("Gebruikr gaat je helpen om elk feestje lekker te gaan").font(.headline)
-                Text("Dit kan je van Gebruikr. verwachten:").font(.headline).padding(.bottom, 30)
+                if timerData.timeCount > 0{
+                    Text("Hi!").font(.largeTitle).frame(width: 345, alignment: .leading).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }
+                if timerData.timeCount > 1{
+                    Text("Nice dat je er bent").font(.title).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }
+                if timerData.timeCount > 2{
+                    Text("Gebruikr gaat je helpen om elk feestje lekker te gaan").font(.headline).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }
+                if timerData.timeCount > 3{
+                    Text("Dit kan je van Gebruikr. verwachten:").font(.headline).padding(.bottom, 30).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }
             }
-            HStack {
-                Image("Tripsitter")
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .frame(width: 70, height: 70)
-                    .background(Color.backgroundColor).cornerRadius(10)
-                VStack(alignment: .leading) {
-                    Text("Jouw mobiele tripsitter").font(.headline)
-                    Text("Krijg tips en zie wat en hoe laat je op een feestje gebruikt!").font(.caption).padding(.bottom)
-                }.padding(.horizontal)
-                
-            }.padding().frame(width: 345, height: 100).background(Color.white).cornerRadius(10).shadow(radius: 5)
-            
-            HStack {
-                Image("Dosering")
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .frame(width: 70, height: 70)
-                    .background(Color.backgroundColor).cornerRadius(10)
-                VStack(alignment: .leading) {
-                    Text("Doseringen").font(.headline)
-                    Text("Kom precies te weten wat de beste dosering voor jou is.").font(.caption).padding(.bottom)
-                }.padding(.horizontal)
-                
-            }.padding().frame(width: 345, height: 100).background(Color.white).cornerRadius(10).shadow(radius: 5)
-            
-            HStack {
-                Image("Inzicht")
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .frame(width: 70, height: 70)
-                    .background(Color.backgroundColor).cornerRadius(10)
-                VStack(alignment: .leading) {
-                    Text("Inzicht in je gebruik").font(.headline)
-                    Text("Bekijk welke dagen je hoeveel hebt gebruikt.").font(.caption).padding(.bottom)
-                }.padding(.horizontal)
-                
-            }.padding().frame(width: 345, height: 100).background(Color.white).cornerRadius(10).shadow(radius: 5)
+            if timerData.timeCount > 4{
+                HStack {
+                    Image("Tripsitter")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .frame(width: 70, height: 70)
+                        .background(Color.backgroundColor).cornerRadius(10)
+                    VStack(alignment: .leading) {
+                        Text("Jouw mobiele tripsitter").font(.headline)
+                        Text("Krijg tips en zie wat en hoe laat je op een feestje gebruikt!").font(.caption).padding(.bottom)
+                    }.padding(.horizontal)
+                    
+                }.padding().frame(width: 345, height: 100).background(Color("BackgroundGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+            }
+            if timerData.timeCount > 5{
+                HStack {
+                    Image("Dosering")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .frame(width: 70, height: 70)
+                        .background(Color.backgroundColor).cornerRadius(10)
+                    VStack(alignment: .leading) {
+                        Text("Doseringen").font(.headline)
+                        Text("Kom precies te weten wat de beste dosering voor jou is.").font(.caption).padding(.bottom)
+                    }.padding(.horizontal)
+                    
+                }.padding().frame(width: 345, height: 100).background(Color("BackgroundGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+            }
+            if timerData.timeCount > 6{
+                HStack {
+                    Image("Inzicht")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .frame(width: 70, height: 70)
+                        .background(Color.backgroundColor).cornerRadius(10)
+                    VStack(alignment: .leading) {
+                        Text("Inzicht in je gebruik").font(.headline)
+                        Text("Bekijk welke dagen je hoeveel hebt gebruikt.").font(.caption).padding(.bottom)
+                    }.padding(.horizontal)
+                    
+                }.padding().frame(width: 345, height: 100).background(Color("BackgroundGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+            }
             Spacer()
-            nextButton
-        }.padding()
+            if timerData.timeCount > 7{
+                nextButton.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+            }
+        }.navigationBarTitle("").navigationBarBackButtonHidden(true).animation(.default).padding()
     }
 }
 
