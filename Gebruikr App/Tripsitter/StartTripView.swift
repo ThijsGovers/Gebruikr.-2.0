@@ -26,7 +26,6 @@ struct StartTripView: View {
 
                     self.userData.addPill(intakeTime: self.minutes * 60)
                     self.userData.mdma = .unspecified
-                    self.userData.tripsitterActive = true
                     self.startTrip = true
                 }
             }

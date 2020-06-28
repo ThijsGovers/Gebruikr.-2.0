@@ -11,6 +11,7 @@ import SwiftUI
 struct DoorgegevenView: View {
     @State var showbijneemtip = false
     @EnvironmentObject var userData: UserData
+    @State var startTripsitter : Bool = false
     var body: some View {
         VStack{
             Text("Thanks voor het doorgeven!").font(.title)
@@ -37,8 +38,11 @@ struct DoorgegevenView: View {
                             
             }
         }
-            NavigationLink(destination: BottomBarView()){
-                Text("Home").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+            NavigationLink(destination: BottomBarView(), isActive: $startTripsitter){
+                Text("Home").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
+                    self.userData.tripsitterActive = true
+                    self.startTripsitter = true
+                }
             }
 
         }.foregroundColor(Color("TextColor"))

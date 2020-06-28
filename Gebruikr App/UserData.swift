@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 import Foundation
+import UserNotifications
 enum Gender: String {
     case male = "Man"
     case female = "Vrouw"
@@ -165,12 +166,10 @@ class UserData: ObservableObject  {
         let timeSinceLastPill = currentDate - lastPillUsed
         hoursSinceLastPill = Int(timeSinceLastPill) / 3600
         minutesSinceLastPill = (Int(timeSinceLastPill) % 3600) / 60
-    }
-    
-    func killTripsittr(){
-        let lastPill = pillsUsed.last
-        let lastPillUsed = lastPill?.time ?? Date()
-        let currentDate = Date()
+        if(hoursSinceLastPill > 72){
+            UserDefaults.standard.set(false, forKey: "tripsitterActive")
+            self.pillsUsed = []
+        }
     }
     
     // reset alle userdefaults
@@ -183,10 +182,39 @@ class UserData: ObservableObject  {
         self.pillsUsed = []
     }
     
+    // functie voor het verzenden van notificaties
+    func sendNotification(title: String, subtitle: String?, launchIn: Double) {
+        let content = UNMutableNotificationContent ()
+        content.title = title
+        if let subtitle = subtitle {
+            content.subtitle = subtitle
+        }
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: launchIn, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
+    }
+    
     // voeg pill to aan array
     func addPill(intakeTime: Double) {
         pillsUsed.append(Pill(partsAmount: partsAmount, partMg: partMg, time: Date().addingTimeInterval(intakeTime)))
         getTime()
+        
+        //Deze notificatie kan worden aangepast
+        //launchin is de tijd in seconden dat een notificatie wordt verstuurd
+        sendNotification(title: "test", subtitle: "Dit is een testnotificatie😏", launchIn: 5)
+        
+        sendNotification(title: "🦀 Feeling it now? 🦀 ", subtitle: "De eerste effecten zullen ondertussen bijna wel komen. Enjoy! 😏", launchIn: 1800)
+        
+        sendNotification(title: "💧🐃 Hey oude waterbuffel! 🐃💧", subtitle: "Drink niet te veel water! Ongeveer 1 tot 2 glazen per uur!😏", launchIn: 3600)
+        
+        sendNotification(title: "🍹🏝 Hey Sugar 🏝🍹", subtitle: "Ga je lekker? Misschien is een fanta wel wat voor jou😏", launchIn: 5400)
+        
+        sendNotification(title: "💊 Going for some more? 💊", subtitle: "Als je nog bij gaat nemen, vergeet het dan niet om door te geven.😏", launchIn: 9000)
+        
     }
     
     // telt het mg mdma van alle genomen pillen bij elkaaar op
