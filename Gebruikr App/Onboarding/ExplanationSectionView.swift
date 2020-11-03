@@ -42,7 +42,6 @@ struct ExplanationTitleView: View {
 
 
 
-
 struct ExplanationSectionView_Previews: PreviewProvider {
     static var previews: some View {
         ExplanationSectionView(header: "header", paragraph: "paragraph")
