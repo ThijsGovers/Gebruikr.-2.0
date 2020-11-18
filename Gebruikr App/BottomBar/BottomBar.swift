@@ -40,7 +40,7 @@ public struct BottomBar : View {
             }
         }
         .padding()
-        .frame(width: 375.0, height: 110)
+        .frame(width: 420, height: 110)
         .background(backgroundColor)
     
         .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: -2)

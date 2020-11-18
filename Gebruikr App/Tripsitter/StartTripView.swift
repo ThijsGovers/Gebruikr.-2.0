@@ -23,6 +23,7 @@ struct StartTripView: View {
             Spacer()
             NavigationLink(destination: DoorgegevenView().navigationBarTitle("Tripsitter", displayMode: .inline), isActive: $startTrip){
                 Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
+                    
 
                     self.userData.addPill(intakeTime: self.minutes * 60)
                     self.userData.mdma = .unspecified
