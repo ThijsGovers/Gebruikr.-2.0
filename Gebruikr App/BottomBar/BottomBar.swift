@@ -35,7 +35,7 @@ public struct BottomBar : View {
                 self.itemView(at: index)
                 
                 if index != self.items.count-1 {
-                    Spacer().frame(width: -3)
+                    Spacer()
                 }
             }
         }
