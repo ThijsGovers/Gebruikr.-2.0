@@ -10,7 +10,7 @@ import SwiftUI
 
 public struct BottomBar : View {
     
-    var backgroundColor = LinearGradient(gradient: Gradient(colors: [Color("SecondaryColor"), Color("MainColor")]), startPoint: .leading, endPoint: .trailing)
+    var backgroundColor = LinearGradient(gradient: Gradient(colors: [Color("BackgroundGray"), Color("BackgroundGray")]), startPoint: .leading, endPoint: .trailing)
     
     @Binding public var selectedIndex: Int
     
@@ -35,12 +35,12 @@ public struct BottomBar : View {
                 self.itemView(at: index)
                 
                 if index != self.items.count-1 {
-                    Spacer().frame(width: -3)
+                    Spacer()
                 }
             }
         }
         .padding()
-        .frame(width: 375.0, height: 110)
+        .frame(width: nil, height: 110)
         .background(backgroundColor)
     
         .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: -2)
@@ -53,11 +53,10 @@ public struct BottomBar : View {
 struct BottomBar_Previews : PreviewProvider {
     static var previews: some View {
         BottomBar(selectedIndex: .constant(2), items: [
-            BottomBarItem(icon: "tracker", title: "Tracker"),
             BottomBarItem(icon: "test services", title: "Testen"),
             BottomBarItem(icon: "home icon", title: "Home"),
-            BottomBarItem(icon: "drugs info", title: "Drugs"),
-            BottomBarItem(icon: "ehbo", title: "EHBO")        ])
+            BottomBarItem(icon: "drugs info", title: "Drugs")
+        ])
     }
 }
 #endif
