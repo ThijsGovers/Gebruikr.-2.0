@@ -36,26 +36,15 @@ struct BottomBarView : View {
     }
     
     var body: some View {
-            VStack {
-                
+        VStack {
                 if (selectedIndex == 0){
-                    Spacer()
-                    Text("Dit is de tracker pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
-                    Spacer()
-                }else if (selectedIndex == 1){
-                    Spacer()
                     Text("Dit is de test services pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
                     Spacer()
-                }else if (selectedIndex == 2){
+                }else if (selectedIndex == 1){
                     HomeView()
-                }else if (selectedIndex == 3){
+                }else if (selectedIndex == 2){
                     Spacer()
                     Text("Dit is de drugs info pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
-                    Spacer()
-                }else if (selectedIndex == 4){
-                    Spacer()
-                    Text("Dit is de EHBO pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
-                    Spacer()
                 }
                 
                 BottomBar(selectedIndex: $selectedIndex, items: items)
