@@ -71,7 +71,7 @@ struct SettingsForm: View {
                         self.userData.resetAll()
                         self.refresh.toggle()
                     }) {
-                        Text("Reset All Settings")
+                        Text("Reset All Settings").foregroundColor(.red)
                     }
                 }
             }.navigationBarItems(
