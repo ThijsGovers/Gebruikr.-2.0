@@ -22,7 +22,6 @@ struct GenderView: View {
             Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
         }
     }
-    
     var body: some View {
         
         VStack{
