@@ -35,10 +35,10 @@ struct MdmaWizard : View {
                             self.piltested = true
                         }){
                             if piltested == true{
-                                Text("Ja!").font(.title).foregroundColor(Color.white).frame(width:100, height: 50).background(Color.backgroundColor).cornerRadius(10).shadow(radius: 3)
+                                Text("Ja!").font(.title).foregroundColor(Color.black).frame(width:100, height: 50).background(Color.backgroundColor).cornerRadius(10)
                             }
                             else{
-                                Text("Ja!").font(.title).foregroundColor(Color("TextColor")).frame(width:100, height: 50).background(Color.white).cornerRadius(10).shadow(radius: 3)
+                                Text("Ja!").font(.title).foregroundColor(Color.black).frame(width:100, height: 50).background(Color("MainColor")).cornerRadius(10)
                             }
                         }
                         
@@ -47,7 +47,7 @@ struct MdmaWizard : View {
                             self.piltested = false
                             self.userData.mdma = .unknown
                         }) {
-                            Text("Nee").font(.title).foregroundColor(Color("TextColor")).frame(width:100, height: 50).background(Color.white).cornerRadius(10).shadow(radius: 3).padding()
+                            Text("Nee").font(.title).foregroundColor(Color.black).frame(width:100, height: 50).background(Color("MainColor")).cornerRadius(10).padding()
                         }
                     }
                 }.padding(.bottom, 50)
@@ -111,7 +111,7 @@ struct MdmaWizard : View {
                     Text("Let op dit is een zware pill").font(.title).foregroundColor(.red)
                 }
                 NavigationLink(destination: useAmountView().navigationBarTitle("Tripsitter", displayMode: .inline)){
-                    Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+                    Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
                 }.padding(.top, 50)
                 Spacer()
             }.padding(.top, 50)
