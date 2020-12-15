@@ -27,45 +27,45 @@ struct InformationView: View {
         VStack {
             VStack(alignment: .leading){
                 if timerData.timeCount > 0{
-                    Text("Hi!").font(.largeTitle).frame(width: 345, alignment: .leading).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    Text("Hi!").font(.largeTitle).foregroundColor(Color("MainColor")).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
                 if timerData.timeCount > 1{
-                    Text("Nice dat je er bent").font(.title).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    Text("Nice dat je er bent").font(.title).foregroundColor(.white).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
                 if timerData.timeCount > 2{
-                    Text("Gebruikr gaat je helpen om elk feestje lekker te gaan").font(.headline).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    Text("Gebruikr gaat je helpen om elk feestje lekker te gaan").font(.headline).foregroundColor(.white).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
                 if timerData.timeCount > 3{
-                    Text("Dit kan je van Gebruikr. verwachten:").font(.headline).padding(.bottom, 30).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    Text("Dit kan je van Gebruikr. verwachten:").font(.headline).foregroundColor(.white).padding(.bottom, 30).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
             }
             if timerData.timeCount > 4{
                 HStack {
                     Image("Tripsitter")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("DarkGray"))
                         .font(.largeTitle)
                         .frame(width: 70, height: 70)
-                        .background(Color.backgroundColor).cornerRadius(10)
+                        .background(Color("DarkGray")).cornerRadius(10)
                     VStack(alignment: .leading) {
-                        Text("Jouw mobiele tripsitter").font(.headline)
-                        Text("Krijg tips en zie wat en hoe laat je op een feestje gebruikt!").font(.caption).padding(.bottom)
+                        Text("Jouw mobiele tripsitter").font(.headline).foregroundColor(.white)
+                        Text("Krijg tips en zie wat en hoe laat je op een feestje gebruikt.").font(.caption).padding(.bottom).foregroundColor(.white)
                     }.padding(.horizontal)
                     
-                }.padding().frame(width: 345, height: 100).background(Color("BackgroundGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }.padding().frame(width: 345, height: 100).background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
             if timerData.timeCount > 5{
                 HStack {
                     Image("Dosering")
                         .foregroundColor(.white)
                         .font(.largeTitle)
-                        .frame(width: 70, height: 70)
-                        .background(Color.backgroundColor).cornerRadius(10)
+                        .padding()
+                        .background(Color("DarkGray")).cornerRadius(10)
                     VStack(alignment: .leading) {
-                        Text("Doseringen").font(.headline)
+                        Text("Doseringen").font(.headline).foregroundColor(.white)
                         Text("Kom precies te weten wat de beste dosering voor jou is.").font(.caption).padding(.bottom)
-                    }.padding(.horizontal)
+                    }.padding(.horizontal).foregroundColor(.white)
                     
-                }.padding().frame(width: 345, height: 100).background(Color("BackgroundGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }.padding(10).background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
             if timerData.timeCount > 6{
                 HStack {
@@ -73,13 +73,13 @@ struct InformationView: View {
                         .foregroundColor(.white)
                         .font(.largeTitle)
                         .frame(width: 70, height: 70)
-                        .background(Color.backgroundColor).cornerRadius(10)
+                        .background(Color("DarkGray")).cornerRadius(10)
                     VStack(alignment: .leading) {
-                        Text("Inzicht in je gebruik").font(.headline)
-                        Text("Bekijk welke dagen je hoeveel hebt gebruikt.").font(.caption).padding(.bottom)
+                        Text("Info & EHBO").font(.headline).foregroundColor(.white)
+                        Text("Kennis over iedere stof en inzicht in het herkennen van mogelijke bijwerkingen.").font(.caption).padding(.bottom).foregroundColor(.white)
                     }.padding(.horizontal)
                     
-                }.padding().frame(width: 345, height: 100).background(Color("BackgroundGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }.padding().frame(width: 345, height: 100).background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
             Spacer()
             if timerData.timeCount > 7{
@@ -90,7 +90,8 @@ struct InformationView: View {
 }
 
 struct InformationView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        InformationView(step: .constant(0))
+        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
     }
 }
