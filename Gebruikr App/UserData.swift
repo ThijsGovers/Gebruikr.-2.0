@@ -158,6 +158,12 @@ class UserData: ObservableObject  {
         
     }
     
+    //reset mdmapillselection func
+    
+    func resetpill() {
+        mdma = .unspecified
+    }
+    
     // update timer homeview
     func getTime(){
         let lastPill = pillsUsed.last

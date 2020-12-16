@@ -116,7 +116,6 @@ struct HomeView: View {
                             }.foregroundColor(.white)
                         }.frame(width: 320, height: nil)
                         
-                        
                     // Uitgecomment voor eventuele aanvulling op homescreen testlocaties
                         
                        // NavigationLink(destination: BottomBarView()) {
@@ -132,7 +131,6 @@ struct HomeView: View {
                                  //   .background(Color.backgroundColor).cornerRadius(20)
                            // }.padding()
                        // }
-                        
                         Divider()
                         
                             HStack {
@@ -154,10 +152,11 @@ struct HomeView: View {
             }
             Spacer()
         }
+        .onAppear{
+            userData.resetpill()
+        }
     }
 }
-//Hier moet de .onAppear {} komen. (Om de UserData te resetten.)
-//"MDMAPillSpecification" -> Moet gefixt worden.
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
