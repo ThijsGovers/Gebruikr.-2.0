@@ -25,28 +25,28 @@ struct NameView: View {
         VStack {
             
             
-            HStack{
                 VStack{
                     Text("Let's begin!").font(.largeTitle).foregroundColor(Color("MainColor"))
                     Text("Hoe wil je dat ik je noem?").font(.title).padding(.top,50)
-                }
-                Spacer()
+                }.padding()
                 
                 Button(action: {
                     self.showNameExplanation = true
                 }) {
                     Image ("Info").resizable()
-                        .frame(width: 30, height: 30, alignment: .center).padding(.bottom, 50)
+                        .frame(width: 60, height: 60, alignment: .center).padding(.bottom, 50)
                 }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                     
                     .sheet(isPresented: $showNameExplanation) {
                         
                         NameExplanationView()
                         
-                }
-            }.padding(.bottom)
+                }.padding(.bottom)
+            
             Spacer()
             TextField("Nickname...", text: $userData.username).padding(.bottom,100).textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
+            
+            Spacer()
            
             nextButton
             HStack{

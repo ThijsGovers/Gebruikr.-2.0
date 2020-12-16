@@ -33,7 +33,6 @@ struct GenderView: View {
             HStack{
                 VStack{
                     Text("Wat is je").font(.title)
-                    Text("biologische geslacht?").font(.title) +
                     Text("geslacht").foregroundColor(Color("MainColor")).font(.title) +
                     Text("?").font(.title)
                 }
