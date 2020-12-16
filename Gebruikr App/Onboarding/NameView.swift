@@ -21,14 +21,17 @@ struct NameView: View {
     }
     
     var body: some View {
+        
         VStack {
-            Spacer()
+            
             
             HStack{
                 VStack{
-                    Text("Hi! Ik ben Gebruikr.").font(.title)
-                    Text("Mag ik jouw naam?").font(.title)
+                    Text("Let's begin!").font(.largeTitle).foregroundColor(Color("MainColor"))
+                    Text("Hoe wil je dat ik je noem?").font(.title).padding(.top,50)
                 }
+                Spacer()
+                
                 Button(action: {
                     self.showNameExplanation = true
                 }) {
@@ -42,9 +45,9 @@ struct NameView: View {
                         
                 }
             }.padding(.bottom)
-            
-            TextField("Nickname...", text: $userData.username).padding().textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
             Spacer()
+            TextField("Nickname...", text: $userData.username).padding(.bottom,100).textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
+           
             nextButton
             HStack{
                 Circle()

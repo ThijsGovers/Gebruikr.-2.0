@@ -24,8 +24,8 @@ struct UserExplanationView: View {
         VStack {
             VStack(alignment: .leading) {
                 if timerData.timeCount > 16 {
-                    Text("Oh,")
-                        .font(.largeTitle).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    Text("Oh!")
+                        .font(.largeTitle).foregroundColor(Color("MainColor")).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
                 if timerData.timeCount > 17 {
                     Text("En no worries.")
@@ -51,11 +51,10 @@ struct UserExplanationView: View {
             Spacer()
             if timerData.timeCount > 21 {
                 VStack{
-                    Text("Let's Go!")
-                        .font(.title)
+                    
                     NavigationLink(destination: NameView(step: $step)){
-                        Image("GebruikrIcon")
-                            .frame(width: 90, height: 90)
+                        nextButton
+                        
                     }.buttonStyle(PlainButtonStyle())
                     
                 }.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))

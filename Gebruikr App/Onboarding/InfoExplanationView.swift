@@ -39,20 +39,9 @@ struct InfoExplanationView: View {
             }
             
             VStack(alignment: .center) {
-                if timerData.timeCount > 10{
-                    Text("Wil je weten waarom?").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
-                        .font(.headline)
-                }
-                if timerData.timeCount > 11{
-                    Text("Tap de icon!").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
-                        .font(.headline)
-                }
-            }
-            
-            VStack(alignment: .center) {
                 Spacer ()
                     .frame(height: 60)
-                if timerData.timeCount > 12{
+                if timerData.timeCount > 10{
                     Button(action: {
                         self.showWeightExplanation = true
                     }) {
@@ -69,7 +58,7 @@ struct InfoExplanationView: View {
                 
                 Spacer ()
                     .frame(height: 60)
-                if timerData.timeCount > 13{
+                if timerData.timeCount > 11{
                     Button(action: {
                         self.showGenderExplanation = true
                     }) {
@@ -81,6 +70,17 @@ struct InfoExplanationView: View {
                             
                             GenderExplanationView()
                     }
+                }
+                
+                
+                if timerData.timeCount > 12{
+                    Text("Why?!").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                        .font(.largeTitle)
+                }
+                
+                if timerData.timeCount > 13{
+                    Text("Tap de icons!").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                        .font(.headline)
                 }
             }
             Spacer()
