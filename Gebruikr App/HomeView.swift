@@ -30,7 +30,8 @@ struct HomeView: View {
                         VStack (alignment: .leading){
                             Text("Laatste keer gebruikt").font(.headline)
                             Text("zoveel tijd geleden").font(.subheadline).padding(.bottom)
-                        }
+                        }.foregroundColor(Color("MainColor"))
+                        
                         HStack(alignment: .bottom){
                             if (self.userData.minutesSinceLastPill >= 0){
                                 Text("\(userData.hoursSinceLastPill)").font(.system(size: 55))
@@ -42,14 +43,22 @@ struct HomeView: View {
                                     Text("minuten").font(.title)
                                 }
                             } else {
-                                Text("-").font(.system(size: 55))
-                                Text("uur").font(.title)
-                                Text("-- ").font(.system(size: 55))
-                                Text("minuten").font(.title)
+                                ZStack(alignment: .center) {
+                                    Image("BackgroundCircle")
+                                    HStack(alignment: .bottom){
+                                        Text("-").font(.system(size: 55))
+                                        Text("uur").font(.title)
+                                        Text("-- ").font(.system(size: 55))
+                                        Text("Min").font(.title)
+                                    }.foregroundColor(.white)
+                                }.frame(width: 320, height: nil)
                             }
-                        }.foregroundColor(.white)
-                            .frame(width: 320, height: 90)
-                            .background(Color.backgroundColor).cornerRadius(10)
+                            
+                        
+                        //.foregroundColor(.white)
+                           // .frame(width: 320, height: 90)
+                          //  .background(Color.backgroundColor).cornerRadius(10)
+                    }
                         ScrollView(.vertical) {
                             VStack(alignment: .leading){
                                 Text("Dit heb je al gebruikt:").font(.headline).padding(.top)
@@ -97,40 +106,45 @@ struct HomeView: View {
                             Text("Laatste keer gebruikt").font(.headline)
                             Text("zoveel tijd geleden").font(.subheadline).padding(.bottom)
                         }
-                        HStack(alignment: .bottom){
-                            Text("-").font(.system(size: 55))
-                            Text("uur").font(.title)
-                            Text("-- ").font(.system(size: 55))
-                            Text("minuten").font(.title)
-                        }.foregroundColor(.white)
-                            .frame(width: 320, height: 90)
-                            .background(Color.backgroundColor).cornerRadius(10)
+                        ZStack(alignment: .center) {
+                            Image("BackgroundCircle")
+                            HStack(alignment: .bottom){
+                                Text("-").font(.system(size: 55))
+                                Text("uur").font(.title)
+                                Text("-- ").font(.system(size: 55))
+                                Text("Min").font(.title)
+                            }.foregroundColor(.white)
+                        }.frame(width: 320, height: nil)
                         
-                        NavigationLink(destination: BottomBarView()) {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text("Test je Drugs").font(.headline)
-                                    Text("Laat je drugs al vast testen bij één van de vele test punten").font(.subheadline).padding(.bottom)
-                                }
-                                Image("Home-test")
-                                    .foregroundColor(.white)
-                                    .font(.largeTitle)
-                                    .frame(width: 80, height: 80)
-                                    .background(Color.backgroundColor).cornerRadius(20)
-                            }.padding()
-                        }
+                        
+                    // Uitgecomment voor eventuele aanvulling op homescreen testlocaties
+                        
+                       // NavigationLink(destination: BottomBarView()) {
+                         //   HStack {
+                           //     VStack(alignment: .leading) {
+                             //       Text("Test je Drugs").font(.headline)
+                               //     Text("Laat je drugs al vast testen bij één van de vele test punten").font(.subheadline).padding(.bottom)
+                               // }
+                                //Image("Home-test")
+                                 //   .foregroundColor(.white)
+                                  //  .font(.largeTitle)
+                                  //  .frame(width: 80, height: 80)
+                                 //   .background(Color.backgroundColor).cornerRadius(20)
+                           // }.padding()
+                       // }
                         
                         Divider()
-                        NavigationLink(destination: MdmaInput()) {
+                        
                             HStack {
-                                Image("Tripsitter")
-                                    .foregroundColor(.white)
-                                    .font(.largeTitle)
-                                    .frame(width: 80, height: 80)
-                                    .background(Color.backgroundColor).cornerRadius(20)
-                                VStack(alignment: .leading) {
-                                    Text("Ga je feesten?").font(.headline)
-                                    Text("Start je eerste keer gebruik met de Gebruikr. tripsitter!").font(.subheadline).padding(.bottom)
+                                VStack(alignment: .center) {
+                                    Text("Ga je feesten?").font(.headline).foregroundColor(Color("MainColor"))
+                                    Text("Start je eerste keer gebruik met de tripsitter!").font(.subheadline).foregroundColor(.white).padding()
+                                    NavigationLink(destination: MdmaInput()) {
+                                    Image("Tripsitter")
+                                        .foregroundColor(.black)
+                                        .font(.largeTitle)
+                                        .frame(width: 80, height: 80)
+                                        .background(Color.backgroundColor).cornerRadius(20)
                                 }
                             }.padding()
                         }
@@ -142,6 +156,8 @@ struct HomeView: View {
         }
     }
 }
+//Hier moet de .onAppear {} komen. (Om de UserData te resetten.)
+//"MDMAPillSpecification" -> Moet gefixt worden.
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

@@ -28,17 +28,23 @@ struct MdmaWizard : View {
             VStack {
                 Text ("Heb je je pil getest?").font(.title).padding(.bottom).foregroundColor(Color("TextColor"))
                 
-                VStack{
+                VStack(alignment: .center){
                     
                     HStack{
                         Button(action: {
                             self.piltested = true
                         }){
                             if piltested == true{
-                                Text("Ja!").font(.title).foregroundColor(Color.black).frame(width:100, height: 50).background(Color.backgroundColor).cornerRadius(10)
+                                Text("Ja!").font(.body).foregroundColor(Color.black).frame(width:100, height: 50).background(Color("MainColor")).cornerRadius(20)
+                                    .overlay(
+                                            RoundedRectangle(cornerRadius: 16)
+                                                .stroke(Color("MainColor"), lineWidth: 3)).padding()
                             }
                             else{
-                                Text("Ja!").font(.title).foregroundColor(Color.black).frame(width:100, height: 50).background(Color("MainColor")).cornerRadius(10)
+                                Text("Ja!").font(.body).foregroundColor(Color.white).frame(width:100, height: 50).background(Color.black).cornerRadius(20)
+                                    .overlay(
+                                            RoundedRectangle(cornerRadius: 16)
+                                                .stroke(Color("MainColor"), lineWidth: 3)).padding()
                             }
                         }
                         
@@ -47,10 +53,14 @@ struct MdmaWizard : View {
                             self.piltested = false
                             self.userData.mdma = .unknown
                         }) {
-                            Text("Nee").font(.title).foregroundColor(Color.black).frame(width:100, height: 50).background(Color("MainColor")).cornerRadius(10).padding()
+                            Text("Nee").font(.body).foregroundColor(Color.white).frame(width:100, height: 50).background(Color.black).cornerRadius(20)
+                                .overlay(
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .stroke(Color("MainColor"), lineWidth: 3))
                         }
-                    }
-                }.padding(.bottom, 50)
+                    }.padding()
+                }.frame(width: nil, height: nil, alignment: .bottom)
+                .padding(.bottom, 50)
                 
                 
                 if piltested{
@@ -94,7 +104,7 @@ struct MdmaWizard : View {
                         Text("laten testen!").font(.title).padding(.bottom)
                         
                         
-                        Text("Dan weet je precies hoe veel mg MDMA er in je pil zit en kan Gebruikr. je beter helpen.")
+                        Text("Dan weet je precies hoeveel mg MDMA er in je pil zit en kan Gebruikr. je beter helpen.")
                     }.padding()
                 }.frame(width: 345).background(Color("BackgroundGray")).cornerRadius(10)
                 Spacer()
@@ -132,5 +142,3 @@ struct MdmaInput_Previews: PreviewProvider {
         MdmaInput().environmentObject(UserData())
     }
 }
-
-
