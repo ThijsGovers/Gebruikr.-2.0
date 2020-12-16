@@ -19,11 +19,13 @@ struct HomeView: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
-                //title
-                Text("Hi! \(userData.username)").font(.title).padding()
+                //title\
+                HStack {
+                Text("Hi!").font(.title) +
+                Text(" \(userData.username)").font(.title).foregroundColor(Color("MainColor"))
+                }.padding()
                 
                 //homeframe
-                
                 VStack (alignment: .leading){
                     if(userData.tripsitterActive == true){
                         
@@ -157,6 +159,8 @@ struct HomeView: View {
         }
     }
 }
+//Hier moet de .onAppear {} komen. (Om de UserData te resetten.)
+//"MDMAPillSpecification" -> Moet gefixt worden.
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

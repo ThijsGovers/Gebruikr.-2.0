@@ -26,11 +26,18 @@ struct GenderView: View {
         
         VStack{
             Spacer(minLength: 150)
+            Text("Nice to meet you").font(.largeTitle)
+                Text("\(userData.username)").font(.largeTitle).foregroundColor(Color("MainColor")) +
+            Text("!").font(.largeTitle)
+            
             HStack{
                 VStack{
                     Text("Wat is je").font(.title)
-                Text("biologische geslacht?").font(.title)
+                    Text("biologische geslacht?").font(.title) +
+                    Text("geslacht").foregroundColor(Color("MainColor")).font(.title) +
+                    Text("?").font(.title)
                 }
+                
                 Button(action: {
                     self.showGenderExplanation = true
                 }) {
@@ -43,6 +50,8 @@ struct GenderView: View {
                         GenderExplanationView()
                         
                 }
+                
+            
             }.foregroundColor(Color("TextColor"))
             HStack{
                 Button(action: {
