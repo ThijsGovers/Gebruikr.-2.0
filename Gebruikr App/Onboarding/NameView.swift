@@ -47,6 +47,7 @@ struct NameView: View {
             }.padding(.bottom)
             Spacer()
             TextField("Nickname...", text: $userData.username).padding(.bottom,100).textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
+                
            
             nextButton
             HStack{
