@@ -25,7 +25,7 @@ struct InformationView: View {
     
     var body: some View {
         VStack {
-            VStack(alignment: .leading){
+            VStack{
                 if timerData.timeCount > 0{
                     Text("Hi!").font(.largeTitle).foregroundColor(Color("MainColor")).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }

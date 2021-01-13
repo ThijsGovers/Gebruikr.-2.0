@@ -44,12 +44,16 @@ struct UserExplanationView: View {
                 Spacer ()
                     .frame(height: 50)
                 if timerData.timeCount > 20 {
-                    Text("Alle informatie die je deelt blijft van jou, en jou alleen!").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
-                        .font(.title)
+                    Text("Alle informatie die je deelt blijft van jou,").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }
+                        
+                if timerData.timeCount > 21 {
+                    Text("en jou alleen!")
+                        .transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).foregroundColor(Color("MainColor"))
                 }
             }
             Spacer()
-            if timerData.timeCount > 21 {
+            if timerData.timeCount > 22 {
                 VStack{
                     
                     NavigationLink(destination: NameView(step: $step)){

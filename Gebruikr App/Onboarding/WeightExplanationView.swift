@@ -11,6 +11,7 @@ import SwiftUI
 struct WeightExplanationView: View {
     var body: some View {
         VStack {
+            Spacer(minLength: 100)
                 //Op dit scherm is nog niet de ToV toegepast.
                         
             ExplanationTitleView (title: "Waarom wilt Gebruikr. mijn gewicht weten?")
@@ -31,7 +32,7 @@ struct WeightExplanationView: View {
                     
 
 
-        }.frame(width: 360, height: nil)
+        }
     }
 }
 

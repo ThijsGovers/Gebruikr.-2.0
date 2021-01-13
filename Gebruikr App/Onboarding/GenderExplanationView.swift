@@ -11,6 +11,7 @@ import SwiftUI
 struct GenderExplanationView: View {
     var body: some View {
         VStack {
+            Spacer(minLength: 100)
             ExplanationTitleView (title: "Waarom wilt Gebruikr. jouw geslacht weten?")
             
             ExplanationSectionView (header: "Wat gebeurd er met wat jij invult?", paragraph: "Gebruikr. slaat het geslacht wat door jou wordt ingevuld lokaal op. Hierdoor heb alleen jij toegang tot deze gegevens. Verder zal dit gebruikt worden om berekeningen te maken.")
