@@ -33,10 +33,12 @@ struct InformationView: View {
                     Text("Nice dat je er bent").font(.title).foregroundColor(.white).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
                 if timerData.timeCount > 2{
-                    Text("Gebruikr gaat je helpen om elk feestje lekker te gaan").font(.headline).foregroundColor(.white).padding(.bottom).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    Text("Gebruikr. gaat je helpen om ").font(.headline).foregroundColor(.white).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    Text("elk feestje lekker te gaan").font(.headline).foregroundColor(.white).padding(.bottom, 10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
                 if timerData.timeCount > 3{
-                    Text("Dit kan je van Gebruikr. verwachten:").font(.headline).foregroundColor(.white).padding(.bottom, 30).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    Text("Dit kan je van Gebruikr. ").font(.headline).foregroundColor(.white).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    Text("verwachten:").font(.headline).foregroundColor(.white).padding(.bottom, 30).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
             }
             if timerData.timeCount > 4{

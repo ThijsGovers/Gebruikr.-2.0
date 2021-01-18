@@ -31,12 +31,12 @@ struct InfoExplanationView: View {
         
         VStack{
             if timerData.timeCount > 9{
-                Text("Hiervoor heeft Gebruikr. wel wat info nodig").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                Text("Hiervoor heeft Gebruikr.") .transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                     .font(.largeTitle).lineLimit(nil)
-                    .frame(width: 350, height: 90, alignment: .leading)
-                Spacer ()
-                    .frame(height: 20)
+                Text("wel wat info nodig").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    .font(.largeTitle).lineLimit(nil).padding(.bottom, 10)
             }
+            
             
             VStack(alignment: .center) {
                 Spacer ()
