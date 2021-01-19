@@ -101,7 +101,7 @@ struct HomeView: View {
                         }.frame(width: 300, height:50).background(Color("BackgroundPillsUsed")).cornerRadius(10)
                         Divider()
                         NavigationLink(destination: MdmaInput()) {
-                            Text("Bijnemen").foregroundColor(Color.white).padding(12).font(.headline).background(Capsule().fill(Color("TextColor")))
+                            Text("Bijnemen").foregroundColor(Color.black).padding(12).font(.headline).background(Capsule().fill(Color("MainColor")))
                         }.frame(width: 320, alignment: .center)
                     } else {
                         VStack(alignment: .leading)  {
@@ -136,16 +136,13 @@ struct HomeView: View {
                         Divider()
                         
                             HStack {
-                                VStack(alignment: .center) {
+                                VStack {
                                     Text("Ga je feesten?").font(.headline).foregroundColor(Color("MainColor"))
                                     Text("Start je eerste keer gebruik met de tripsitter!").font(.subheadline).foregroundColor(.white).padding()
+                                    
                                     NavigationLink(destination: MdmaInput()) {
-                                    Image("Tripsitter")
-                                        .foregroundColor(.black)
-                                        .font(.largeTitle)
-                                        .frame(width: 80, height: 80)
-                                        .background(Color.backgroundColor).cornerRadius(20)
-                                }
+                                        Text("Start Tripzitter").foregroundColor(Color.black).padding(12).font(.headline).background(Capsule().fill(Color("MainColor")))
+                                    }.frame(width: nil, height: 80)
                             }.padding()
                         }
                     }

@@ -22,7 +22,7 @@ struct UserExplanationView: View {
     var body: some View {
         
         VStack {
-            VStack(alignment: .leading) {
+            VStack {
                 if timerData.timeCount > 16 {
                     Text("Oh!")
                         .font(.largeTitle).foregroundColor(Color("MainColor")).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
@@ -44,12 +44,15 @@ struct UserExplanationView: View {
                 Spacer ()
                     .frame(height: 50)
                 if timerData.timeCount > 20 {
-                    Text("Alle informatie die je deelt blijft van jou,").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    Text("Alle informatie die je ").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).font(.title)
                 }
+                if timerData.timeCount > 20 {
+                Text("deelt blijft van jou").transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).font(.title)
+                
                         
                 if timerData.timeCount > 21 {
                     Text("en jou alleen!")
-                        .transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).foregroundColor(Color("MainColor"))
+                        .transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).foregroundColor(Color("MainColor")).font(.title)
                 }
             }
             Spacer()
@@ -63,7 +66,7 @@ struct UserExplanationView: View {
                     
                 }.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
-        }.animation(.default).frame(width: 350, height: 600, alignment: .topLeading)
+        }.animation(.default)
             .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
@@ -73,3 +76,4 @@ struct UserExplanationView_Previews: PreviewProvider {
         UserExplanationView(step: .constant(2))
     }
 }	
+}
