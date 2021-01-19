@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Gebruikr.png",
+      "filename" : "Gebruikr 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Gebruikr@2x.png",
+      "filename" : "Gebruikr 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Gebruikr@3x.png",
+      "filename" : "Gebruikr 3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

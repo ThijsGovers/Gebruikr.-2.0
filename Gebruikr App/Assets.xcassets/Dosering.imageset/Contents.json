@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Dosering.png",
+      "filename" : "Icon pillen 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Icon pillen 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Icon pillen 3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "klok.png",
+      "filename" : "klok 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "klok@2x.png",
+      "filename" : "klok 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "klok@3x.png",
+      "filename" : "klok 3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

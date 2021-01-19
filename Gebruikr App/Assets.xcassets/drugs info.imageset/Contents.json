@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "drugs info.png",
+      "filename" : "Icon pillen 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "drugs info@2x.png",
+      "filename" : "Icon pillen 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "drugs info@3x.png",
+      "filename" : "Icon pillen 3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

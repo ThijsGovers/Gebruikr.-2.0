@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "femenine-2.png",
+      "filename" : "Femenine Z1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Femenine Z2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Femenine Z3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

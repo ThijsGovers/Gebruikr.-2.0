@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "masculine-2.png",
+      "filename" : "Masculine G1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Masculine G2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Masculine G3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
