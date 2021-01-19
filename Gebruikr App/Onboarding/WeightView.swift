@@ -24,15 +24,15 @@ struct WeightView: View {
         VStack{
             Spacer(minLength: 150)
             VStack{
-            HStack{
-                Text("Cool,")
-                Text("Thx").foregroundColor(Color("MainColor"))
-                Text("!")
-                Spacer()
-            }.font(.title)
+                HStack{
+                    Text("Cool,")
+                    Text("Thx").foregroundColor(Color("MainColor"))
+                    Text("!")
+                    Spacer()
+                }.font(.title)
             HStack{
                 Text("Wat is je").padding(.vertical, 30).font(.title)
-                Text("gewicht?").font(.title).foregroundColor(Color("MainColor"))
+                Text("gewicht").font(.title).foregroundColor(Color("MainColor"))
                 Text("?").font(.title)
             }
             Button(action: {
