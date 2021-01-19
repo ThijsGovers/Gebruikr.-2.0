@@ -44,7 +44,7 @@ struct NameView: View {
                 }.padding(.bottom)
             
             Spacer()
-            TextField("Nickname...", text: $userData.username).border(Color("MainColor")).cornerRadius(20).textFieldStyle(RoundedBorderTextFieldStyle()).padding()
+            TextField("Nickname...", text: $userData.username).border(Color("MainColor")).textFieldStyle(RoundedBorderTextFieldStyle())
           
             Spacer()
             nextButton

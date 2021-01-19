@@ -64,13 +64,13 @@ struct GenderView: View {
                 }){
                     if userData.gender == "Man"{
                         VStack{
-                            Image("masculine-2").foregroundColor(Color.white)
+                            Image("masculine-2")
                             
-                            Rectangle().fill(Color.white).frame(height: 2).padding(.horizontal)
+                            Rectangle().fill(Color.black).frame(height: 2).padding(.horizontal)
                             
-                            Text("Man").foregroundColor(Color.white)
+                            Text("Man").foregroundColor(Color.black)
                             
-                        }.frame(width: 107, height: 118).background(Color.backgroundColor).cornerRadius(10).shadow(radius: 5)
+                        }.frame(width: 107, height: 118).background(Color.backgroundColor).cornerRadius(10)
                     } else {
                         VStack{
                             Image("masculine-1").foregroundColor(Color.orange)
@@ -79,7 +79,7 @@ struct GenderView: View {
                                 .fill(Color("MainColor"))
                                 .frame(height: 2).padding(.horizontal)
                             Text("Man").foregroundColor(Color("TextColor"))
-                        }.frame(width: 107, height: 118).background(Color.black).cornerRadius(10).shadow(radius: 2)
+                        }.frame(width: 107, height: 118).cornerRadius(10)
                     }
                     
                 }.padding().buttonStyle(PlainButtonStyle())
@@ -92,24 +92,24 @@ struct GenderView: View {
                     if userData.gender == "Vrouw"{
                         VStack{
                             Image("femenine-2")
-                                .foregroundColor(Color.white)
+                                .foregroundColor(Color.black)
                             Rectangle()
-                                .fill(Color.white)
+                                .fill(Color.black)
                                 .frame(height: 2).padding(.horizontal)
-                            Text("Vrouw").foregroundColor(Color.white)
+                            Text("Vrouw").foregroundColor(Color.black)
                             
-                        }.frame(width: 107, height: 118).background(Color.backgroundColor).cornerRadius(10).shadow(radius: 2)
+                        }.frame(width: 107, height: 118).background(Color.backgroundColor).cornerRadius(10)
                     } else {
                         VStack{
                             Image("femenine-1")
-                                .foregroundColor(Color.orange)
+                                
                             
                             Rectangle()
                                 .fill(Color("MainColor"))
                                 .frame(height: 2).padding(.horizontal)
                             Text("Vrouw").foregroundColor(Color("TextColor"))
                             
-                        }.frame(width: 107, height: 118).background(Color.black).cornerRadius(10).shadow(radius: 2)
+                        }.frame(width: 107, height: 118).border(Color("Maincolor"))
                     }
                     
                 }.padding().buttonStyle(PlainButtonStyle())
