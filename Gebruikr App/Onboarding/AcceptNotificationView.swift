@@ -47,7 +47,7 @@ struct AcceptNotificationView: View {
             
             if(self.alertShown == true){
                 NavigationLink(destination: BottomBarView()){
-                    Text("Home").frame(width: 70).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+                    Text("Home").frame(width: 70).foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
                 }
             } else{
                 Button(action: {
@@ -63,7 +63,7 @@ struct AcceptNotificationView: View {
                             }
                     }
                 }) {
-                    Text("Accepteren").frame(width: 100).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+                    Text("Accepteren").frame(width: 100).foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
                 }.buttonStyle(PlainButtonStyle())
                 
             }

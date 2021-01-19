@@ -16,7 +16,7 @@ struct WeightView: View {
     
     private var nextButton: some View {
         NavigationLink(destination: InformationOverview(step: $step)){
-            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+            Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
         }
     }
     

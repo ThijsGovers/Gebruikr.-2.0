@@ -15,7 +15,7 @@ struct InformationView: View {
     
     private var nextButton: some View {
         NavigationLink(destination: InfoExplanationView(step: $step).environmentObject(timerData), isActive: $resetCounter){
-            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
+            Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
                 // Execute code here.
                 self.timerData.timeCount = 8
                 self.resetCounter = true
