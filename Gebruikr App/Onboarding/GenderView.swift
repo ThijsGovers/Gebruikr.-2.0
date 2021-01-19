@@ -76,10 +76,10 @@ struct GenderView: View {
                             Image("masculine-1").foregroundColor(Color.orange)
                             
                             Rectangle()
-                                .fill(Color("TextColor"))
+                                .fill(Color("MainColor"))
                                 .frame(height: 2).padding(.horizontal)
                             Text("Man").foregroundColor(Color("TextColor"))
-                        }.frame(width: 107, height: 118).background(Color.white).cornerRadius(10).shadow(radius: 2)
+                        }.frame(width: 107, height: 118).background(Color.black).cornerRadius(10).shadow(radius: 2)
                     }
                     
                 }.padding().buttonStyle(PlainButtonStyle())
@@ -105,11 +105,11 @@ struct GenderView: View {
                                 .foregroundColor(Color.orange)
                             
                             Rectangle()
-                                .fill(Color("TextColor"))
+                                .fill(Color("MainColor"))
                                 .frame(height: 2).padding(.horizontal)
                             Text("Vrouw").foregroundColor(Color("TextColor"))
                             
-                        }.frame(width: 107, height: 118).background(Color.white).cornerRadius(10).shadow(radius: 2)
+                        }.frame(width: 107, height: 118).background(Color.black).cornerRadius(10).shadow(radius: 2)
                     }
                     
                 }.padding().buttonStyle(PlainButtonStyle())
