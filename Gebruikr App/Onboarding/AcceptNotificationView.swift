@@ -39,7 +39,7 @@ struct AcceptNotificationView: View {
                         
                     
                 }.frame(width: 90, height: 90).padding()
-                    .background(Color("BackgroundPillsUsed"))
+                    
                     .cornerRadius(10).shadow(radius: 2)
                     
             }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
