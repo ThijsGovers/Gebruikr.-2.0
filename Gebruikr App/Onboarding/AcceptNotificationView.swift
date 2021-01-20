@@ -94,7 +94,6 @@ struct TestNotView {
 }
 }
 
-
 struct AcceptNotificationView_Previews: PreviewProvider {
     
     static var previews: some View {
