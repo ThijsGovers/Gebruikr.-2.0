@@ -22,6 +22,10 @@ struct NameView: View {
     
     var body: some View {
         
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+        
         VStack {
             
             
@@ -69,10 +73,12 @@ struct NameView: View {
             .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
+}
 
 struct NameView_Previews: PreviewProvider {
+   
     static var previews: some View {
-        NameView(step: .constant(3)).environmentObject(UserData())
+        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
     }
 }
 

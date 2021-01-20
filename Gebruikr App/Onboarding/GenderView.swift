@@ -24,6 +24,10 @@ struct GenderView: View {
     }
     var body: some View {
         
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+        
         VStack{
             
             Text("Nice to meet you").font(.largeTitle)
@@ -67,18 +71,16 @@ struct GenderView: View {
                         VStack{
                             Image("masculine-2")
                             
-                            Rectangle().fill(Color.black).frame(height: 2).padding(.horizontal)
+                           
                             
                             Text("Man").foregroundColor(Color.black)
                             
-                        }.frame(width: 107, height: 122).background(Color.backgroundColor).cornerRadius(10)
+                        }.frame(width: 107, height: 121).background(Color.backgroundColor).cornerRadius(10)
                     } else {
                         VStack{
                             Image("masculine-1").foregroundColor(Color.orange)
                             
-                            Rectangle()
-                                .fill(Color("MainColor"))
-                                .frame(height: 2).padding(.horizontal)
+                            
                             Text("Man").foregroundColor(Color("TextColor"))
                         }.frame(width: 75, height: 87)
                         .padding()
@@ -100,20 +102,16 @@ struct GenderView: View {
                         VStack{
                             Image("femenine-2")
                                 .foregroundColor(Color.black)
-                            Rectangle()
-                                .fill(Color.black)
-                                .frame(height: 2).padding(.horizontal)
+                           
                             Text("Vrouw").foregroundColor(Color.black)
                             
-                        }.frame(width: 107, height: 122).background(Color.backgroundColor).cornerRadius(10)
+                        }.frame(width: 107, height: 121).background(Color.backgroundColor).cornerRadius(10)
                     } else {
                         VStack{
                             Image("femenine-1")
                                 
                             
-                            Rectangle()
-                                .fill(Color("MainColor"))
-                                .frame(height: 2).padding(.horizontal)
+                           
                             Text("Vrouw").foregroundColor(Color("TextColor"))
                             
                         }.frame(width: 75, height: 87)
@@ -161,10 +159,11 @@ struct GenderView: View {
         
     }
 }
-
+}
 
 struct GenderView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        GenderView(step: .constant(4)).environmentObject(UserData())
+        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
     }
 }

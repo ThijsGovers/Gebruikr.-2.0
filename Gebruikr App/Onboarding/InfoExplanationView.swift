@@ -29,6 +29,10 @@ struct InfoExplanationView: View {
     
     var body: some View {
         
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+        
         VStack{
             if timerData.timeCount > 9{
                 Text("Hiervoor heeft Gebruikr.") .transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
@@ -92,9 +96,11 @@ struct InfoExplanationView: View {
             .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
+}
 
 struct InfoExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoExplanationView(step: .constant(1))
+        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
     }
 }
+

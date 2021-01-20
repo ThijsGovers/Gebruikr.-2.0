@@ -21,6 +21,10 @@ struct UserExplanationView: View {
     
     var body: some View {
         
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+            
         VStack {
             VStack {
                 if timerData.timeCount > 16 {
@@ -70,10 +74,12 @@ struct UserExplanationView: View {
             .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
+}
+}
 
 struct UserExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        UserExplanationView(step: .constant(2))
+        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
     }
-}	
 }
+

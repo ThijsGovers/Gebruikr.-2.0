@@ -21,6 +21,10 @@ struct WeightView: View {
     }
     
     var body: some View {
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+        
         VStack{
             Spacer(minLength: 150)
             VStack{
@@ -28,8 +32,9 @@ struct WeightView: View {
                     Text("Cool,")
                     Text("Thx").foregroundColor(Color("MainColor"))
                     Text("!")
-                    Spacer()
+                    
                 }.font(.title)
+           
             HStack{
                 Text("Wat is je").padding(.vertical, 30).font(.title)
                 Text("gewicht").font(.title).foregroundColor(Color("MainColor"))
@@ -69,10 +74,11 @@ struct WeightView: View {
     }
     
 }
-
+}
 
 struct WeightView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        WeightView(step: .constant(5)).environmentObject(UserData())
+        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
     }
 }

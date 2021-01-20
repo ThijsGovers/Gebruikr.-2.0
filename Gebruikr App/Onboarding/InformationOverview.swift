@@ -22,6 +22,11 @@ struct InformationOverview: View {
     }
     
     var body: some View {
+        
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+        
         VStack{
             Spacer()
             VStack {
@@ -89,4 +94,5 @@ struct InformationOverview_Previews: PreviewProvider {
     static var previews: some View {
         InformationOverview(step: .constant(6)).environmentObject(UserData())
     }
+}
 }

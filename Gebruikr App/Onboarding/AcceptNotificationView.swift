@@ -14,6 +14,11 @@ struct AcceptNotificationView: View {
     @State var showNotificationExplanation: Bool = false
     
     var body: some View {
+        
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+            
         VStack {
             Spacer().frame(height: 20)
             ExplanationTitleView (title: "Gebruikr. notifacties")
@@ -87,11 +92,12 @@ struct TestNotView {
         }
     }
 }
-
+}
 
 
 struct AcceptNotificationView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        AcceptNotificationView()
+        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
     }
 }
