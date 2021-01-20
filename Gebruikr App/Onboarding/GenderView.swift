@@ -162,8 +162,8 @@ struct GenderView: View {
 }
 
 struct GenderView_Previews: PreviewProvider {
-    
     static var previews: some View {
-        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
+        GenderView(step: .constant(4)).environmentObject(UserData()).environment(\.colorScheme, .dark)
     }
 }
+

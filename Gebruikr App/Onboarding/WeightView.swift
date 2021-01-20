@@ -77,8 +77,8 @@ struct WeightView: View {
 }
 
 struct WeightView_Previews: PreviewProvider {
-    
     static var previews: some View {
-        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
+        WeightView(step: .constant(5)).environmentObject(UserData()).environment(\.colorScheme, .dark)
     }
 }
+

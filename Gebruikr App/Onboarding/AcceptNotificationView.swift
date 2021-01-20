@@ -95,8 +95,8 @@ struct TestNotView {
 }
 
 struct AcceptNotificationView_Previews: PreviewProvider {
-    
     static var previews: some View {
-        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
+        AcceptNotificationView().environment(\.colorScheme, .dark)
     }
 }
+

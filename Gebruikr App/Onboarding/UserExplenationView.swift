@@ -79,7 +79,9 @@ struct UserExplanationView: View {
 
 struct UserExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
+        UserExplanationView(step: .constant(2)).environment(\.colorScheme, .dark)
     }
 }
+
+
 

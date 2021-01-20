@@ -76,10 +76,10 @@ struct NameView: View {
 }
 
 struct NameView_Previews: PreviewProvider {
-   
     static var previews: some View {
-        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
+        NameView(step: .constant(3)).environmentObject(UserData()).environment(\.colorScheme, .dark)
     }
 }
+
 
 

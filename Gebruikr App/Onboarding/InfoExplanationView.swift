@@ -100,7 +100,7 @@ struct InfoExplanationView: View {
 
 struct InfoExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
+        InfoExplanationView(step: .constant(1)).environment(\.colorScheme, .dark)
     }
 }
 
