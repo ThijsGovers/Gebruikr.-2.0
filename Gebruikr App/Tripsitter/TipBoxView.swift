@@ -27,6 +27,7 @@ struct TipBoxView: View {
                 
             }.frame(width: 325, alignment: .leading).padding()
                 .background(Color("BackgroundPillsUsed"))
+                .border(Color("MainColor"), width: 10)
                 .cornerRadius(10)
                 Spacer()
                     .frame(height: 10)

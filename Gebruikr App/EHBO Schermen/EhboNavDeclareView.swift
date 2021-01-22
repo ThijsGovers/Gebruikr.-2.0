@@ -13,17 +13,17 @@ struct EhboNavDeclareView: View {
     var header: String
     var paragraph: String
     var body: some View {
-        ZStack{
-            Color("systemGray6")
-                .edgesIgnoringSafeArea(.all)
             
             HStack {
                 Image(image)
-                    .frame(width: 20, height: nil, alignment: .leading)
+                    .frame(width: 60, height: nil, alignment: .leading)
                     .padding()
                 
                 VStack(alignment: .leading) {
                     Text(header).font(.title)
+                        .frame(minHeight: nil,
+                               maxHeight: nil)
+                    
                     Text(paragraph)
                 }.foregroundColor(.white)
                 .padding()
@@ -35,9 +35,7 @@ struct EhboNavDeclareView: View {
             ).background(Color("systemGray6"))
             .border(Color("MainColor"), width: 4)
             .cornerRadius(10)
-            .padding()
             
-        }
     }
 }
 
