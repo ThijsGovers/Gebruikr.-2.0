@@ -16,7 +16,7 @@ struct EhboNavDeclareView: View {
             
             HStack {
                 Image(image)
-                    .frame(width: 60, height: nil, alignment: .leading)
+                    .frame(width: nil, height: nil, alignment: .leading)
                     .padding()
                 
                 VStack(alignment: .leading) {
@@ -32,9 +32,10 @@ struct EhboNavDeclareView: View {
                     maxWidth: .infinity,
                     minHeight: 0,
                     maxHeight: nil
-            ).background(Color("systemGray6"))
-            .border(Color("MainColor"), width: 4)
-            .cornerRadius(10)
+            ).overlay(
+                RoundedRectangle(cornerRadius: 10)
+                .stroke(Color("MainColor"), lineWidth: 2)
+            )
             
     }
 }
