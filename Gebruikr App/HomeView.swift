@@ -17,6 +17,10 @@ struct HomeView: View {
     }()
     
     var body: some View {
+        ZStack {
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+            
         VStack {
             VStack(alignment: .leading) {
                 //title\
@@ -98,7 +102,7 @@ struct HomeView: View {
                             Text("Totaal").font(.headline).padding()
                             Spacer()
                             Text("\(userData.getTotalMg(), specifier: "%.0f") mg").font(.headline).padding()
-                        }.frame(width: 300, height:50).background(Color("BackgroundPillsUsed")).cornerRadius(10)
+                        }.frame(width: 300, height:50).background(Color("systemGray6")).cornerRadius(10)
                         Divider()
                         NavigationLink(destination: MdmaInput()) {
                             Text("Bijnemen").foregroundColor(Color.black).padding(12).font(.headline).background(Capsule().fill(Color("MainColor")))
@@ -147,12 +151,13 @@ struct HomeView: View {
                         }
                     }
                     
-                }.frame(width: 320).padding().background(Color("BackgroundGray")).cornerRadius(10).shadow(radius: 2)
+                }.frame(width: 320).padding().background(Color("systemGray6")).cornerRadius(10).shadow(radius: 2)
             }
             Spacer()
         }
         .onAppear{
             userData.resetpill()
+            }
         }
     }
 }
@@ -161,6 +166,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environmentObject(UserData())
+        HomeView().environment(\.colorScheme, .dark).environmentObject(UserData())
     }
 }
