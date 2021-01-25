@@ -19,16 +19,21 @@ struct GenderView: View {
     
     private var nextButton: some View {
         NavigationLink(destination: WeightView(step: $step)){
-            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+            Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
         }
     }
     var body: some View {
         
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+        
         VStack{
             
-            Text("Nice to meet you,").font(.largeTitle)
-                Text("\(userData.username)").font(.largeTitle).foregroundColor(Color("MainColor")) +
+            Text("Nice to meet you").font(.largeTitle)
+            Text("\(userData.username)").font(.largeTitle).foregroundColor(Color("MainColor")) +
             Text("!").font(.largeTitle)
+            
             
             VStack{
                 
@@ -64,22 +69,26 @@ struct GenderView: View {
                 }){
                     if userData.gender == "Man"{
                         VStack{
-                            Image("masculine-2").foregroundColor(Color.white)
+                            Image("masculine-2")
                             
-                            Rectangle().fill(Color.white).frame(height: 2).padding(.horizontal)
+                           
                             
-                            Text("Man").foregroundColor(Color.white)
+                            Text("Man").foregroundColor(Color.black)
                             
-                        }.frame(width: 107, height: 118).background(Color.backgroundColor).cornerRadius(10).shadow(radius: 5)
+                        }.frame(width: 107, height: 121).background(Color.backgroundColor).cornerRadius(10)
                     } else {
                         VStack{
                             Image("masculine-1").foregroundColor(Color.orange)
                             
-                            Rectangle()
-                                .fill(Color("MainColor"))
-                                .frame(height: 2).padding(.horizontal)
+                            
                             Text("Man").foregroundColor(Color("TextColor"))
-                        }.frame(width: 107, height: 118).background(Color.black).cornerRadius(10).shadow(radius: 2)
+                        }.frame(width: 75, height: 87)
+                        .padding()
+                        .foregroundColor(Color("MainColor"))
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color("MainColor"), lineWidth: 2)
+                        )
                     }
                     
                 }.padding().buttonStyle(PlainButtonStyle())
@@ -92,24 +101,29 @@ struct GenderView: View {
                     if userData.gender == "Vrouw"{
                         VStack{
                             Image("femenine-2")
-                                .foregroundColor(Color.white)
-                            Rectangle()
-                                .fill(Color.white)
-                                .frame(height: 2).padding(.horizontal)
-                            Text("Vrouw").foregroundColor(Color.white)
+                                .foregroundColor(Color.black)
+                           
+                            Text("Vrouw").foregroundColor(Color.black)
                             
-                        }.frame(width: 107, height: 118).background(Color.backgroundColor).cornerRadius(10).shadow(radius: 2)
+                        }.frame(width: 107, height: 121).background(Color.backgroundColor).cornerRadius(10)
                     } else {
                         VStack{
                             Image("femenine-1")
-                                .foregroundColor(Color.orange)
+                                
                             
-                            Rectangle()
-                                .fill(Color("MainColor"))
-                                .frame(height: 2).padding(.horizontal)
+                           
                             Text("Vrouw").foregroundColor(Color("TextColor"))
                             
-                        }.frame(width: 107, height: 118).background(Color.black).cornerRadius(10).shadow(radius: 2)
+                        }.frame(width: 75, height: 87)
+                        .padding()
+                        .foregroundColor(Color("MainColor"))
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color("MainColor"), lineWidth: 2)
+                        )
+                        //.border(Color("MainColor"), width: 2).cornerRadius(15)
+                            
+                            
                     }
                     
                 }.padding().buttonStyle(PlainButtonStyle())
@@ -145,10 +159,11 @@ struct GenderView: View {
         
     }
 }
-
+}
 
 struct GenderView_Previews: PreviewProvider {
     static var previews: some View {
-        GenderView(step: .constant(4)).environmentObject(UserData())
+        GenderView(step: .constant(4)).environmentObject(UserData()).environment(\.colorScheme, .dark)
     }
 }
+

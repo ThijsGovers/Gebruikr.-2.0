@@ -17,11 +17,16 @@ struct InformationOverview: View {
     
     private var completeButton: some View {
         NavigationLink(destination: AcceptNotificationView()){
-            Text("Yes!").frame(width: 70).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+            Text("Yes!").frame(width: 70).foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
         }
     }
     
     var body: some View {
+        
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+        
         VStack{
             Spacer()
             VStack {
@@ -40,8 +45,8 @@ struct InformationOverview: View {
                     Image(systemName: "person.fill").resizable()
                         .frame(width: 35.0, height: 35.0).padding(.top)
                     Spacer()
-                    Text("\(userData.username)").frame(width: 240).foregroundColor(Color.white).background(Color.backgroundColor)
-                }.frame(width: 240, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
+                    Text("\(userData.username)").frame(width: 240).foregroundColor(Color.black).background(Color.backgroundColor)
+                }.frame(width: 240, height: 80).background(Color.black).cornerRadius(10).shadow(radius: 5)
                     .foregroundColor(Color("TextColor"))
             }.padding(.bottom, 15)
             HStack{
@@ -54,8 +59,8 @@ struct InformationOverview: View {
                         Image("weight").resizable()
                             .frame(width: 35.0, height: 35.0).padding(.top)
                         Spacer()
-                        Text("\(userData.weight, specifier: "%.0f") KG").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
-                    }.frame(width: 80, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5)
+                        Text("\(userData.weight, specifier: "%.0f") KG").frame(width: 80).foregroundColor(Color.black).background(Color.backgroundColor)
+                    }.frame(width: 80, height: 80).background(Color.black).cornerRadius(10).shadow(radius: 5)
                 }.foregroundColor(Color("TextColor"))
                 
                 
@@ -67,13 +72,13 @@ struct InformationOverview: View {
                             .frame(width: 50.0, height: 35.0).padding(.top)
                         Spacer()
                         if userData.gender == "Man"{
-                            Text("MAN").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
+                            Text("MAN").frame(width: 80).foregroundColor(Color.black).background(Color.backgroundColor)
                         } else if userData.gender == "Vrouw" {
-                            Text("Vrouw").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
+                            Text("Vrouw").frame(width: 80).foregroundColor(Color.black).background(Color.backgroundColor)
                         } else {
-                            Text("n.v.t.").frame(width: 80).foregroundColor(Color.white).background(Color.backgroundColor)
+                            Text("n.v.t.").frame(width: 80).foregroundColor(Color.black).background(Color.backgroundColor)
                         }
-                    }.frame(width: 80, height: 80).background(Color.white).cornerRadius(10).shadow(radius: 5).foregroundColor(Color("TextColor"))
+                    }.frame(width: 80, height: 80).background(Color.black).cornerRadius(10).shadow(radius: 5).foregroundColor(Color("TextColor"))
                     
                 }
                 Spacer()
@@ -89,4 +94,5 @@ struct InformationOverview_Previews: PreviewProvider {
     static var previews: some View {
         InformationOverview(step: .constant(6)).environmentObject(UserData())
     }
+}
 }

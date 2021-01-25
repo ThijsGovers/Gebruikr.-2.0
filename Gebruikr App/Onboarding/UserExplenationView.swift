@@ -15,12 +15,16 @@ struct UserExplanationView: View {
     
     private var nextButton: some View {
         NavigationLink(destination: NameView(step: $step)){
-            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+            Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
         }
     }
     
     var body: some View {
         
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+            
         VStack {
             VStack {
                 if timerData.timeCount > 16 {
@@ -70,10 +74,14 @@ struct UserExplanationView: View {
             .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
+}
+}
 
 struct UserExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        UserExplanationView(step: .constant(2))
+        UserExplanationView(step: .constant(2)).environment(\.colorScheme, .dark)
     }
-}	
 }
+
+
+

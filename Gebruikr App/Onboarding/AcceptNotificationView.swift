@@ -14,6 +14,11 @@ struct AcceptNotificationView: View {
     @State var showNotificationExplanation: Bool = false
     
     var body: some View {
+        
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+            
         VStack {
             Spacer().frame(height: 20)
             ExplanationTitleView (title: "Gebruikr. notifacties")
@@ -34,7 +39,7 @@ struct AcceptNotificationView: View {
                         
                     
                 }.frame(width: 90, height: 90).padding()
-                    .background(Color("BackgroundPillsUsed"))
+                    
                     .cornerRadius(10).shadow(radius: 2)
                     
             }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
@@ -47,7 +52,7 @@ struct AcceptNotificationView: View {
             
             if(self.alertShown == true){
                 NavigationLink(destination: BottomBarView()){
-                    Text("Home").frame(width: 70).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+                    Text("Home").frame(width: 70).foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
                 }
             } else{
                 Button(action: {
@@ -63,7 +68,7 @@ struct AcceptNotificationView: View {
                             }
                     }
                 }) {
-                    Text("Accepteren").frame(width: 100).foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+                    Text("Accepteren").frame(width: 100).foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
                 }.buttonStyle(PlainButtonStyle())
                 
             }
@@ -87,11 +92,11 @@ struct TestNotView {
         }
     }
 }
-
-
+}
 
 struct AcceptNotificationView_Previews: PreviewProvider {
     static var previews: some View {
-        AcceptNotificationView()
+        AcceptNotificationView().environment(\.colorScheme, .dark)
     }
 }
+

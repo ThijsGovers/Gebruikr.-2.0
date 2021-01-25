@@ -19,7 +19,7 @@ struct InfoExplanationView: View {
     
     private var nextButton: some View {
         NavigationLink(destination: UserExplanationView(step: $step).environmentObject(timerData), isActive: $resetCounter){
-            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
+            Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
                 // Execute code here.
                 self.timerData.timeCount = 15
                 self.resetCounter = true
@@ -28,6 +28,10 @@ struct InfoExplanationView: View {
     }
     
     var body: some View {
+        
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
         
         VStack{
             if timerData.timeCount > 9{
@@ -63,7 +67,7 @@ struct InfoExplanationView: View {
                         self.showGenderExplanation = true
                     }) {
                         Image ("GenderIcon").resizable()
-                            .frame(width: 130, height: 110, alignment: .center)
+                            .frame(width: 110, height: 125, alignment: .center)
                     }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                         
                         .sheet(isPresented: $showGenderExplanation) {
@@ -92,9 +96,11 @@ struct InfoExplanationView: View {
             .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
+}
 
 struct InfoExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoExplanationView(step: .constant(1))
+        InfoExplanationView(step: .constant(1)).environment(\.colorScheme, .dark)
     }
 }
+

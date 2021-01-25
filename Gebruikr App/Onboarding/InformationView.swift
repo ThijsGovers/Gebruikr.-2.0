@@ -15,7 +15,7 @@ struct InformationView: View {
     
     private var nextButton: some View {
         NavigationLink(destination: InfoExplanationView(step: $step).environmentObject(timerData), isActive: $resetCounter){
-            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
+            Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
                 // Execute code here.
                 self.timerData.timeCount = 8
                 self.resetCounter = true
@@ -24,6 +24,11 @@ struct InformationView: View {
     }
     
     var body: some View {
+        
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+        
         VStack {
             VStack{
                 if timerData.timeCount > 0{
@@ -90,6 +95,7 @@ struct InformationView: View {
         }.navigationBarTitle("").navigationBarBackButtonHidden(true).animation(.default).padding()
     }
 }
+}
 
 struct InformationView_Previews: PreviewProvider {
     
@@ -97,3 +103,4 @@ struct InformationView_Previews: PreviewProvider {
         InformationView(step: .constant(0)).environment(\.colorScheme, .dark)
     }
 }
+

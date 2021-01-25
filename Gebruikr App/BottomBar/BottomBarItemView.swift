@@ -27,10 +27,6 @@ public struct BottomBarItemView: View {
                     .foregroundColor(.white).font(.system(size: 11))
             }
         }
-        .padding(isSelected ? 15 : 0).frame(width: 80)
-        .background(
-            Circle()
-                .fill(isSelected ? Color.white : Color.clear)
-        )
+        
     }
 }

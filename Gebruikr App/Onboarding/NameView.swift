@@ -16,11 +16,15 @@ struct NameView: View {
     
     private var nextButton: some View {
         NavigationLink(destination: GenderView(step: $step)){
-            Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+            Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
         }
     }
     
     var body: some View {
+        
+        ZStack{
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
         
         VStack {
             
@@ -44,8 +48,15 @@ struct NameView: View {
                 }.padding(.bottom)
             
             Spacer()
-            TextField("Nickname...", text: $userData.username).padding(.bottom,100).textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 2)
-           
+            TextField("Nickname...", text: $userData.username)//.border(Color("MainColor")).textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 75, height: 87)
+                .padding()
+                .foregroundColor(Color(.white))
+                .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color("MainColor"), lineWidth: 2)
+                )
+          
+            Spacer()
             nextButton
             HStack{
                 Circle()
@@ -62,11 +73,13 @@ struct NameView: View {
             .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))
     }
 }
+}
 
 struct NameView_Previews: PreviewProvider {
     static var previews: some View {
-        NameView(step: .constant(3)).environmentObject(UserData())
+        NameView(step: .constant(3)).environmentObject(UserData()).environment(\.colorScheme, .dark)
     }
 }
+
 
 
