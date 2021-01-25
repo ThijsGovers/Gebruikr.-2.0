@@ -44,7 +44,7 @@ struct BottomBarView : View {
                     HomeView()
                 }else if (selectedIndex == 2){
                     Spacer()
-                    Text("Dit is de drugs info pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
+                    EhboOverzichtView()
                 }
                 
                 BottomBar(selectedIndex: $selectedIndex, items: items)
