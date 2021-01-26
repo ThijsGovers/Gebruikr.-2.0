@@ -20,7 +20,7 @@ struct NazorgView: View {
                 NavigationLink(destination: EhboTipsView()) {
                     EhboNavDeclareView(image: "Nazorgicon", header: "Nazorg Tips", paragraph: "Check hier hoe jij beter door je dinsdagdip heen komt!")
                 }
-                
+                ScrollView{
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Neem genoeg rust").font(.headline).foregroundColor(.white) .padding(.bottom, 7)
@@ -73,7 +73,6 @@ struct NazorgView: View {
 
                         - Zouten
                         Probeer 3 gram zout binnen te krijgen. Tijdens feestjes kan het helpen een zoutoplossing in je water te doen of een sportdrank te drinken met isotonen.
-
                         """)
                             .font(.caption).multilineTextAlignment(.leading).padding(.bottom)
                     }.padding(.horizontal).foregroundColor(.white)
@@ -83,7 +82,7 @@ struct NazorgView: View {
         }
     }
 }
-
+}
 struct NazorgView_Previews: PreviewProvider {
     static var previews: some View {
         NazorgView().environment(\.colorScheme, .dark)
