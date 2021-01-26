@@ -21,7 +21,7 @@ struct EhboOverzichtView: View {
                     EhboNavDeclareView(image: "Ehboicon", header: "EHBO Tips", paragraph: "Check hier wat je kunt doen wanneer jij iemand niet helemaal lekker gaat.")
                 }
                 
-                NavigationLink(destination: EhboTipsView()) {
+                NavigationLink(destination: DrugsInfoView()) {
                     EhboNavDeclareView(image: "Drugsinfoicon", header: "Drugs Info", paragraph: "Check hier de werking, effecten en risico's van verschillende drugs!")
                 }
                 
