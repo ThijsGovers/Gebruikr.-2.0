@@ -24,10 +24,14 @@ struct useAmountView: View {
                                    VStack{
                                        Image("HeleSelected").resizable()
                                        .frame(width: 39.0, height: 39.0).foregroundColor(Color.white)
-                                       Divider().background(Color.white).padding(.horizontal)
+                                    Divider().background(Color("MainColor")).padding(.horizontal)
                                        Text("Hele").foregroundColor(Color.white)
                                        
-                                   }.frame(width: 80, height: 90).background(Color.backgroundColor).cornerRadius(10).shadow(radius: 2)
+                                   }.frame(width: 80, height: 90)
+                                   .overlay(
+                                       RoundedRectangle(cornerRadius: 10)
+                                       .stroke(Color("MainColor"), lineWidth: 2))
+
                                } else {
                                    VStack{
                                        Image("Hele").resizable()

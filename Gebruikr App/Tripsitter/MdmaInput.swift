@@ -58,8 +58,10 @@ struct MdmaWizard : View {
     }
     
     var unspecifiedscreen : some View {
-        VStack {
-            Text ("Heb je je pil getest?").font(.title).padding(.bottom).foregroundColor(Color("TextColor"))
+        VStack(alignment: .center){
+            
+            Text ("Heb je je pil laten testen?").font(.title).padding(.bottom).foregroundColor(Color("TextColor"))
+            Text ("Dit vragen we om te checken hoevel miligram MDMA er in de pil zit")
             
             VStack(alignment: .center){
                 
@@ -103,7 +105,7 @@ struct MdmaWizard : View {
                     Button(action: {
                         self.userData.mdma = .specified(amountInMG: Double (self.mdmInMG)!) // <--dit is riskant
                     }) {
-                        Text("Invoeren").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+                        Text("Invoeren").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
                     }.disabled(mdmInMG.isEmpty)
                     
                 }

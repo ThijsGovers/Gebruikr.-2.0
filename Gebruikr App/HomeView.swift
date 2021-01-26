@@ -24,6 +24,7 @@ struct HomeView: View {
         VStack {
             VStack(alignment: .leading) {
                 //title\
+            
                 HStack {
                 Text("Hi!").font(.title) +
                 Text(" \(userData.username)").font(.title).foregroundColor(Color("MainColor"))
@@ -37,20 +38,27 @@ struct HomeView: View {
                             Text("Laatste keer gebruikt").font(.headline)
                             Text("zoveel tijd geleden").font(.subheadline).padding(.bottom)
                         }.foregroundColor(Color("MainColor"))
-                        
+                        ZStack {
                         HStack(alignment: .bottom){
+                            
                             if (self.userData.minutesSinceLastPill >= 0){
-                                Text("\(userData.hoursSinceLastPill)").font(.system(size: 55))
-                                Text("uur").font(.title)
-                                Text("\(userData.minutesSinceLastPill)").font(.system(size: 55))
-                                if (self.userData.minutesSinceLastPill < 2 && self.userData.minutesSinceLastPill < 0){
-                                    Text("minuut").font(.title)
-                                } else{
-                                    Text("minuten").font(.title)
+                                ZStack {
+                                    AnimatedTimerView()
+                                        HStack {
+                                        Text("\(userData.hoursSinceLastPill)").font(.system(size: 55))
+                                        Text("uur").font(.title)
+                                        Text("\(userData.minutesSinceLastPill)").font(.system(size: 55))
+                                        if (self.userData.minutesSinceLastPill < 2 && self.userData.minutesSinceLastPill < 0){
+                                            Text("minuut").font(.title)
+                                        } else{
+                                            Text("minuten").font(.title)
+                                        }
+                                    }
                                 }
-                            } else {
+                            }
+                            else {
                                 ZStack(alignment: .center) {
-                                    Image("BackgroundCircle")
+                                    AnimatedTimerView()
                                     HStack(alignment: .bottom){
                                         Text("-").font(.system(size: 55))
                                         Text("uur").font(.title)
@@ -59,6 +67,8 @@ struct HomeView: View {
                                     }.foregroundColor(.white)
                                 }.frame(width: 320, height: nil)
                             }
+                        }
+                            
                             
                         
                         //.foregroundColor(.white)
@@ -113,7 +123,7 @@ struct HomeView: View {
                             Text("zoveel tijd geleden").font(.subheadline).padding(.bottom)
                         }
                         ZStack(alignment: .center) {
-                            Image("BackgroundCircle")
+                            AnimatedTimerView()
                             HStack(alignment: .bottom){
                                 Text("-").font(.system(size: 55))
                                 Text("uur").font(.title)

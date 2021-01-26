@@ -51,16 +51,14 @@ struct AnimatedTimerView: View {
 
 //De button beneden moet vervangen worden met Tripsitteractivestate = true.
             
-            Button(action: {
-                model.startTimer()
-            }) {
-                    Image (systemName: "play")
-                        .font(Font.system(size: 50))
-            }
-            .buttonStyle(PlainButtonStyle())
-            .padding()
+            
         }
-        .frame (width:80, height:80)
+        .frame (width:300, height:300)
+        .onAppear() {
+            if userData.tripsitterActive {
+                model.startTimer()
+            }
+        }
 
     }
     
