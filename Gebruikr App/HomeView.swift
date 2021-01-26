@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var userData: UserData
+    @ObservedObject var modelTimerTwee = TimerViewModel()
     static let taskDateFormat: DateFormatter =     {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
@@ -27,7 +28,6 @@ struct HomeView: View {
                 //homeframe
                 VStack {
                     if(userData.tripsitterActive == true){
-                        
 
                         ZStack {
                         HStack(alignment: .bottom){
@@ -46,6 +46,11 @@ struct HomeView: View {
                                         }
                                     }
                                 }
+                                .onAppear() {
+                            if userData.tripsitterActive == true {
+                                modelTimerTwee.startTimerTwee()
+                            }
+                        }
                             }
                             else {
                                 ZStack(alignment: .center) {
@@ -57,6 +62,11 @@ struct HomeView: View {
                                         Text("Min").font(.title)
                                     }.foregroundColor(.white)
                                 }.frame(width: 320, height: nil)
+                                .onAppear() {
+                            if userData.tripsitterActive == true {
+                                modelTimerTwee.startTimerTwee()
+                            }
+                        }
                             }
                         }
                             
@@ -111,7 +121,8 @@ struct HomeView: View {
                         NavigationLink(destination: MdmaInput()) {
                             Text("Bijnemen").foregroundColor(Color.black).padding(12).font(.headline).background(Capsule().fill(Color("MainColor")))
                         }.frame(width: 320, alignment: .center)
-                    } else {
+                    }
+                    else {
                         ZStack(alignment: .center) {
                             AnimatedTimerView()
                             HStack(alignment: .bottom){
@@ -121,6 +132,11 @@ struct HomeView: View {
                                 Text("Min").font(.title)
                             }.foregroundColor(.white)
                         }.frame(width: 320, height: nil)
+                        .onAppear() {
+                    if userData.tripsitterActive == true {
+                        modelTimerTwee.startTimerTwee()
+                    }
+                }
                         
                     // Uitgecomment voor eventuele aanvulling op homescreen testlocaties
                         
@@ -166,11 +182,12 @@ struct HomeView: View {
         }
     }
 }
+
 //Hier moet de .onAppear {} komen. (Om de UserData te resetten.)
 //"MDMAPillSpecification" -> Moet gefixt worden.
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environment(\.colorScheme, .dark).environmentObject(UserData()).environmentObject(ViewModel())
+        HomeView().environment(\.colorScheme, .dark).environmentObject(UserData()).environmentObject(TimerViewModel())
     }
 }
