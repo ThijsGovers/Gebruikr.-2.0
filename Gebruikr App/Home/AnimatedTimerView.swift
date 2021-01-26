@@ -35,28 +35,33 @@ struct AnimatedTimerView: View {
     @EnvironmentObject var userData: UserData
     
     var body: some View {
-
         ZStack {
-            Circle()
-                .stroke(lineWidth: 5)
-                .opacity(0.3)
-                .foregroundColor(Color.gray)
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+            ZStack {
+                Circle()
+                    .stroke(lineWidth: 5)
+                    .opacity(0.3)
+                    .foregroundColor(Color.white)
 
-            Circle()
-                .trim(from: 0.0, to: CGFloat(min(model.percentage, 1.0)))
-                .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Color.gray)
-                .rotationEffect(Angle(degrees: 270.0))
-                .animation(.linear)
+                Circle()
+                    .trim(from: 0.0, to: CGFloat(min(model.percentage, 1.0)))
+                    .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
+                    .foregroundColor(Color("MainColor"))
+                    .rotationEffect(Angle(degrees: 270.0))
+                    .animation(.linear)
 
-//De button beneden moet vervangen worden met Tripsitteractivestate = true.
-            
-            
-        }
-        .frame (width:300, height:300)
+    //De button beneden moet vervangen worden met Tripsitteractivestate = true.            if userData.tripsitterActive {
+                //model.startTimer()
+                
+                
+            }
+        .frame (width:320, height:320)
         .onAppear() {
-            if userData.tripsitterActive {
-                model.startTimer()
+                if userData.tripsitterActive == true{
+                    model.startTimer()
+                }
+                
             }
         }
 
@@ -68,6 +73,6 @@ struct AnimatedTimerView: View {
 
 struct AnimatedTimerView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimatedTimerView().environmentObject(UserData())
+        AnimatedTimerView().environmentObject(UserData()).environment(\.colorScheme, .dark)
     }
 }

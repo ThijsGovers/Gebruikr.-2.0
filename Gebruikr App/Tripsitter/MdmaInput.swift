@@ -52,7 +52,7 @@ struct MdmaWizard : View {
             }.frame(width: 345).background(Color("BackgroundGray")).cornerRadius(10)
             Spacer()
             NavigationLink(destination: useAmountView().navigationBarTitle("Tripsitter", displayMode: .inline)){
-                Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
+                Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
             }
         }.foregroundColor(Color("TextColor"))
     }
@@ -76,10 +76,10 @@ struct MdmaWizard : View {
                                             .stroke(Color("MainColor"), lineWidth: 3)).padding()
                         }
                         else{
-                            Text("Ja!").font(.body).foregroundColor(Color.white).frame(width:100, height: 50).background(Color.black).cornerRadius(20)
+                            Text("Ja!").font(.body).foregroundColor(Color.white).frame(width:100, height: 50)
                                 .overlay(
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .stroke(Color("MainColor"), lineWidth: 3)).padding()
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color("MainColor"), lineWidth: 2)).padding()
                         }
                     }
                     
@@ -88,10 +88,10 @@ struct MdmaWizard : View {
                         self.piltested = false
                         self.userData.mdma = .unknown
                     }) {
-                        Text("Nee").font(.body).foregroundColor(Color.white).frame(width:100, height: 50).background(Color.black).cornerRadius(20)
+                        Text("Nee").font(.body).foregroundColor(Color.white).frame(width:100, height: 50)
                             .overlay(
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .stroke(Color("MainColor"), lineWidth: 3))
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color("MainColor"), lineWidth: 2))
                     }
                 }.padding()
             }.frame(width: nil, height: nil, alignment: .bottom)

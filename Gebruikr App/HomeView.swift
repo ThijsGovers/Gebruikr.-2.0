@@ -22,22 +22,13 @@ struct HomeView: View {
                 .edgesIgnoringSafeArea(.all)
             
         VStack {
-            VStack(alignment: .leading) {
-                //title\
-            
-                HStack {
-                Text("Hi!").font(.title) +
-                Text(" \(userData.username)").font(.title).foregroundColor(Color("MainColor"))
-                }.padding()
+            VStack {
                 
                 //homeframe
-                VStack (alignment: .leading){
+                VStack {
                     if(userData.tripsitterActive == true){
                         
-                        VStack (alignment: .leading){
-                            Text("Laatste keer gebruikt").font(.headline)
-                            Text("zoveel tijd geleden").font(.subheadline).padding(.bottom)
-                        }.foregroundColor(Color("MainColor"))
+
                         ZStack {
                         HStack(alignment: .bottom){
                             
@@ -76,16 +67,19 @@ struct HomeView: View {
                           //  .background(Color.backgroundColor).cornerRadius(10)
                     }
                         ScrollView(.vertical) {
-                            VStack(alignment: .leading){
+                            VStack {
                                 Text("Dit heb je al gebruikt:").font(.headline).padding(.top)
                                 ForEach(userData.pillsUsed){ pill in
                                     HStack{
                                         if(pill.partsAmount != .unspecified){
-                                            HStack{
-                                                Image("klok").resizable()
-                                                    .frame(width: 25.0, height: 25.0).foregroundColor(Color("TextColor"))
-                                                Text("\(pill.time, formatter: Self.taskDateFormat)")
-                                            }.frame(width: 110).padding(.trailing, 25)
+                                            VStack {
+                                                HStack{
+                                                    Image("klok").resizable()
+                                                        .frame(width: 25.0, height: 25.0).foregroundColor(Color.white)
+                                                    Text("\(pill.time, formatter: Self.taskDateFormat)")
+                                                }.frame(width: 110).padding(.trailing, 25)
+                                                Divider()
+                                            }
                                         }
                                         if(pill.partsAmount == .full){
                                             Image("Hele").resizable()
@@ -118,10 +112,6 @@ struct HomeView: View {
                             Text("Bijnemen").foregroundColor(Color.black).padding(12).font(.headline).background(Capsule().fill(Color("MainColor")))
                         }.frame(width: 320, alignment: .center)
                     } else {
-                        VStack(alignment: .leading)  {
-                            Text("Laatste keer gebruikt").font(.headline)
-                            Text("zoveel tijd geleden").font(.subheadline).padding(.bottom)
-                        }
                         ZStack(alignment: .center) {
                             AnimatedTimerView()
                             HStack(alignment: .bottom){
@@ -147,12 +137,17 @@ struct HomeView: View {
                                  //   .background(Color.backgroundColor).cornerRadius(20)
                            // }.padding()
                        // }
-                        Divider()
-                        
-                            HStack {
+                        HStack(alignment: .bottom){
                                 VStack {
-                                    Text("Ga je feesten?").font(.headline).foregroundColor(Color("MainColor"))
-                                    Text("Start je eerste keer gebruik met de tripsitter!").font(.subheadline).foregroundColor(.white).padding()
+                                    Spacer()
+                                    HStack {
+                                    Text("Hey").font(.title) +
+                                    Text(" \(userData.username)").font(.title).foregroundColor(Color("MainColor")) +
+                                        Text("!").font(.title)
+                                        
+                                    }.padding(.top)
+                                    
+                                    Text("Klaar voor het feestje?").font(.headline).foregroundColor(Color.white)
                                     
                                     NavigationLink(destination: MdmaInput()) {
                                         Text("Start Tripzitter").foregroundColor(Color.black).padding(12).font(.headline).background(Capsule().fill(Color("MainColor")))
@@ -161,7 +156,7 @@ struct HomeView: View {
                         }
                     }
                     
-                }.frame(width: 320).padding().background(Color("systemGray6")).cornerRadius(10).shadow(radius: 2)
+                }.frame(width: 320).padding().background(Color("systemGray6")).cornerRadius(10)
             }
             Spacer()
         }
@@ -176,6 +171,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().environment(\.colorScheme, .dark).environmentObject(UserData())
+        HomeView().environment(\.colorScheme, .dark).environmentObject(UserData()).environmentObject(ViewModel())
     }
 }

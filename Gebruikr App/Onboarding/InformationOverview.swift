@@ -29,11 +29,16 @@ struct InformationOverview: View {
         
         VStack{
             Spacer()
+                .frame(height: 40)
             VStack {
                 Text("Top!")
-                Text("Klopt dit allemaal?")
+                Spacer()
+                    .frame(height: 20)
+                
+                Text("Nog ff ") +
+                Text("checken").foregroundColor(Color("MainColor")) +
+                Text("?")
             }.font(.title)
-                .foregroundColor(Color("TextColor"))
             Spacer()
             Text("Tap hier als je toch iets wilt aanpassen:").font(.caption)
                 .foregroundColor(Color("TextColor"))
@@ -42,26 +47,38 @@ struct InformationOverview: View {
             NavigationLink(destination: NameView(step: $step)){
                 
                 VStack{
-                    Image(systemName: "person.fill").resizable()
-                        .frame(width: 35.0, height: 35.0).padding(.top)
+                    Image("NameIcon").resizable()
+                        .frame(width: 70.0, height: 70).padding(.top).foregroundColor(Color("MainColor"))
+                        .padding(.top, 15)
                     Spacer()
-                    Text("\(userData.username)").frame(width: 240).foregroundColor(Color.black).background(Color.backgroundColor)
-                }.frame(width: 240, height: 80).background(Color.black).cornerRadius(10).shadow(radius: 5)
-                    .foregroundColor(Color("TextColor"))
-            }.padding(.bottom, 15)
+                    Divider().background(Color("MainColor")).padding(.horizontal)
+                    
+                    Text("\(userData.username)").frame(
+                        minWidth: 0,
+                        maxWidth: 280).padding(.bottom, 25)
+                }.frame(width: 300, height: 120)
+                        .overlay(
+                        RoundedRectangle(cornerRadius:10)
+                            .stroke(Color("MainColor"), lineWidth: 2))
+                    }.padding(.bottom, 15)
+            
             HStack{
-                
                 
                 Spacer()
                 
                 NavigationLink(destination: WeightView(step: $step)){
                     VStack{
                         Image("weight").resizable()
-                            .frame(width: 35.0, height: 35.0).padding(.top)
+                            .frame(width: 52.5, height: 52.5).padding(.top, 15)
                         Spacer()
-                        Text("\(userData.weight, specifier: "%.0f") KG").frame(width: 80).foregroundColor(Color.black).background(Color.backgroundColor)
-                    }.frame(width: 80, height: 80).background(Color.black).cornerRadius(10).shadow(radius: 5)
-                }.foregroundColor(Color("TextColor"))
+                        Divider().background(Color("MainColor")).padding(.horizontal)
+                        
+                        Text("\(userData.weight, specifier: "%.0f") KG").frame(width: 80).foregroundColor(Color.white).padding(.bottom, 5)
+                    }.frame(width: 120, height: 120)
+                    .overlay(
+                    RoundedRectangle(cornerRadius:10)
+                    .stroke(Color("MainColor"), lineWidth: 2))
+                }
                 
                 
                 Spacer()
@@ -69,23 +86,27 @@ struct InformationOverview: View {
                 NavigationLink(destination: GenderView(step: $step)){
                     VStack{
                         Image("gender").resizable()
-                            .frame(width: 50.0, height: 35.0).padding(.top)
+                            .frame(width: 90, height: 62.5).padding(.top, 15)
                         Spacer()
+                        Divider().background(Color("MainColor")).padding(.horizontal)
+                        
                         if userData.gender == "Man"{
-                            Text("MAN").frame(width: 80).foregroundColor(Color.black).background(Color.backgroundColor)
+                            Text("Man").frame(width: 80).foregroundColor(Color.white).padding(.bottom, 5)
                         } else if userData.gender == "Vrouw" {
-                            Text("Vrouw").frame(width: 80).foregroundColor(Color.black).background(Color.backgroundColor)
+                            Text("Vrouw").frame(width: 80).foregroundColor(Color.white).padding(.bottom, 5)
                         } else {
-                            Text("n.v.t.").frame(width: 80).foregroundColor(Color.black).background(Color.backgroundColor)
+                            Text("n.v.t.").frame(width: 80).foregroundColor(Color.white).padding(.bottom, 5)
                         }
-                    }.frame(width: 80, height: 80).background(Color.black).cornerRadius(10).shadow(radius: 5).foregroundColor(Color("TextColor"))
+                    }.frame(width: 120, height: 120)
+                    .overlay(
+                        RoundedRectangle(cornerRadius:10)
+                        .stroke(Color("MainColor"), lineWidth: 2))
                     
                 }
                 Spacer()
             }
             Spacer()
             completeButton
-            Spacer()
         }.navigationBarTitle("").navigationBarBackButtonHidden(true)
     }
 }
