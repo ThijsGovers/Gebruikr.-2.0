@@ -35,6 +35,8 @@
 		3FCF172D2445A0B0007224E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FCF172B2445A0B0007224E1 /* LaunchScreen.storyboard */; };
 		3FCF17382445A0B1007224E1 /* Gebruikr_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF17372445A0B1007224E1 /* Gebruikr_AppTests.swift */; };
 		3FCF17432445A0B1007224E1 /* Gebruikr_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF17422445A0B1007224E1 /* Gebruikr_AppUITests.swift */; };
+		6972E2A025BEEADE00BB1924 /* VoorzorgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6972E29F25BEEADD00BB1924 /* VoorzorgView.swift */; };
+		6972E2B625BF0E1F00BB1924 /* NazorgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6972E2B525BF0E1F00BB1924 /* NazorgView.swift */; };
 		9118FE5C249B6252007A7601 /* AcceptNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118FE5B249B6252007A7601 /* AcceptNotificationView.swift */; };
 		9118FE5E249B62C1007A7601 /* NotificationExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118FE5D249B62C1007A7601 /* NotificationExplanationView.swift */; };
 		9121C073247FB59C00EBE96D /* InfoExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9121C072247FB59C00EBE96D /* InfoExplanationView.swift */; };
@@ -102,6 +104,8 @@
 		3FCF173E2445A0B1007224E1 /* Gebruikr AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gebruikr AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCF17422445A0B1007224E1 /* Gebruikr_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gebruikr_AppUITests.swift; sourceTree = "<group>"; };
 		3FCF17442445A0B1007224E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6972E29F25BEEADD00BB1924 /* VoorzorgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoorzorgView.swift; sourceTree = "<group>"; };
+		6972E2B525BF0E1F00BB1924 /* NazorgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NazorgView.swift; sourceTree = "<group>"; };
 		9118FE5B249B6252007A7601 /* AcceptNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptNotificationView.swift; sourceTree = "<group>"; };
 		9118FE5D249B62C1007A7601 /* NotificationExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExplanationView.swift; sourceTree = "<group>"; };
 		9121C072247FB59C00EBE96D /* InfoExplanationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoExplanationView.swift; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 				91F9C2C325BB191E00B8D87A /* EhboNavDeclareView.swift */,
 				91F9C2C925BB1B1100B8D87A /* EhboOverzichtView.swift */,
 				91F9C2D125BB1D4400B8D87A /* EhboTipsView.swift */,
+				6972E29F25BEEADD00BB1924 /* VoorzorgView.swift */,
+				6972E2B525BF0E1F00BB1924 /* NazorgView.swift */,
 			);
 			path = "EHBO Schermen";
 			sourceTree = "<group>";
@@ -427,10 +433,12 @@
 				3F1EC7052462E26E0002F44E /* InformationOverview.swift in Sources */,
 				3FA0F7BF24589EA3005D1919 /* HomeView.swift in Sources */,
 				9186781925B6E8CF00D2AA12 /* AnimatedTimerView.swift in Sources */,
+				6972E2B625BF0E1F00BB1924 /* NazorgView.swift in Sources */,
 				3FA0F7D1245A152E005D1919 /* BottomBarItemView.swift in Sources */,
 				3FA0F7CB245A14CF005D1919 /* BottomBar.swift in Sources */,
 				9121C077247FB5BC00EBE96D /* GenderExplanationView.swift in Sources */,
 				9121C073247FB59C00EBE96D /* InfoExplanationView.swift in Sources */,
+				6972E2A025BEEADE00BB1924 /* VoorzorgView.swift in Sources */,
 				3F4B761E2460AABE001C5087 /* WeightView.swift in Sources */,
 				3F4B76202460AABE001C5087 /* NameView.swift in Sources */,
 				3FC4B8DB2482FA0400241913 /* StartTripView.swift in Sources */,

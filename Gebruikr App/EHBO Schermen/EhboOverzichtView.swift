@@ -26,12 +26,12 @@ struct EhboOverzichtView: View {
                 }
                 
                 
-                NavigationLink(destination: EhboTipsView()) {
+                NavigationLink(destination: VoorzorgView()) {
                     EhboNavDeclareView(image: "Voorzorgicon", header: "Voorzorg Tips", paragraph: "Check hier hoe jij je het beste kunt voorbereiden op een trip!")
                 }
                 
                 
-                NavigationLink(destination: EhboTipsView()) {
+                NavigationLink(destination: NazorgView()) {
                     EhboNavDeclareView(image: "Nazorgicon", header: "Nazorg Tips", paragraph: "Check hier hoe jij beter door je dinsdagdip heen komt!")
                 }
                 
