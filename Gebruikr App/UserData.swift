@@ -43,6 +43,29 @@ struct TripAdvice {
     var explanation : String
 }
 
+class TimerViewModel : ObservableObject {
+    @Published var percentageTwee : Float = 0
+        var timerTwee : Timer?
+
+    func timeElapsedTwee () {
+        print ("poing")
+        if self.percentageTwee + 0.1 > 1.1 {
+            self.percentageTwee = 0
+        }
+        else {
+            self.percentageTwee += 0.01
+        }
+    }
+    
+    func startTimerTwee () {
+        timerTwee = Timer.scheduledTimer(withTimeInterval: 0.1, repeats:true) {_ in
+            self.timeElapsedTwee()
+        }
+
+    }
+}
+
+
 class TimerData : ObservableObject {
     
     @Published var timeCount = 0
@@ -315,6 +338,8 @@ class UserData: ObservableObject  {
     }
     
 }
+
+
 
 //extension voor het berekenen van de tijddelta tussen de laatstgenomen pil en de huidige tijd
 extension Date {
