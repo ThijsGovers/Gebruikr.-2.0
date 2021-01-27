@@ -11,6 +11,9 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var userData: UserData
     @ObservedObject var modelTimerTwee = TimerViewModel()
+    @State var hoursSinceLastPill = UserData ()
+    @State var minutesSinceLastPill = UserData ()
+    
     static let taskDateFormat: DateFormatter =     {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
@@ -47,10 +50,8 @@ struct HomeView: View {
                                             .rotationEffect(Angle(degrees: 270.0))
                                             .animation(.linear)
 
+                
                                         
-
-                         //if userData.tripsitterActive {
-                                        //modelTimerTwee.startTimerTwee()
                                     }.frame(width: 340, height: 340, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         HStack {
                                         Text("\(userData.hoursSinceLastPill)").font(.system(size: 55))
@@ -63,11 +64,6 @@ struct HomeView: View {
                                         }
                                     }
                                 }
-                                .onAppear() {
-                            if userData.tripsitterActive == true {
-                                modelTimerTwee.startTimerTwee()
-                            }
-                        }
                             }
                             else {
                                 ZStack(alignment: .center) {
@@ -84,10 +80,6 @@ struct HomeView: View {
                                             .rotationEffect(Angle(degrees: 270.0))
                                             .animation(.linear)
 
-                                        
-
-                         //if userData.tripsitterActive {
-                                        //modelTimerTwee.startTimerTwee()
                                     }.frame(width: 340, height: 340, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     HStack(alignment: .bottom){
                                         Text("-").font(.system(size: 55))
@@ -97,18 +89,12 @@ struct HomeView: View {
                                     }.foregroundColor(.white)
                                 }.frame(width: 320, height: nil)
                                 .onAppear() {
-                            if userData.tripsitterActive == true {
-                                modelTimerTwee.startTimerTwee()
+                                    if userData.tripsitterActive == true {
+                                        modelTimerTwee.startTimerTwee()
+                                    }
+                                }
                             }
                         }
-                            }
-                        }
-                            
-                            
-                        
-                        //.foregroundColor(.white)
-                           // .frame(width: 320, height: 90)
-                          //  .background(Color.backgroundColor).cornerRadius(10)
                     }
                         ScrollView(.vertical) {
                             VStack {
@@ -183,11 +169,7 @@ struct HomeView: View {
                                 Text("Min").font(.title)
                             }.foregroundColor(.white)
                         }.frame(width: 320, height: nil)
-                        .onAppear() {
-                    if userData.tripsitterActive == true {
-                        modelTimerTwee.startTimerTwee()
-                    }
-                }
+
                         
                     // Uitgecomment voor eventuele aanvulling op homescreen testlocaties
                         
@@ -229,6 +211,9 @@ struct HomeView: View {
         }
         .onAppear{
             userData.resetpill()
+            if userData.tripsitterActive == true {
+                    modelTimerTwee.startTimerTwee()
+                }
             }
         }
     }

@@ -13,15 +13,19 @@ struct ExplanationSectionView: View {
     var paragraph: String
     var body: some View {
         
-        VStack(alignment: .leading) {
+        VStack{
             
             Text (header)
                 .font(.headline)
                 .frame(width: 350, height: nil, alignment: .topLeading).foregroundColor(Color("TextColor"))
+                .padding(.bottom, 15)
                 
             Text(paragraph)
                 .frame(width: 350, height: nil, alignment: .topLeading).foregroundColor(Color("TextColor"))
-                }.padding()
+                    .padding(.bottom, 15)
+        }.padding()
+                .background(Color("DarkGray")).cornerRadius(10)
+        Spacer()
     }
 }
 

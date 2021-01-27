@@ -111,7 +111,7 @@ struct useAmountView: View {
                                 VStack(alignment: .leading){
                                     Text("Neem een kleinere dosis").font(.headline).padding(.bottom, 5)
                                     Text("Het is beter om niet meer te nemen dan je limiet.")
-                                }
+                                }.padding()
                                 Spacer()
                                 Image("Kwart").resizable()
                                     .frame(width: 30.0, height: 30.0).foregroundColor(Color("TextColor"))
@@ -267,10 +267,42 @@ struct useAmountView: View {
                     }
                        }.frame(width: 325)
                 
-                Spacer().frame(height: 1)
-                NavigationLink(destination: StartTripView().navigationBarTitle("Tripsitter", displayMode: .inline)){
-                    Text("Volgende").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor))
-                }.padding(.top, 50)
+                if userData.partsAmount == .threeQuarters{
+                    Spacer().frame(height: 1)
+                    NavigationLink(destination: StartTripView().navigationBarTitle("Tripsitter", displayMode: .inline)){
+                        Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
+                    }.padding(.top, 50)
+                }
+                
+                else if userData.partsAmount == .full{
+                    Spacer().frame(height: 1)
+                    NavigationLink(destination: StartTripView().navigationBarTitle("Tripsitter", displayMode: .inline)){
+                        Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
+                    }.padding(.top, 50)
+                }
+                
+                else if userData.partsAmount == .half{
+                    Spacer().frame(height: 1)
+                    NavigationLink(destination: StartTripView().navigationBarTitle("Tripsitter", displayMode: .inline)){
+                        Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
+                    }.padding(.top, 50)
+                }
+                
+                else if userData.partsAmount == .quarter{
+                    Spacer().frame(height: 1)
+                    NavigationLink(destination: StartTripView().navigationBarTitle("Tripsitter", displayMode: .inline)){
+                        Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
+                    }.padding(.top, 50)
+                }
+                
+                else {
+                    Text("Volgende").foregroundColor(Color.gray).padding(12).background(Capsule().fill(Color.backgroundColor)).padding(.top, 50)
+                }
+                
+                
+
+                
+                
             }
         }
     }
