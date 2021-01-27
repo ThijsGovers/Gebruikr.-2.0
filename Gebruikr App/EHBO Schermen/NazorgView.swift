@@ -31,7 +31,7 @@ struct NazorgView: View {
                         """).font(.caption).multilineTextAlignment(.leading).padding(.bottom)
                     }.padding(.horizontal).foregroundColor(.white)
                     
-                }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).padding(.bottom)
                 
                 HStack {
                     VStack(alignment: .leading) {
@@ -52,7 +52,7 @@ struct NazorgView: View {
                             .font(.caption).multilineTextAlignment(.leading).padding(.bottom)
                     }.padding(.horizontal).foregroundColor(.white)
                     
-                }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).padding(.bottom)
             
                 HStack {
                     VStack(alignment: .leading) {
@@ -77,7 +77,7 @@ struct NazorgView: View {
                             .font(.caption).multilineTextAlignment(.leading).padding(.bottom)
                     }.padding(.horizontal).foregroundColor(.white)
                     
-                }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).padding(.bottom)
             }
         }
     }
