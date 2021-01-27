@@ -43,6 +43,14 @@ struct SettingsForm: View {
                         }
                     }
                     Text("Ervaring").foregroundColor(.red)
+                    
+                    Button(action: {
+                        self.userData.resetTripsittr()
+                        self.refresh.toggle()
+                    }) {
+                        Text("Reset/Stop Tripzitter").foregroundColor(.red)
+                    }
+                    
                 })
                 
                 Section(header: Text("Reminders"), footer: Text("None of those action are working yet ;)"), content: {

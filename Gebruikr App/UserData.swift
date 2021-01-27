@@ -183,6 +183,13 @@ class UserData: ObservableObject  {
         
     }
     
+    
+    //reset / stop tripzitter
+    func resetTripsittr () {
+        UserDefaults.standard.set(false, forKey: "tripsitterActive")
+        self.pillsUsed = []
+    }
+    
     //reset mdmapillselection func
     
     func resetpill() {
