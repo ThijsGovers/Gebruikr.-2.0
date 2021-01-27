@@ -63,24 +63,6 @@ struct InformationOverview: View {
                     }.padding(.bottom, 15)
             
             HStack{
-                
-                Spacer()
-                
-                NavigationLink(destination: WeightView(step: $step)){
-                    VStack{
-                        Image("weight").resizable()
-                            .frame(width: 52.5, height: 52.5).padding(.top, 15)
-                        Spacer()
-                        Divider().background(Color("MainColor")).padding(.horizontal)
-                        
-                        Text("\(userData.weight, specifier: "%.0f") KG").frame(width: 80).foregroundColor(Color.white).padding(.bottom, 5)
-                    }.frame(width: 120, height: 120)
-                    .overlay(
-                    RoundedRectangle(cornerRadius:10)
-                    .stroke(Color("MainColor"), lineWidth: 2))
-                }
-                
-                
                 Spacer()
                 
                 NavigationLink(destination: GenderView(step: $step)){
@@ -103,7 +85,28 @@ struct InformationOverview: View {
                         .stroke(Color("MainColor"), lineWidth: 2))
                     
                 }
+                
                 Spacer()
+                
+                NavigationLink(destination: WeightView(step: $step)){
+                    VStack{
+                        Image("weight").resizable()
+                            .frame(width: 52.5, height: 52.5).padding(.top, 15)
+                        Spacer()
+                        Divider().background(Color("MainColor")).padding(.horizontal)
+                        
+                        Text("\(userData.weight, specifier: "%.0f") KG").frame(width: 80).foregroundColor(Color.white).padding(.bottom, 5)
+                    }.frame(width: 120, height: 120)
+                    .overlay(
+                    RoundedRectangle(cornerRadius:10)
+                    .stroke(Color("MainColor"), lineWidth: 2))
+                }
+                
+                
+                Spacer()
+                
+                
+              
             }
             Spacer()
             completeButton
@@ -113,7 +116,7 @@ struct InformationOverview: View {
 
 struct InformationOverview_Previews: PreviewProvider {
     static var previews: some View {
-        InformationOverview(step: .constant(6)).environmentObject(UserData())
+        InformationOverview(step: .constant(6)).environmentObject(UserData()).environment(\.colorScheme, .dark)
     }
 }
 }

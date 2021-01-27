@@ -25,7 +25,7 @@ struct NameExplanationView: View {
                 Text ("mijn ") +
                 Text ("naam ").foregroundColor(Color("MainColor")) +
                 Text ("weten?")
-                }.font(.largeTitle)
+                }.font(.largeTitle).padding(.vertical)
                            
                ExplanationSectionView (header: "Wat gebeurd er met wat jij invult?", paragraph: "Gebruikr. vind het leuk om jou persoonlijk aan te kunnen spreken. Je hoeft hiervoor natuurlijk niet je echte naam in te vullen, maar kies een toffe nickname!")
                             
@@ -49,6 +49,6 @@ struct NameExplanationView: View {
 
 struct NameExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        NameExplanationView()
+        NameExplanationView().environment(\.colorScheme, .dark)
     }
 }

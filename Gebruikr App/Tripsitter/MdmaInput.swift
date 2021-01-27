@@ -33,7 +33,7 @@ struct MdmaWizard : View {
             Spacer()
             VStack{
                 Text ("Pil niet getest!").font(.title)
-            }.frame(width: 345)
+            }.padding(.horizontal)
             Spacer()
             VStack{
                 VStack{
@@ -51,7 +51,7 @@ struct MdmaWizard : View {
             Spacer().frame(height: 20)
             VStack{
                 Text("Volgende keer even").font(.title)
-                Text("laten testen!").font(.title).padding()
+                Text("laten testen!").font(.title)
                 VStack{
                     Text("Dan weet je precies hoeveel mg MDMA er in je pil zit en kan Gebruikr. je beter helpen.").padding().background(Color("DarkGray")).cornerRadius(10)
                 }.padding()
@@ -107,7 +107,10 @@ struct MdmaWizard : View {
             if piltested{
                 VStack{
                     Text("Hoeveel milligram MDMA zit er in je pil?").font(.title).foregroundColor(Color("TextColor")).padding(.horizontal)
-                    TextField ("", text: $mdmInMG).padding().textFieldStyle(RoundedBorderTextFieldStyle()).keyboardType(.numberPad).frame(width: 250)
+                    TextField ("", text: $mdmInMG).textFieldStyle(RoundedBorderTextFieldStyle()).keyboardType(.numberPad).frame(width: 250).overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color("MainColor"), lineWidth: 2)
+                )
                     Button(action: {
                         self.userData.mdma = .specified(amountInMG: Double (self.mdmInMG)!) // <--dit is riskant
                     }) {
@@ -128,6 +131,8 @@ struct MdmaWizard : View {
             if(userData.mdma.amountInMg > 220){
                 Text("Let op dit is een zware pill").font(.title).foregroundColor(.red)
             }
+            Spacer()
+            Spacer()
             Spacer()
             NavigationLink(destination: useAmountView().navigationBarTitle("Tripsitter", displayMode: .inline)){
                 Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
@@ -152,6 +157,6 @@ struct MdmaWizard : View {
 
 struct MdmaInput_Previews: PreviewProvider {
     static var previews: some View {
-        MdmaInput().environmentObject(UserData())
+        MdmaInput().environmentObject(UserData()).environment(\.colorScheme, .dark)
     }
 }
