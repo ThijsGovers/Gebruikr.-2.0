@@ -37,7 +37,7 @@ struct DrugsInfoView: View {
                     .stroke(Color("MainColor"), lineWidth: 2)).padding(.horizontal).padding(.bottom, 1)
                 
                 HStack{
-                    Text("SPEED").font(.title).padding(.horizontal, 30)
+                    Text("Speed").font(.title).padding(.horizontal, 30)
                     Spacer()
                     Image("SPEEDicon").padding(.horizontal, 30).padding(.vertical)
                 }.overlay(
@@ -45,7 +45,7 @@ struct DrugsInfoView: View {
                     .stroke(Color("MainColor"), lineWidth: 2)).padding(.horizontal).padding(.bottom, 1)
                 
                 HStack{
-                    Text("COCAINE").font(.title).padding(.horizontal, 30)
+                    Text("Cocaine").font(.title).padding(.horizontal, 30)
                     Spacer()
                     Image("COCAicon").padding(.horizontal, 30).padding(.vertical)
                 }.overlay(
