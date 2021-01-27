@@ -15,9 +15,9 @@ struct DrugsInfoView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack{
-                
+                NavigationLink(destination: EhboOverzichtView()) {
             EhboNavDeclareView(image: "Drugsinfoicon", header: "Drugs Info", paragraph: "Check hier de werking, effecten en risico's van verschillende drugs!")
-            
+                }
             
                 ScrollView{
                 HStack{

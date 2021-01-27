@@ -15,7 +15,7 @@ struct EhboTipsView: View {
                 .edgesIgnoringSafeArea(.all)
            
             VStack {
-                NavigationLink(destination: EhboTipsView()) {
+                NavigationLink(destination: EhboOverzichtView()) {
                     EhboNavDeclareView(image: "Ehboicon", header: "EHBO tips", paragraph: "Check hier wat je kan doen wanneer jij of iemand anders niet helemaal lekker gaat!")
                 }
                 

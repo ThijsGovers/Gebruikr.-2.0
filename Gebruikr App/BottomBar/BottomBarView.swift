@@ -38,7 +38,7 @@ struct BottomBarView : View {
     var body: some View {
         VStack {
                 if (selectedIndex == 0){
-                    Text("Dit is de test services pagina, deze pagina valt buiten het project maar is voor de dooronwikkeling van de app")
+                    TestenView()
                     Spacer()
                 }else if (selectedIndex == 1){
                     HomeView()

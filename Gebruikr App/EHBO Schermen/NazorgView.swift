@@ -17,7 +17,7 @@ struct NazorgView: View {
 
             VStack {
                 
-                NavigationLink(destination: EhboTipsView()) {
+                NavigationLink(destination: EhboOverzichtView()) {
                     EhboNavDeclareView(image: "Nazorgicon", header: "Nazorg Tips", paragraph: "Check hier hoe jij beter door je dinsdagdip heen komt!")
                 }
                 ScrollView{
