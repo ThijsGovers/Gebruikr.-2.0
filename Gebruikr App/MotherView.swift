@@ -18,7 +18,8 @@ struct MotherView : View {
             } else if userData.currentPage == "BottomBarView" {
                 BottomBarView()
             }
-        }.accentColor(Color("TextColor"))
+        }.background(Color("systemGray6"))
+        .accentColor(Color("TextColor"))
     }
 }
 

@@ -56,35 +56,40 @@ struct useAmountView: View {
                             Spacer()
                         }.frame(width: 325, height:70).background(Color("DarkGray")).cornerRadius(10).shadow(radius: 2)
                             VStack{
-                                ScrollView{
                                 VStack{
-                                    Text("Dit heb je al gebruikt:").font(.headline).padding(.leading)
-                                    ForEach(userData.pillsUsed){ pill in
-                                        HStack{
-                                            if(pill.partsAmount == .full){
-                                              Image("Hele").resizable()
-                                                .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
-                                                Text("Hele - \(pill.partMg, specifier: "%.0f") mg")
-                                            } else if (pill.partsAmount == .threeQuarters){
-                                                Image("DrieKwart").resizable()
-                                                .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
-                                                Text("Driekwart - \(pill.partMg, specifier: "%.0f") mg")
-                                            } else if (pill.partsAmount == .half){
-                                                Image("Half").resizable()
-                                                .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
-                                                Text("Halfje - \(pill.partMg, specifier: "%.0f") mg")
-                                            } else if (pill.partsAmount == .quarter){
-                                                Image("Kwart").resizable()
-                                                .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
-                                                Text("Kwartje - \(pill.partMg, specifier: "%.0f") mg")
-                                            }
-                                        }.padding(.bottom,5)
+                                    Text("Dit heb je al gebruikt:").font(.headline).padding(.horizontal ,35)
+                                        ScrollView{
+                                        ForEach(userData.pillsUsed){ pill in
+                                            HStack{
+                                                if(pill.partsAmount == .full){
+                                                  Image("Hele").resizable()
+                                                    .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
+                                                    Text("Hele - \(pill.partMg, specifier: "%.0f") mg")
+                                                } else if (pill.partsAmount == .threeQuarters){
+                                                    Image("DrieKwart").resizable()
+                                                    .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
+                                                    Text("Driekwart - \(pill.partMg, specifier: "%.0f") mg")
+                                                } else if (pill.partsAmount == .half){
+                                                    Image("Half").resizable()
+                                                    .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
+                                                    Text("Halfje - \(pill.partMg, specifier: "%.0f") mg")
+                                                } else if (pill.partsAmount == .quarter){
+                                                    Image("Kwart").resizable()
+                                                    .frame(width: 20.0, height: 20.0).foregroundColor(Color("TextColor"))
+                                                    Text("Kwartje - \(pill.partMg, specifier: "%.0f") mg")
+                                                }
+                                            }.padding(.bottom,5)
+                                        }
+                                        Text("Advies van Gebruikr. :").font(.headline).padding(.top)
+                                        userData.calculateAdvice()
                                     }
-                                    Text("Neem in ieder geval niet meer dan:").font(.headline).padding(.top)
-                                    userData.calculateAdvice()
-                                }.frame(width: 320).padding(.bottom).background(Color("DarkGray")).cornerRadius(10)
+                                }
+                                .frame (
+                                    minHeight : 0,
+                                    maxHeight : 145
+                                )
+                                .padding().background(Color("DarkGray")).cornerRadius(10)
                             }
-                            }.frame(width: 310, height: 150).background(Color("BackgroundPillsUsed")).cornerRadius(10)
                     }
                         }else{
                         VStack(spacing: 0){
@@ -103,20 +108,20 @@ struct useAmountView: View {
                                 Spacer()
                                 Text("\(userData.calculatePillAdvice(), specifier: "%.0f") mg").font(.headline)
                                 Spacer()
-                            }.frame(width: 325, height:70).background(Color("BackgroundGray")).cornerRadius(10).shadow(radius: 2)
+                            }.frame(width: 325, height:70).background(Color("systemGray6")).cornerRadius(10)
                         }
                         }
                     if (userData.calculatePillAdvice() - userData.getTotalMg() < userData.partMg){
                             HStack{
                                 VStack{
-                                    Text("Neem een kleinere dosis").font(.headline).padding(.bottom, 5)
+                                    Text("Neem een kleinere dosis").font(.headline).padding()
                                     Text("Het is beter om niet meer te nemen dan je limiet.").padding(.bottom, 5)
-                                }.padding()
+                                }.padding(.horizontal)
                                 Spacer()
                                 Image("WaarschuwingsIcon").resizable()
-                                    .frame(width: 30.0, height: 30.0).foregroundColor(Color("TextColor"))
+                                    .frame(width: 30.0, height: 30.0).foregroundColor(Color("TextColor")).padding(.horizontal)
                                 
-                            }.padding(.bottom).frame(width: 310).background(Color("DarkGray")).cornerRadius(10)
+                            }.padding(.bottom).frame(width: 340).background(Color("DarkGray")).cornerRadius(10)
                         Spacer()
                     } else if (userData.calculatePillAdvice() - userData.getTotalMg() == userData.partMg){
                             HStack{
@@ -126,7 +131,7 @@ struct useAmountView: View {
                                 }
                                 Spacer()
                                 Image("WaarschuwingsIcon").resizable()
-                                    .frame(width: 30.0, height: 30.0).foregroundColor(Color("TextColor"))
+                                    .frame(width: 30.0, height: 30.0).foregroundColor(Color("TextColor")).padding(.horizontal)
                                 
                             }.padding().frame(width: 310, alignment: .leading).background(Color("BackgroundPillsUsed")).cornerRadius(10)
                         Spacer()
@@ -259,7 +264,7 @@ struct useAmountView: View {
                     VStack {
                            Text("Dosis \(userData.partMg, specifier: "%.0f") mg *").padding().foregroundColor(Color("TextColor"))
                         if userData.partsAmount == .full{
-                            Text("Gebruikr. adviseert om geen hele pil in een keer te nemen!")
+                            Text("Gebruikr. adviseert om geen hele pil in een keer te nemen!").font(.caption)
                         }
                         else {
                             Text("")

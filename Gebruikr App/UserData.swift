@@ -294,7 +294,7 @@ class UserData: ObservableObject  {
         if (maxMgPill < mdma.amountInMg * 0.25){
             return AnyView(
             HStack{
-                Text("neem niet meer bij plss")
+                Text("Het is verstandig om nu niet meer te nemen!")
             }.padding(.bottom,5)
                 )
         } else if (maxMgPill < mdma.amountInMg * 0.5 ){
