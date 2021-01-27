@@ -51,6 +51,7 @@
 		91F9C2CA25BB1B1100B8D87A /* EhboOverzichtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9C2C925BB1B1100B8D87A /* EhboOverzichtView.swift */; };
 		91F9C2D225BB1D4400B8D87A /* EhboTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9C2D125BB1D4400B8D87A /* EhboTipsView.swift */; };
 		D30270E825C05A23006F95EF /* DrugsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30270E725C05A23006F95EF /* DrugsInfoView.swift */; };
+		D30270F325C063A5006F95EF /* XTCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30270F225C063A5006F95EF /* XTCView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		91F9C2C925BB1B1100B8D87A /* EhboOverzichtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EhboOverzichtView.swift; sourceTree = "<group>"; };
 		91F9C2D125BB1D4400B8D87A /* EhboTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EhboTipsView.swift; sourceTree = "<group>"; };
 		D30270E725C05A23006F95EF /* DrugsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsInfoView.swift; sourceTree = "<group>"; };
+		D30270F225C063A5006F95EF /* XTCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XTCView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,7 @@
 				91F9C2D125BB1D4400B8D87A /* EhboTipsView.swift */,
 				6972E29F25BEEADD00BB1924 /* VoorzorgView.swift */,
 				6972E2B525BF0E1F00BB1924 /* NazorgView.swift */,
+				D30270F225C063A5006F95EF /* XTCView.swift */,
 			);
 			path = "EHBO Schermen";
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				3FA0F7CD245A14E1005D1919 /* BottomBarView.swift in Sources */,
 				3F4B761F2460AABE001C5087 /* GenderView.swift in Sources */,
 				3FC4B8D52482DA5900241913 /* useAmountView.swift in Sources */,
+				D30270F325C063A5006F95EF /* XTCView.swift in Sources */,
 				D30270E825C05A23006F95EF /* DrugsInfoView.swift in Sources */,
 				3FA0F7CF245A14FE005D1919 /* BottomBarItem.swift in Sources */,
 				3F7775D1247FDFF600E98F50 /* MotherView.swift in Sources */,
