@@ -13,39 +13,44 @@ struct DoorgegevenView: View {
     @EnvironmentObject var userData: UserData
     @State var startTripsitter : Bool = false
     var body: some View {
-        VStack{
-            Text("Thanks voor het doorgeven!").font(.title)
-        ScrollView(.vertical) {
+        ZStack {
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
             VStack{
-                
-            if(userData.tripsitterActive == false){
-            TipBoxView(header: "Effecten", image: "", paragraph: "De effecten van XTC zal je na 30 - 60 minuten wel gaan voelen en houden ongeveer tot 4 uur aan. Let wel op dat je niet te snel bijneemt!")
+                Spacer().frame(height: 10)
+                Text("Thanks voor het doorgeven!").font(.title)
+                ScrollView(.vertical) {
+                    VStack{
+                        
+                    if(userData.tripsitterActive == false){
+                    TipBoxView(header: "Effecten", image: "", paragraph: "De effecten van XTC zal je na 30 - 60 minuten wel gaan voelen en houden ongeveer tot 4 uur aan. Let wel op dat je niet te snel bijneemt!")
+                        }
+                        
+                    else {
+                    //Deze tip moet worden opgeroepen wanneer tripsittr active = true
+                    TipBoxView(header: "Effecten", image: "", paragraph: "Over het algemeen kickt het bijnemen van XTC wat sneller in. Houd hier rekening mee!")
+                        }
+                        Text("Tips").font(.title)
+                        
+                    TipBoxView(header: "App je vrienden", image: "Whapp icon", paragraph: "Laat je vrienden even weten dat je gaat bijnemen. Dan zijn zij in ieder geval ook op de hoogte")
+                        
+                    TipBoxView(header: "Drink niet te veel", image: "drink icon", paragraph: "zorg dat je ongeveer 1 tot 2 glazen per uur drinkt. Met een droge mond drink al snel te veel")
+                        
+                    TipBoxView (header: "Ga je een beetje hard?", image: "te hard gaan icon", paragraph: "Geef het even aan bij je vrienden en zoek even een rustige plek om te zitten.")
+                        
+                        Spacer()
+                                    
+                    }
                 }
-                
-            else {
-            //Deze tip moet worden opgeroepen wanneer tripsittr active = true
-            TipBoxView(header: "Effecten", image: "", paragraph: "Over het algemeen kickt het bijnemen van XTC wat sneller in. Houd hier rekening mee!")
+                NavigationLink(destination: BottomBarView(), isActive: $startTripsitter){
+                    Text("Home").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
+                        self.userData.tripsitterActive = true
+                        self.startTripsitter = true
+                    }
                 }
-                Text("Tips").font(.title)
-                
-            TipBoxView(header: "App je vrienden", image: "Whapp icon", paragraph: "Laat je vrienden even weten dat je gaat bijnemen. Dan zijn zij in ieder geval ook op de hoogte")
-                
-            TipBoxView(header: "Drink niet te veel", image: "drink icon", paragraph: "zorg dat je ongeveer 1 tot 2 glazen per uur drinkt. Met een droge mond drink al snel te veel")
-                
-            TipBoxView (header: "Ga je een beetje hard?", image: "te hard gaan icon", paragraph: "Geef het even aan bij je vrienden en zoek even een rustige plek om te zitten.")
-                
-                Spacer()
-                            
-            }
-        }
-            NavigationLink(destination: BottomBarView(), isActive: $startTripsitter){
-                Text("Home").foregroundColor(Color.white).padding(12).background(Capsule().fill(Color.backgroundColor)).onTapGesture {
-                    self.userData.tripsitterActive = true
-                    self.startTripsitter = true
-                }
-            }
 
-        }.foregroundColor(Color("TextColor"))
+            }.foregroundColor(Color("TextColor"))
+        }
     }
 }
 

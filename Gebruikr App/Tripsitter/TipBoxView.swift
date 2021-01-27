@@ -37,7 +37,7 @@ struct TipBoxView: View {
             .overlay(
             RoundedRectangle(cornerRadius: 10)
             .stroke(Color("MainColor"), lineWidth: 2)
-            ).padding()
+            ).padding(.bottom)
 
     }
 }

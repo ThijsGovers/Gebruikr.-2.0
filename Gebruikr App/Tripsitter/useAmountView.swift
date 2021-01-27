@@ -17,7 +17,7 @@ struct useAmountView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack{
-                
+                Spacer().frame(height: 20)
                 VStack{
                     Text("Max gebruik!").font(.callout).frame(width: 325)
                     if(userData.tripsitterActive == true){
@@ -54,11 +54,11 @@ struct useAmountView: View {
                             Text("\(userData.calculatePillAdvice() - userData.getTotalMg(), specifier: "%.0f") mg").font(.headline)
                             }
                             Spacer()
-                        }.frame(width: 325, height:70).background(Color("BackgroundGray")).cornerRadius(10).shadow(radius: 2)
+                        }.frame(width: 325, height:70).background(Color("DarkGray")).cornerRadius(10).shadow(radius: 2)
                             VStack{
                                 ScrollView{
-                                VStack(alignment: .leading){
-                                    Text("Dit heb je al gebruikt:").font(.headline).padding(.bottom)
+                                VStack{
+                                    Text("Dit heb je al gebruikt:").font(.headline).padding(.leading)
                                     ForEach(userData.pillsUsed){ pill in
                                         HStack{
                                             if(pill.partsAmount == .full){
@@ -82,7 +82,7 @@ struct useAmountView: View {
                                     }
                                     Text("Neem in ieder geval niet meer dan:").font(.headline).padding(.top)
                                     userData.calculateAdvice()
-                                }.frame(width: 320).padding()
+                                }.frame(width: 320).padding(.bottom).background(Color("DarkGray")).cornerRadius(10)
                             }
                             }.frame(width: 310, height: 150).background(Color("BackgroundPillsUsed")).cornerRadius(10)
                     }
@@ -108,19 +108,19 @@ struct useAmountView: View {
                         }
                     if (userData.calculatePillAdvice() - userData.getTotalMg() < userData.partMg){
                             HStack{
-                                VStack(alignment: .leading){
+                                VStack{
                                     Text("Neem een kleinere dosis").font(.headline).padding(.bottom, 5)
-                                    Text("Het is beter om niet meer te nemen dan je limiet.")
+                                    Text("Het is beter om niet meer te nemen dan je limiet.").padding(.bottom, 5)
                                 }.padding()
                                 Spacer()
-                                Image("Kwart").resizable()
+                                Image("WaarschuwingsIcon").resizable()
                                     .frame(width: 30.0, height: 30.0).foregroundColor(Color("TextColor"))
                                 
-                            }.padding().frame(width: 310, alignment: .leading).background(Color("BackgroundPillsUsed")).cornerRadius(10)
+                            }.padding(.bottom).frame(width: 310).background(Color("DarkGray")).cornerRadius(10)
                         Spacer()
                     } else if (userData.calculatePillAdvice() - userData.getTotalMg() == userData.partMg){
                             HStack{
-                                VStack(alignment: .leading){
+                                VStack{
                                     Text("Je bereikt je max").font(.headline).padding(.bottom, 5)
                                     Text("Het is beter om hierna niet meer bij te nemen.")
                                 }
