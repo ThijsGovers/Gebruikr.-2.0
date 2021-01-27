@@ -39,7 +39,7 @@ struct MdmaWizard : View {
                 VStack{
                     Text ("Gemiddelde hoeveelheid").font(.title).padding(.bottom)
                     
-                    VStack {
+                    VStack (alignment: .leading){
                         Text ("Omdat je niet weet hoeveel er in je pil zit zal Gebruikr. uit gaan van een gemiddelde hoeveelheid van \(userData.mdma.amountInMg, specifier: "%.0f") mg MDMA per pil.").padding()
                         
                         Text ("Je pil kan in werkelijkheid meer MDMA bevatten, dus pas altijd op!").padding()
@@ -67,7 +67,7 @@ struct MdmaWizard : View {
         VStack(alignment: .center){
             
             Text ("Heb je je pil laten testen?").font(.title).padding(.bottom).foregroundColor(Color("TextColor"))
-            Text ("Dit vragen we om te checken hoevel miligram MDMA er in de pil zit")
+            Text ("Dit vragen we om te checken hoevel miligram MDMA er in de pil zit").padding(.horizontal)
             
             VStack(alignment: .center){
                 
