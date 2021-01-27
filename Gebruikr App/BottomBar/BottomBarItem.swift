@@ -18,7 +18,7 @@ public struct BottomBarItem {
                 title: String) {
         self.icon = icon
         self.title = title
-        self.color = Color("TextColor")
+        self.color = Color("MainColor")
     }
 }
 
