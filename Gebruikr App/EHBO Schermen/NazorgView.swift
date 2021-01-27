@@ -28,7 +28,7 @@ struct NazorgView: View {
                         Je hebt een hele dag/nacht gefeest. Het lichaam heeft veel stress ondervonden. Pak daarom lekker veel rust na een feestje. Door de extra afgifte van de serotonine, dopamine en noradrenaline zijn jouw geluk stofjes behoorlijk gedaald in de waardes. Het kan daarom zo zijn dat jij je wat minder blij voelt. Dat is niet erg het hoort erbij. Als het echt te depri wordt voor je ga dan naar vrienden of ga iets anders leuks doen. De afleiding kan je er een beetje doorheen sleuren. Verder blijft het gewoon belangrijk om die gezonde voeding op peil te houden. Dus door een gezonde voeding en genoeg slaap herstel je sneller en ben je minder lang depri.
 
                         Check hieronder voor meer informatie.
-                        """).font(.caption).multilineTextAlignment(.leading).padding(.bottom)
+                        """).multilineTextAlignment(.leading).padding(.bottom)
                     }.padding(.horizontal).foregroundColor(.white)
                     
                 }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).padding(.bottom)
@@ -49,7 +49,7 @@ struct NazorgView: View {
                         - Gemiddeld 1,5 tot 2 liter per dag.
 
                         """)
-                            .font(.caption).multilineTextAlignment(.leading).padding(.bottom)
+                            .multilineTextAlignment(.leading).padding(.bottom)
                     }.padding(.horizontal).foregroundColor(.white)
                     
                 }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).padding(.bottom)
@@ -74,7 +74,7 @@ struct NazorgView: View {
                         - Zouten
                         Probeer 3 gram zout binnen te krijgen. Tijdens feestjes kan het helpen een zoutoplossing in je water te doen of een sportdrank te drinken met isotonen.
                         """)
-                            .font(.caption).multilineTextAlignment(.leading).padding(.bottom)
+                            .multilineTextAlignment(.leading).padding(.bottom)
                     }.padding(.horizontal).foregroundColor(.white)
                     
                 }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).padding(.bottom)

@@ -36,7 +36,7 @@ struct VoorzorgView: View {
                             50 gram pompoenpitten! In pompoenpitten zit magnesium, eiwitten, tryptofaan, fenylalanine en vitamine E (antioxidanten). Wel bij de voeding die je normaal binnen krijgt natuurlijk.
 
                             Check hieronder voor meer informatie.
-                            """).font(.caption).multilineTextAlignment(.leading).padding(.bottom)
+                            """).multilineTextAlignment(.leading).padding(.bottom)
                         }.padding(.horizontal).foregroundColor(.white)
                         
                     }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).padding(.bottom)
@@ -56,7 +56,7 @@ struct VoorzorgView: View {
                             - Dagelijks zuivel of een zuivelvervanger.
                             - Gemiddeld 1,5 tot 2 liter per dag.
                             """)
-                                .font(.caption).multilineTextAlignment(.leading).padding(.bottom)
+                                .multilineTextAlignment(.leading).padding(.bottom)
                         }.padding(.horizontal).foregroundColor(.white)
                         
                     }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).padding(.bottom)
@@ -81,7 +81,7 @@ struct VoorzorgView: View {
                             - Omega-3
                             Omega-3 kan helpen bij het beschermen van de hersencellen. Het is wel belangrijk dat je dit extra neemt de dagen VOOR het feest en niet na. Je kan het pas nemen 72 uur nadat de XTC is uitgewerkt. Omega-3 heeft een omgekeerd effect als je het tijdens of vlak na neemt.
                             """)
-                                .font(.caption).multilineTextAlignment(.leading).padding(.bottom)
+                                .multilineTextAlignment(.leading).padding(.bottom)
                         }.padding(.horizontal).foregroundColor(.white)
                         
                     }.padding(.vertical, 10.0) .background(Color("DarkGray")).cornerRadius(10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
