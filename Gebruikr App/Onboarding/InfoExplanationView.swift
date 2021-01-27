@@ -44,13 +44,14 @@ struct InfoExplanationView: View {
             
             VStack(alignment: .center) {
                 Spacer ()
-                    .frame(height: 60)
+                    .frame(height :20)
+
                 if timerData.timeCount > 10{
                     Button(action: {
                         self.showWeightExplanation = true
                     }) {
                         Image ("WeightIcon").resizable()
-                            .frame(width: 110, height: 125, alignment: .center)
+                            .frame(width: 110, height: 125, alignment: .center).padding()
                     }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                         
                         .sheet(isPresented: $showWeightExplanation) {
@@ -61,13 +62,13 @@ struct InfoExplanationView: View {
                 }
                 
                 Spacer ()
-                    .frame(height: 60)
+                    .frame(height: 20)
                 if timerData.timeCount > 11{
                     Button(action: {
                         self.showGenderExplanation = true
                     }) {
                         Image ("GenderIcon").resizable()
-                            .frame(width: 110, height: 125, alignment: .center)
+                            .frame(width: 110, height: 125, alignment: .center).padding()
                     }.buttonStyle(PlainButtonStyle()).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                         
                         .sheet(isPresented: $showGenderExplanation) {
@@ -89,8 +90,9 @@ struct InfoExplanationView: View {
             }
             Spacer()
             if timerData.timeCount > 14{
-                nextButton.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                nextButton.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom))).padding()
             }
+            Spacer()
             
         }.animation(.default).frame(width: 350, height: 650, alignment: .topLeading)
             .navigationBarTitle("").navigationBarBackButtonHidden(true).foregroundColor(Color("TextColor"))

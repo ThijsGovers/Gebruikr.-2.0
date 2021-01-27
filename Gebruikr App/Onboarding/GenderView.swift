@@ -47,6 +47,7 @@ struct GenderView: View {
                     Text("?").font(.title)
                     }
                 }
+                Spacer ()
                 
                 Button(action: {
                     self.showGenderExplanation = true
@@ -60,6 +61,7 @@ struct GenderView: View {
                         GenderExplanationView()
                         
                 }
+                Spacer()
                 
             
             }.foregroundColor(Color("TextColor"))
@@ -143,7 +145,7 @@ struct GenderView: View {
                 }
             }.padding(.bottom, 30)
             
-            nextButton
+            nextButton.padding()
             HStack{
                 Circle()
                     .fill(Color.gray)
@@ -154,7 +156,7 @@ struct GenderView: View {
                 Circle()
                     .fill(Color.gray)
                     .frame(width: 16, height: 16)
-            }
+            }.padding()
         }.navigationBarTitle("").navigationBarBackButtonHidden(true)
         
     }

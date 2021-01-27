@@ -10,8 +10,13 @@ import SwiftUI
 
 struct MdmaInput: View {
     
+    
     var body: some View {
-        MdmaWizard()
+        ZStack {
+            Color("systemGray6")
+                .edgesIgnoringSafeArea(.all)
+            MdmaWizard()
+        }
     }
 }
 
@@ -26,30 +31,31 @@ struct MdmaWizard : View {
     var unknownscreen : some View {
         VStack{
             Spacer()
-            VStack(alignment: .leading){
+            VStack{
                 Text ("Pil niet getest!").font(.title)
             }.frame(width: 345)
             Spacer()
             VStack{
-                VStack(alignment: .leading){
+                VStack{
                     Text ("Gemiddelde hoeveelheid").font(.title).padding(.bottom)
                     
-                    Text ("Omdat je niet weet hoeveel er in je pil zit zal Gebruikr. uit gaan van een gemiddelde hoeveelheid van \(userData.mdma.amountInMg, specifier: "%.0f") mg MDMA per pil.").padding(.bottom)
-                    
-                    Text ("Je pil kan in werkelijkheid meer MDMA bevatten, dus pas altijd op!")
+                    VStack {
+                        Text ("Omdat je niet weet hoeveel er in je pil zit zal Gebruikr. uit gaan van een gemiddelde hoeveelheid van \(userData.mdma.amountInMg, specifier: "%.0f") mg MDMA per pil.").padding()
+                        
+                        Text ("Je pil kan in werkelijkheid meer MDMA bevatten, dus pas altijd op!").padding()
+                    }
+                    .background(Color("DarkGray")).cornerRadius(10)
                 }.padding()
-            }.frame(width: 345).background(Color("BackgroundGray")).cornerRadius(10)
+            }.frame(width: 345)
             
             Spacer().frame(height: 20)
             VStack{
-                VStack(alignment: .leading){
-                    Text("Volgende keer even").font(.title)
-                    Text("laten testen!").font(.title).padding(.bottom)
-                    
-                    
-                    Text("Dan weet je precies hoeveel mg MDMA er in je pil zit en kan Gebruikr. je beter helpen.")
+                Text("Volgende keer even").font(.title)
+                Text("laten testen!").font(.title).padding()
+                VStack{
+                    Text("Dan weet je precies hoeveel mg MDMA er in je pil zit en kan Gebruikr. je beter helpen.").padding().background(Color("DarkGray")).cornerRadius(10)
                 }.padding()
-            }.frame(width: 345).background(Color("BackgroundGray")).cornerRadius(10)
+            }.frame(width: 345)
             Spacer()
             NavigationLink(destination: useAmountView().navigationBarTitle("Tripsitter", displayMode: .inline)){
                 Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
@@ -101,7 +107,7 @@ struct MdmaWizard : View {
             if piltested{
                 VStack{
                     Text("Hoeveel milligram MDMA zit er in je pil?").font(.title).foregroundColor(Color("TextColor")).padding(.horizontal)
-                    TextField ("", text: $mdmInMG).padding().textFieldStyle(RoundedBorderTextFieldStyle()).keyboardType(.numberPad).shadow(radius: 1).frame(width: 250)
+                    TextField ("", text: $mdmInMG).padding().textFieldStyle(RoundedBorderTextFieldStyle()).keyboardType(.numberPad).frame(width: 250)
                     Button(action: {
                         self.userData.mdma = .specified(amountInMG: Double (self.mdmInMG)!) // <--dit is riskant
                     }) {
@@ -122,6 +128,7 @@ struct MdmaWizard : View {
             if(userData.mdma.amountInMg > 220){
                 Text("Let op dit is een zware pill").font(.title).foregroundColor(.red)
             }
+            Spacer()
             NavigationLink(destination: useAmountView().navigationBarTitle("Tripsitter", displayMode: .inline)){
                 Text("Volgende").foregroundColor(Color.black).padding(12).background(Capsule().fill(Color.backgroundColor))
             }.padding(.top, 50)

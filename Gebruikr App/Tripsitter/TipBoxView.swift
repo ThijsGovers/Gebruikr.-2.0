@@ -13,28 +13,32 @@ struct TipBoxView: View {
     var image: String
     var paragraph: String
     var body: some View {
-        VStack{
             
 
             VStack {
                 HStack {
-                    Image(image)
-                    Text(header).font(.title)
-                }.frame(width: 325, alignment: .leading)
+                    Image(image).resizable()
+                        .frame(
+                            minWidth: 0,
+                            maxWidth: 50,
+                            minHeight: 0,
+                            maxHeight: 50)
+                        .padding()
+                    VStack(alignment: .leading) {
+                        Text(header).font(.title)
+                        Text(paragraph)
+                    }.padding()
                 
-                Text(paragraph)
                     
                 
-            }.frame(width: 325, alignment: .leading).padding()
-                .background(Color("BackgroundPillsUsed"))
-                .border(Color("MainColor"), width: 10)
-                .cornerRadius(10)
-                Spacer()
-                    .frame(height: 10)
-
-            
-            
+            }
         }
+            .frame(width: 340, alignment: .leading)
+            .overlay(
+            RoundedRectangle(cornerRadius: 10)
+            .stroke(Color("MainColor"), lineWidth: 2)
+            ).padding(.bottom)
+
     }
 }
 
