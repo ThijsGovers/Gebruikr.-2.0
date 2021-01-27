@@ -43,9 +43,10 @@ struct InformationView: View {
                 }
                 if timerData.timeCount > 3{
                     Text("Dit kan je van Gebruikr. ").font(.headline).foregroundColor(.white).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
-                    Text("verwachten:").font(.headline).foregroundColor(.white).padding(.bottom, 30).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    Text("verwachten:").font(.headline).foregroundColor(.white).padding(.bottom, 10).transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
                 }
             }
+            
             if timerData.timeCount > 4{
                 HStack {
                     Image("Tripsitter")
@@ -92,6 +93,7 @@ struct InformationView: View {
             if timerData.timeCount > 7{
                 nextButton.transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
             }
+            Spacer()
         }.navigationBarTitle("").navigationBarBackButtonHidden(true).animation(.default).padding()
     }
 }
