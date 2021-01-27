@@ -11,9 +11,10 @@ import SwiftUI
 
 let items: [BottomBarItem] = [
     BottomBarItem(icon: "test services", title: "Testen"),
-    BottomBarItem(icon: "home icon", title: "Home"),
-    BottomBarItem(icon: "drugs info", title: "Drugs")
+    BottomBarItem(icon: "home-unselect", title: "Home"),
+    BottomBarItem(icon: "EhboBarIcon", title: "EHBO")
 ]
+
 
 struct BottomBarView : View {
     @State private var selectedIndex: Int = 1

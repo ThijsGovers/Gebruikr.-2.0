@@ -14,17 +14,22 @@ public struct BottomBarItemView: View {
     
     public var body: some View {
         VStack {
-            Image(item.icon)
-                .imageScale(.large)
-                .foregroundColor(isSelected ? item.color : .white)
             
             if isSelected {
+                Image(item.icon)
+                    .imageScale(.large)
+                    .foregroundColor(Color("MainColor"))
+                
                 Text(item.title)
                     .foregroundColor(item.color)
+                
             }
             else{
+                Image(item.icon)
+                    .foregroundColor(.white)
                 Text(item.title)
                     .foregroundColor(.white).font(.system(size: 11))
+
             }
         }
         

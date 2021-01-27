@@ -42,8 +42,6 @@ public struct BottomBar : View {
         .padding()
         .frame(width: nil, height: 110)
         .background(Color("DarkGray"))
-    
-        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: -2)
         .edgesIgnoringSafeArea(.bottom)
     }
 }
@@ -54,7 +52,7 @@ struct BottomBar_Previews : PreviewProvider {
     static var previews: some View {
         BottomBar(selectedIndex: .constant(2), items: [
             BottomBarItem(icon: "test services", title: "Testen"),
-            BottomBarItem(icon: "home-select", title: "Home"),
+            BottomBarItem(icon: "home-unselect", title: "Home"),
             BottomBarItem(icon: "ehbo", title: "EHBO")
         ])
     }
