@@ -34,7 +34,24 @@ struct HomeView: View {
                             
                             if (self.userData.minutesSinceLastPill >= 0){
                                 ZStack {
-                                    AnimatedTimerView()
+                                    ZStack {
+                                        Circle()
+                                            .stroke(lineWidth: 10)
+                                            .opacity(0.3)
+                                            .foregroundColor(Color.white)
+
+                                        Circle()
+                                            .trim(from: 0.0, to: CGFloat(min(modelTimerTwee.percentageTwee, 1.0)))
+                                            .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                                            .foregroundColor(Color("MainColor"))
+                                            .rotationEffect(Angle(degrees: 270.0))
+                                            .animation(.linear)
+
+                                        
+
+                         //if userData.tripsitterActive {
+                                        //modelTimerTwee.startTimerTwee()
+                                    }.frame(width: 340, height: 340, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         HStack {
                                         Text("\(userData.hoursSinceLastPill)").font(.system(size: 55))
                                         Text("uur").font(.title)
@@ -54,7 +71,24 @@ struct HomeView: View {
                             }
                             else {
                                 ZStack(alignment: .center) {
-                                    AnimatedTimerView()
+                                    ZStack {
+                                        Circle()
+                                            .stroke(lineWidth: 10)
+                                            .opacity(0.3)
+                                            .foregroundColor(Color.white)
+
+                                        Circle()
+                                            .trim(from: 0.0, to: CGFloat(min(modelTimerTwee.percentageTwee, 1.0)))
+                                            .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                                            .foregroundColor(Color("MainColor"))
+                                            .rotationEffect(Angle(degrees: 270.0))
+                                            .animation(.linear)
+
+                                        
+
+                         //if userData.tripsitterActive {
+                                        //modelTimerTwee.startTimerTwee()
+                                    }.frame(width: 340, height: 340, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                     HStack(alignment: .bottom){
                                         Text("-").font(.system(size: 55))
                                         Text("uur").font(.title)
@@ -124,7 +158,24 @@ struct HomeView: View {
                     }
                     else {
                         ZStack(alignment: .center) {
-                            AnimatedTimerView()
+                            ZStack {
+                                Circle()
+                                    .stroke(lineWidth: 10)
+                                    .opacity(0.3)
+                                    .foregroundColor(Color.white)
+
+                                Circle()
+                                    .trim(from: 0.0, to: CGFloat(min(modelTimerTwee.percentageTwee, 1.0)))
+                                    .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                                    .foregroundColor(Color("MainColor"))
+                                    .rotationEffect(Angle(degrees: 270.0))
+                                    .animation(.linear)
+
+                                
+
+                 //if userData.tripsitterActive {
+                                //modelTimerTwee.startTimerTwee()
+                            }.frame(width: 340, height: 340, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             HStack(alignment: .bottom){
                                 Text("-").font(.system(size: 55))
                                 Text("uur").font(.title)

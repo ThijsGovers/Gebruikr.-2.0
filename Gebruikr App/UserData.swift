@@ -49,16 +49,16 @@ class TimerViewModel : ObservableObject {
 
     func timeElapsedTwee () {
         print ("poing")
-        if self.percentageTwee + 0.1 > 2.0 {
+        if self.percentageTwee + 0.1 > 1.1 {
             self.percentageTwee = 0
         }
         else {
-            self.percentageTwee += 0.1
+            self.percentageTwee += 0.01
         }
     }
     
     func startTimerTwee () {
-        timerTwee = Timer.scheduledTimer(withTimeInterval: 0.3, repeats:true) {_ in
+        timerTwee = Timer.scheduledTimer(withTimeInterval: 0.1, repeats:true) {_ in
             self.timeElapsedTwee()
         }
 
